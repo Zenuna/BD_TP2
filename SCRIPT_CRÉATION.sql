@@ -11,7 +11,15 @@ if object_id('TypesEmploye','U') is not null  DROP TABLE TypesEmploye;
 if object_id('PrixDepensesAbonnements','U') is not null  DROP TABLE PrixDepensesAbonnements;
 if object_id('TypesAbonnement','U') is not null  DROP TABLE TypesAbonnement;
 if object_id('Provinces','U') is not null  DROP TABLE Provinces;
-
+if object_id('Sexe','U') is not null DROP TABLE Sexe;
+CREATE TABLE Sexe(
+	idSexe char(1) not null,
+	Description varchar(5) not null
+	CONSTRAINT PK_Sexe PRIMARY KEY(idSexe)
+	);
+INSERT INTO Sexe(idSexe,Description) VALUES
+('H','Homme'),
+('F','Femme');
 CREATE TABLE Provinces(
 	Id varchar(2) not null,
 	Nom varchar(25) not null,
@@ -88,7 +96,7 @@ CREATE TABLE Employes(
 	MotDePasse varchar(50) not null,
 	Nom varchar(50) not null,
 	Prenom varchar(50) not null,
-	Sexe varchar(1) not null,
+	Sexe char(1) not null,
 	Age int not null,
 	NoCivique int not null,
 	Rue varchar(50) not null,
@@ -103,14 +111,15 @@ CREATE TABLE Employes(
 	Remarque varchar(50),
 	CONSTRAINT PK_Employes PRIMARY KEY(No),
 	CONSTRAINT FK_ProvinceEmploye FOREIGN KEY (IdProvince) REFERENCES Provinces (Id),
-	CONSTRAINT FK_NoTypeEmploye FOREIGN KEY(NoTypeEmploye) REFERENCES TypesEmploye(No)
+	CONSTRAINT FK_NoTypeEmploye FOREIGN KEY(NoTypeEmploye) REFERENCES TypesEmploye(No),
+	CONSTRAINT FK_SexeEmploye FOREIGN KEY(Sexe) REFERENCES Sexe(idSexe)
 );
 INSERT INTO Employes (No,MotDePasse,Nom,Prenom,Sexe,Age,NoCivique,Rue,Ville,IdProvince,CodePostal,Telephone,Cellulaire,Courriel,SalaireHoraire,NoTypeEmploye) 
 VALUES (1,'','Admin','Admin','H',66,666,'Hell St','Helltown','NT','A1B2C3','6666666666',null,'lucifer@cgodin.qc.ca',666,1),
 (2,'','Admin','Admin','H',66,666,'Hell St','Helltown','NT','A1B2C3','6666666666',null,'lucifer@cgodin.qc.ca',666,2),
-(3,'','Admin','Admin','H',66,666,'Hell St','Helltown','NT','A1B2C3','6666666666',null,'lucifer@cgodin.qc.ca',666,3),
-(4,'','Admin','Admin','H',66,666,'Hell St','Helltown','NT','A1B2C3','6666666666',null,'lucifer@cgodin.qc.ca',666,4),
-(5,'','Admin','Admin','H',66,666,'Hell St','Helltown','NT','A1B2C3','6666666666',null,'lucifer@cgodin.qc.ca',666,5),
+(3,'','Admin','Admin','F',66,666,'Hell St','Helltown','NT','A1B2C3','6666666666',null,'lucifer@cgodin.qc.ca',666,3),
+(4,'','Admin','Admin','F',66,666,'Hell St','Helltown','NT','A1B2C3','6666666666',null,'lucifer@cgodin.qc.ca',666,4),
+(5,'','Admin','Admin','F',66,666,'Hell St','Helltown','NT','A1B2C3','6666666666',null,'lucifer@cgodin.qc.ca',666,5),
 (6,'','Admin','Admin','H',66,666,'Hell St','Helltown','NT','A1B2C3','6666666666',null,'lucifer@cgodin.qc.ca',666,6),
 (7,'','Admin','Admin','H',66,666,'Hell St','Helltown','NT','A1B2C3','6666666666',null,'lucifer@cgodin.qc.ca',666,7);
 SELECT * From Employes;
@@ -160,7 +169,8 @@ CREATE TABLE Abonnements(
 	Remarque varchar(50),
 	CONSTRAINT PK_Abonnements PRIMARY KEY(Id),
 	CONSTRAINT FK_IdProvince FOREIGN KEY (IdProvince) REFERENCES Provinces (Id),
-	CONSTRAINT FK_NoTypeAbonnement FOREIGN KEY (NoTypeAbonnement) REFERENCES TypesAbonnement(No)
+	CONSTRAINT FK_NoTypeAbonnement FOREIGN KEY (NoTypeAbonnement) REFERENCES TypesAbonnement(No),
+	CONSTRAINT FK_SexeAbonnement FOREIGN KEY (Sexe) REFERENCES Sexe(idSexe)
 );
 
 CREATE TABLE PartiesJouees(
@@ -203,7 +213,8 @@ CREATE TABLE Dependants(
 	IdAbonnement varchar(30) not null,
 	Remarque varchar(50),
 	CONSTRAINT PK_Dependants PRIMARY KEY (Id),
-	CONSTRAINT FK_AbonnementDependant FOREIGN KEY (IdAbonnement) REFERENCES Abonnements(Id)
+	CONSTRAINT FK_AbonnementDependant FOREIGN KEY (IdAbonnement) REFERENCES Abonnements(Id),
+	CONSTRAINT FK_SexeDependants FOREIGN KEY (Sexe) REFERENCES Sexe(idSexe)
 );
 
 PRINT ' ----------- CONSTRUCTION BDD COMPLÉTÉE ----------- '

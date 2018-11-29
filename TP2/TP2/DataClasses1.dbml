@@ -24,6 +24,7 @@
       <Association Name="Abonnement_Reabonnement" Member="Reabonnements" ThisKey="Id" OtherKey="IdAbonnement" Type="Reabonnement" />
       <Association Name="Province_Abonnement" Member="Province" ThisKey="IdProvince" OtherKey="Id" Type="Province" IsForeignKey="true" />
       <Association Name="TypesAbonnement_Abonnement" Member="TypesAbonnement" ThisKey="NoTypeAbonnement" OtherKey="No" Type="TypesAbonnement" IsForeignKey="true" />
+      <Association Name="Sexe_Abonnement" Member="Sexe1" ThisKey="Sexe" OtherKey="idSexe" Type="Sexe" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Dependants" Member="Dependants">
@@ -36,6 +37,7 @@
       <Column Name="IdAbonnement" Type="System.String" DbType="VarChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="Remarque" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="Abonnement_Dependant" Member="Abonnement" ThisKey="IdAbonnement" OtherKey="Id" Type="Abonnement" IsForeignKey="true" />
+      <Association Name="Sexe_Dependant" Member="Sexe1" ThisKey="Sexe" OtherKey="idSexe" Type="Sexe" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Depenses" Member="Depenses">
@@ -48,30 +50,6 @@
       <Column Name="Remarque" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="Abonnement_Depense" Member="Abonnement" ThisKey="IdAbonnement" OtherKey="Id" Type="Abonnement" IsForeignKey="true" />
       <Association Name="Service_Depense" Member="Service" ThisKey="NoService" OtherKey="No" Type="Service" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Employes" Member="Employes">
-    <Type Name="Employe">
-      <Column Name="No" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MotDePasse" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Nom" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Prenom" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Sexe" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
-      <Column Name="Age" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="NoCivique" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Rue" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="Ville" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="IdProvince" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
-      <Column Name="CodePostal" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
-      <Column Name="Telephone" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="Cellulaire" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="Courriel" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="SalaireHoraire" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
-      <Column Name="NoTypeEmploye" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Remarque" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Employe_Service" Member="Services" ThisKey="No" OtherKey="NoEmploye" Type="Service" />
-      <Association Name="Province_Employe" Member="Province" ThisKey="IdProvince" OtherKey="Id" Type="Province" IsForeignKey="true" />
-      <Association Name="TypesEmploye_Employe" Member="TypesEmploye" ThisKey="NoTypeEmploye" OtherKey="No" Type="TypesEmploye" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.PartiesJouees" Member="PartiesJouees">
@@ -147,6 +125,40 @@
       <Column Name="Description" Type="System.String" DbType="VarChar(25) NOT NULL" CanBeNull="false" />
       <Column Name="Remarque" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="TypesEmploye_Employe" Member="Employes" ThisKey="No" OtherKey="NoTypeEmploye" Type="Employe" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employes" Member="Employes">
+    <Type Name="Employe">
+      <Column Name="No" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MotDePasse" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Nom" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Prenom" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Sexe" Type="System.Char" DbType="Char(1) NOT NULL" CanBeNull="false" />
+      <Column Name="Age" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NoCivique" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Rue" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Ville" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="IdProvince" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="CodePostal" Type="System.String" DbType="VarChar(6) NOT NULL" CanBeNull="false" />
+      <Column Name="Telephone" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Cellulaire" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Courriel" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SalaireHoraire" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="NoTypeEmploye" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Remarque" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Employe_Service" Member="Services" ThisKey="No" OtherKey="NoEmploye" Type="Service" />
+      <Association Name="TypesEmploye_Employe" Member="TypesEmploye" ThisKey="NoTypeEmploye" OtherKey="No" Type="TypesEmploye" IsForeignKey="true" />
+      <Association Name="Province_Employe" Member="Province" ThisKey="IdProvince" OtherKey="Id" Type="Province" IsForeignKey="true" />
+      <Association Name="Sexe_Employe" Member="Sexe1" ThisKey="Sexe" OtherKey="idSexe" Type="Sexe" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sexe" Member="Sexes">
+    <Type Name="Sexe">
+      <Column Name="idSexe" Type="System.Char" DbType="Char(1) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(5) NOT NULL" CanBeNull="false" />
+      <Association Name="Sexe_Abonnement" Member="Abonnements" ThisKey="idSexe" OtherKey="Sexe" Type="Abonnement" />
+      <Association Name="Sexe_Dependant" Member="Dependants" ThisKey="idSexe" OtherKey="Sexe" Type="Dependant" />
+      <Association Name="Sexe_Employe" Member="Employes" ThisKey="idSexe" OtherKey="Sexe" Type="Employe" />
     </Type>
   </Table>
 </Database>

@@ -183,6 +183,7 @@
     <None Include="Properties\DataSources\Province.datasource" />
     <None Include="Properties\DataSources\Reabonnement.datasource" />
     <None Include="Properties\DataSources\Service.datasource" />
+    <None Include="Properties\DataSources\Sexe.datasource" />
     <None Include="Properties\DataSources\Terrain.datasource" />
     <None Include="Properties\DataSources\TypesAbonnement.datasource" />
     <None Include="Properties\DataSources\TypesEmploye.datasource" />

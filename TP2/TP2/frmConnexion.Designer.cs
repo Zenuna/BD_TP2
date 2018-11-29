@@ -64,6 +64,7 @@
             this.tbNoEmp.Name = "tbNoEmp";
             this.tbNoEmp.Size = new System.Drawing.Size(207, 27);
             this.tbNoEmp.TabIndex = 2;
+            this.tbNoEmp.Text = "1";
             this.tbNoEmp.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tbMdeP
@@ -83,7 +84,7 @@
             this.btnConnexion.Location = new System.Drawing.Point(126, 136);
             this.btnConnexion.Name = "btnConnexion";
             this.btnConnexion.Size = new System.Drawing.Size(141, 43);
-            this.btnConnexion.TabIndex = 4;
+            this.btnConnexion.TabIndex = 1;
             this.btnConnexion.Text = "Connexion";
             this.btnConnexion.UseVisualStyleBackColor = true;
             this.btnConnexion.Click += new System.EventHandler(this.btnConnexion_Click);

@@ -12,6 +12,7 @@ namespace TP2
 {
     public partial class Connexion : Form
     {
+        DataClasses1DataContext dataClasses1DataContext = new DataClasses1DataContext();
         public Connexion()
         {
             InitializeComponent();
@@ -19,7 +20,6 @@ namespace TP2
 
         private void btnConnexion_Click(object sender, EventArgs e)
         {
-            DataClasses1DataContext dataClasses1DataContext = new DataClasses1DataContext();
             String strNo = tbNoEmp.Text;
             int noEmp;
             if (int.TryParse(strNo,out noEmp))
