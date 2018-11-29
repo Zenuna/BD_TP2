@@ -47,7 +47,7 @@ INSERT INTO TypesAbonnement (No, Description) VALUES
 (4,'Famille (couple + 1 enfant)'),
 (5,'Famille (couple + 2 enfants)'),
 (6,'Famille (couple + 3 enfants ou plus)');
-SELECT * FROM TypesAbonnement
+SELECT * FROM TypesAbonnement;
 
 CREATE TABLE PrixDepensesAbonnements(
 	NoTypeAbonnement int not null,
@@ -65,7 +65,7 @@ INSERT INTO PrixDepensesAbonnements (NoTypeAbonnement,Annee,Prix,DepensesObligat
 (4,2017,1700,700),
 (5,2017,1900,700),
 (6,2017,2100,700);
-SELECT * FROM PrixDepensesAbonnements
+SELECT * FROM PrixDepensesAbonnements;
 
 CREATE TABLE TypesEmploye(
 	No int not null,
@@ -81,7 +81,7 @@ INSERT INTO TypesEmploye (No,Description,Remarque) VALUES
 (5,'Employé d''un Pro-Shop',null),
 (6,'Employé d''un restaurant',null),
 (7,'Professeur de golf',null);
-SELECT * FROM TypesEmploye
+SELECT * FROM TypesEmploye;
 
 CREATE TABLE Employes(
 	No int not null,
@@ -107,7 +107,7 @@ CREATE TABLE Employes(
 );
 INSERT INTO Employes (No,MotDePasse,Nom,Prenom,Sexe,Age,NoCivique,Rue,Ville,IdProvince,CodePostal,Telephone,Cellulaire,Courriel,SalaireHoraire,NoTypeEmploye) 
 VALUES (1,'','Admin','Admin','H',66,666,'Hell St','Helltown','NT','A1B2C3','6666666666',null,'lucifer@cgodin.qc.ca',666,1);
-SELECT * From Employes
+SELECT * From Employes;
 
 CREATE TABLE Services(
 	No int not null,
@@ -126,6 +126,14 @@ CREATE TABLE Terrains(
 	Remarque varchar(50),
 	CONSTRAINT PK_Terrains PRIMARY KEY(No)
 );
+INSERT INTO Terrains (No,Nom,NombreTrous,Description) VALUES
+(1,'Terrain #1',9,'Petit terrain #1'),
+(2,'Terrain #2',9,'Petit terrain #2'),
+(3,'Terrain #3',9,'Petit terrain #3'),
+(4,'Terrain #4',18,'Grand terrain #1'),
+(5,'Terrain #5',18,'Grand terrain #2'),
+(6,'Terrain #6',18,'Grand terrain #3');
+SELECT * From Terrains;
 
 CREATE TABLE Abonnements(
 	Id varchar(30) not null,
