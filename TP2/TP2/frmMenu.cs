@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TP2
 {
-    public partial class Connexion : Form
+    public partial class frmMenu : Form
     {
-        public Connexion()
+        public frmMenu(Employe empConnect)
         {
             InitializeComponent();
         }
