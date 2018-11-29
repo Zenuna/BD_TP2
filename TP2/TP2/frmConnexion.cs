@@ -28,6 +28,7 @@ namespace TP2
                 if(lstEmp.Count <= 0)
                 {
                     lblErreurConnexion.Text = "Numéro d'employé inconnu";
+                    lblErreurConnexion.Location = positionMessage(this.Width, lblErreurConnexion.Width, lblErreurConnexion.Location.Y);
                     lblErreurConnexion.Visible = true;
                 }
                 else
@@ -45,6 +46,7 @@ namespace TP2
                     else
                     {
                         lblErreurConnexion.Text = "Mauvaise combinaison";
+                        lblErreurConnexion.Location = positionMessage(this.Width,lblErreurConnexion.Width,lblErreurConnexion.Location.Y);
                         lblErreurConnexion.Visible = true;
                     }
 
@@ -54,8 +56,14 @@ namespace TP2
             else
             {
                 lblErreurConnexion.Text = "Le numéro d'employé doit être un entier positif";
+                lblErreurConnexion.Location = positionMessage(this.Width, lblErreurConnexion.Width, lblErreurConnexion.Location.Y);
                 lblErreurConnexion.Visible = true;
             }
         }
+        public Point positionMessage(int largeurPage, int largeurMessage, int yMessage) {
+            Point p = new Point(largeurPage / 2 - largeurMessage / 2, yMessage);
+            return p;
+        }
     }
+
 }

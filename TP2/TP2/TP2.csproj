@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAbonnement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAbonnement.Designer.cs">
+      <DependentUpon>frmAbonnement.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConnexion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,16 +64,94 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </Compile>
+    <Compile Include="frmGestionEmploye.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionEmploye.Designer.cs">
+      <DependentUpon>frmGestionEmploye.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInscriptionDepense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInscriptionDepense.Designer.cs">
+      <DependentUpon>frmInscriptionDepense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInscriptionPartieGolf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInscriptionPartieGolf.Designer.cs">
+      <DependentUpon>frmInscriptionPartieGolf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMAJAbonne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMAJAbonne.Designer.cs">
+      <DependentUpon>frmMAJAbonne.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmMenu.Designer.cs">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModifPrixDepAbonnement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModifPrixDepAbonnement.Designer.cs">
+      <DependentUpon>frmModifPrixDepAbonnement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReAbonnement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReAbonnement.Designer.cs">
+      <DependentUpon>frmReAbonnement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVisualisationRapport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVisualisationRapport.Designer.cs">
+      <DependentUpon>frmVisualisationRapport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmVisualisationStatistiques.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVisualisationStatistiques.Designer.cs">
+      <DependentUpon>frmVisualisationStatistiques.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAbonnement.resx">
+      <DependentUpon>frmAbonnement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConnexion.resx">
       <DependentUpon>frmConnexion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionEmploye.resx">
+      <DependentUpon>frmGestionEmploye.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInscriptionDepense.resx">
+      <DependentUpon>frmInscriptionDepense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInscriptionPartieGolf.resx">
+      <DependentUpon>frmInscriptionPartieGolf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMAJAbonne.resx">
+      <DependentUpon>frmMAJAbonne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModifPrixDepAbonnement.resx">
+      <DependentUpon>frmModifPrixDepAbonnement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReAbonnement.resx">
+      <DependentUpon>frmReAbonnement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVisualisationRapport.resx">
+      <DependentUpon>frmVisualisationRapport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVisualisationStatistiques.resx">
+      <DependentUpon>frmVisualisationStatistiques.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
