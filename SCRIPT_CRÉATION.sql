@@ -106,7 +106,13 @@ CREATE TABLE Employes(
 	CONSTRAINT FK_NoTypeEmploye FOREIGN KEY(NoTypeEmploye) REFERENCES TypesEmploye(No)
 );
 INSERT INTO Employes (No,MotDePasse,Nom,Prenom,Sexe,Age,NoCivique,Rue,Ville,IdProvince,CodePostal,Telephone,Cellulaire,Courriel,SalaireHoraire,NoTypeEmploye) 
-VALUES (1,'','Admin','Admin','H',66,666,'Hell St','Helltown','NT','A1B2C3','6666666666',null,'lucifer@cgodin.qc.ca',666,1);
+VALUES (1,'','Admin','Admin','H',66,666,'Hell St','Helltown','NT','A1B2C3','6666666666',null,'lucifer@cgodin.qc.ca',666,1),
+(2,'','Admin','Admin','H',66,666,'Hell St','Helltown','NT','A1B2C3','6666666666',null,'lucifer@cgodin.qc.ca',666,2),
+(3,'','Admin','Admin','H',66,666,'Hell St','Helltown','NT','A1B2C3','6666666666',null,'lucifer@cgodin.qc.ca',666,3),
+(4,'','Admin','Admin','H',66,666,'Hell St','Helltown','NT','A1B2C3','6666666666',null,'lucifer@cgodin.qc.ca',666,4),
+(5,'','Admin','Admin','H',66,666,'Hell St','Helltown','NT','A1B2C3','6666666666',null,'lucifer@cgodin.qc.ca',666,5),
+(6,'','Admin','Admin','H',66,666,'Hell St','Helltown','NT','A1B2C3','6666666666',null,'lucifer@cgodin.qc.ca',666,6),
+(7,'','Admin','Admin','H',66,666,'Hell St','Helltown','NT','A1B2C3','6666666666',null,'lucifer@cgodin.qc.ca',666,7);
 SELECT * From Employes;
 
 CREATE TABLE Services(
