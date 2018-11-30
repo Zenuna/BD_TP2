@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridViewComboBoxColumn1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -38,33 +43,38 @@
             this.NoTypeEmploye = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.employeDataGridView = new System.Windows.Forms.DataGridView();
-            this.provinceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.typesEmployeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.msgErreur = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnAjouter = new System.Windows.Forms.Button();
+            this.btnSupprEmp = new System.Windows.Forms.Button();
+            this.dgEmploye = new System.Windows.Forms.DataGridView();
+            this.dgTelephone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgNoEmploye = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgMdeP = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgNom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgPrenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgSexe = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.sexeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.employeDataGridView)).BeginInit();
+            this.dgAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgNoCivique = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgRue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgVille = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgProvince = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.provinceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgCellulaire = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgCourriel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgSalaireHoraire = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgTypeEmploye = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.typesEmployeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dgRemarque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnEnregistrer = new System.Windows.Forms.Button();
+            this.btnMenu = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.msgErreur)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgEmploye)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sexeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.provinceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typesEmployeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sexeBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewComboBoxColumn1
@@ -136,182 +146,269 @@
             this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
             this.dataGridViewTextBoxColumn17.Width = 115;
             // 
-            // employeDataGridView
+            // msgErreur
             // 
-            this.employeDataGridView.AutoGenerateColumns = false;
-            this.employeDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.employeDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.employeDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewTextBoxColumn20,
-            this.dataGridViewTextBoxColumn21,
-            this.dataGridViewTextBoxColumn22,
-            this.dataGridViewTextBoxColumn23,
-            this.dataGridViewTextBoxColumn24});
-            this.employeDataGridView.DataSource = this.employeBindingSource;
-            this.employeDataGridView.Location = new System.Drawing.Point(12, 12);
-            this.employeDataGridView.Name = "employeDataGridView";
-            this.employeDataGridView.Size = new System.Drawing.Size(1948, 220);
-            this.employeDataGridView.TabIndex = 0;
+            this.msgErreur.ContainerControl = this;
             // 
-            // provinceBindingSource
+            // btnAjouter
             // 
-            this.provinceBindingSource.DataSource = typeof(TP2.Province);
+            this.btnAjouter.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjouter.Location = new System.Drawing.Point(12, 238);
+            this.btnAjouter.Name = "btnAjouter";
+            this.btnAjouter.Size = new System.Drawing.Size(231, 41);
+            this.btnAjouter.TabIndex = 1;
+            this.btnAjouter.Text = "Ajouter un employé";
+            this.btnAjouter.UseVisualStyleBackColor = true;
+            this.btnAjouter.Click += new System.EventHandler(this.btnAjouter_Click);
             // 
-            // typesEmployeBindingSource
+            // btnSupprEmp
             // 
-            this.typesEmployeBindingSource.DataSource = typeof(TP2.TypesEmploye);
+            this.btnSupprEmp.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSupprEmp.Location = new System.Drawing.Point(486, 238);
+            this.btnSupprEmp.Name = "btnSupprEmp";
+            this.btnSupprEmp.Size = new System.Drawing.Size(280, 41);
+            this.btnSupprEmp.TabIndex = 3;
+            this.btnSupprEmp.Text = "Supprimer les employés sélectionnés";
+            this.btnSupprEmp.UseVisualStyleBackColor = true;
+            this.btnSupprEmp.Click += new System.EventHandler(this.btnSupprEmp_Click);
             // 
-            // employeBindingSource
+            // dgEmploye
             // 
-            this.employeBindingSource.DataSource = typeof(TP2.Employe);
+            this.dgEmploye.AllowUserToAddRows = false;
+            this.dgEmploye.AllowUserToDeleteRows = false;
+            this.dgEmploye.AutoGenerateColumns = false;
+            this.dgEmploye.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgEmploye.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgNoEmploye,
+            this.dgMdeP,
+            this.dgNom,
+            this.dgPrenom,
+            this.dgSexe,
+            this.dgAge,
+            this.dgNoCivique,
+            this.dgRue,
+            this.dgVille,
+            this.dgProvince,
+            this.dgTelephone,
+            this.dgCellulaire,
+            this.dgCourriel,
+            this.dgSalaireHoraire,
+            this.dgTypeEmploye,
+            this.dgRemarque});
+            this.dgEmploye.DataSource = this.employeBindingSource;
+            this.dgEmploye.Location = new System.Drawing.Point(12, 12);
+            this.dgEmploye.Name = "dgEmploye";
+            this.dgEmploye.Size = new System.Drawing.Size(1027, 220);
+            this.dgEmploye.TabIndex = 0;
+            this.dgEmploye.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgEmploye_CellValidating);
+            // 
+            // dgTelephone
+            // 
+            this.dgTelephone.DataPropertyName = "Telephone";
+            dataGridViewCellStyle6.NullValue = null;
+            this.dgTelephone.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgTelephone.HeaderText = "Téléphone";
+            this.dgTelephone.MaxInputLength = 10;
+            this.dgTelephone.Name = "dgTelephone";
+            // 
+            // dgNoEmploye
+            // 
+            this.dgNoEmploye.DataPropertyName = "No";
+            dataGridViewCellStyle7.Format = "N0";
+            dataGridViewCellStyle7.NullValue = null;
+            this.dgNoEmploye.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dgNoEmploye.HeaderText = "No employé";
+            this.dgNoEmploye.MaxInputLength = 3;
+            this.dgNoEmploye.Name = "dgNoEmploye";
+            this.dgNoEmploye.ReadOnly = true;
+            // 
+            // dgMdeP
+            // 
+            this.dgMdeP.DataPropertyName = "MotDePasse";
+            this.dgMdeP.HeaderText = "Mot de passe";
+            this.dgMdeP.MaxInputLength = 50;
+            this.dgMdeP.Name = "dgMdeP";
+            this.dgMdeP.Width = 88;
+            // 
+            // dgNom
+            // 
+            this.dgNom.DataPropertyName = "Nom";
+            this.dgNom.HeaderText = "Nom";
+            this.dgNom.MaxInputLength = 50;
+            this.dgNom.Name = "dgNom";
+            this.dgNom.Width = 150;
+            // 
+            // dgPrenom
+            // 
+            this.dgPrenom.DataPropertyName = "Prenom";
+            this.dgPrenom.HeaderText = "Prénom";
+            this.dgPrenom.MaxInputLength = 50;
+            this.dgPrenom.Name = "dgPrenom";
+            this.dgPrenom.Width = 150;
+            // 
+            // dgSexe
+            // 
+            this.dgSexe.DataPropertyName = "Sexe";
+            this.dgSexe.DataSource = this.sexeBindingSource;
+            this.dgSexe.DisplayMember = "Description";
+            this.dgSexe.HeaderText = "Sexe";
+            this.dgSexe.Name = "dgSexe";
+            this.dgSexe.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgSexe.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgSexe.ValueMember = "idSexe";
+            this.dgSexe.Width = 125;
             // 
             // sexeBindingSource
             // 
             this.sexeBindingSource.DataSource = typeof(TP2.Sexe);
             // 
-            // dataGridViewTextBoxColumn1
+            // dgAge
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "No";
-            this.dataGridViewTextBoxColumn1.HeaderText = "No";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dgAge.DataPropertyName = "Age";
+            dataGridViewCellStyle8.Format = "N0";
+            dataGridViewCellStyle8.NullValue = null;
+            this.dgAge.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgAge.HeaderText = "Âge";
+            this.dgAge.Name = "dgAge";
+            this.dgAge.Width = 51;
             // 
-            // dataGridViewTextBoxColumn2
+            // dgNoCivique
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "MotDePasse";
-            this.dataGridViewTextBoxColumn2.HeaderText = "MotDePasse";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dgNoCivique.DataPropertyName = "NoCivique";
+            dataGridViewCellStyle9.Format = "N0";
+            dataGridViewCellStyle9.NullValue = null;
+            this.dgNoCivique.DefaultCellStyle = dataGridViewCellStyle9;
+            this.dgNoCivique.HeaderText = "Numéro civique";
+            this.dgNoCivique.Name = "dgNoCivique";
             // 
-            // dataGridViewTextBoxColumn3
+            // dgRue
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Nom";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Nom";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dgRue.DataPropertyName = "Rue";
+            this.dgRue.HeaderText = "Rue";
+            this.dgRue.MaxInputLength = 50;
+            this.dgRue.Name = "dgRue";
             // 
-            // dataGridViewTextBoxColumn4
+            // dgVille
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Prenom";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Prenom";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dgVille.DataPropertyName = "Ville";
+            this.dgVille.HeaderText = "Ville";
+            this.dgVille.MaxInputLength = 50;
+            this.dgVille.Name = "dgVille";
             // 
-            // dataGridViewTextBoxColumn5
+            // dgProvince
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Sexe";
-            this.dataGridViewTextBoxColumn5.DataSource = this.sexeBindingSource;
-            this.dataGridViewTextBoxColumn5.DisplayMember = "Description";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Sexe";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn5.ValueMember = "idSexe";
+            this.dgProvince.DataPropertyName = "IdProvince";
+            this.dgProvince.DataSource = this.provinceBindingSource;
+            this.dgProvince.DisplayMember = "Nom";
+            this.dgProvince.HeaderText = "Province";
+            this.dgProvince.Name = "dgProvince";
+            this.dgProvince.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgProvince.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgProvince.ValueMember = "Id";
+            this.dgProvince.Width = 175;
             // 
-            // dataGridViewTextBoxColumn6
+            // provinceBindingSource
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Age";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Age";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.provinceBindingSource.DataSource = typeof(TP2.Province);
             // 
-            // dataGridViewTextBoxColumn7
+            // dgCellulaire
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "NoCivique";
-            this.dataGridViewTextBoxColumn7.HeaderText = "NoCivique";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dgCellulaire.DataPropertyName = "Cellulaire";
+            this.dgCellulaire.HeaderText = "Cellulaire";
+            this.dgCellulaire.MaxInputLength = 10;
+            this.dgCellulaire.Name = "dgCellulaire";
             // 
-            // dataGridViewTextBoxColumn8
+            // dgCourriel
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Rue";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Rue";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dgCourriel.DataPropertyName = "Courriel";
+            this.dgCourriel.HeaderText = "Courriel";
+            this.dgCourriel.MaxInputLength = 50;
+            this.dgCourriel.Name = "dgCourriel";
+            this.dgCourriel.Width = 150;
             // 
-            // dataGridViewTextBoxColumn9
+            // dgSalaireHoraire
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Ville";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Ville";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dgSalaireHoraire.DataPropertyName = "SalaireHoraire";
+            dataGridViewCellStyle10.Format = "C2";
+            dataGridViewCellStyle10.NullValue = null;
+            this.dgSalaireHoraire.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dgSalaireHoraire.HeaderText = "Salaire horaire";
+            this.dgSalaireHoraire.Name = "dgSalaireHoraire";
             // 
-            // dataGridViewTextBoxColumn16
+            // dgTypeEmploye
             // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "IdProvince";
-            this.dataGridViewTextBoxColumn16.DataSource = this.provinceBindingSource;
-            this.dataGridViewTextBoxColumn16.DisplayMember = "Nom";
-            this.dataGridViewTextBoxColumn16.HeaderText = "IdProvince";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn16.ValueMember = "Id";
+            this.dgTypeEmploye.DataPropertyName = "NoTypeEmploye";
+            this.dgTypeEmploye.DataSource = this.typesEmployeBindingSource;
+            this.dgTypeEmploye.DisplayMember = "Description";
+            this.dgTypeEmploye.HeaderText = "Type d\'employé";
+            this.dgTypeEmploye.Name = "dgTypeEmploye";
+            this.dgTypeEmploye.ReadOnly = true;
+            this.dgTypeEmploye.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgTypeEmploye.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgTypeEmploye.ValueMember = "No";
+            this.dgTypeEmploye.Width = 200;
             // 
-            // dataGridViewTextBoxColumn18
+            // typesEmployeBindingSource
             // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "CodePostal";
-            this.dataGridViewTextBoxColumn18.HeaderText = "CodePostal";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.typesEmployeBindingSource.DataSource = typeof(TP2.TypesEmploye);
             // 
-            // dataGridViewTextBoxColumn19
+            // dgRemarque
             // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "Telephone";
-            this.dataGridViewTextBoxColumn19.HeaderText = "Telephone";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dgRemarque.DataPropertyName = "Remarque";
+            this.dgRemarque.HeaderText = "Remarque";
+            this.dgRemarque.MaxInputLength = 50;
+            this.dgRemarque.Name = "dgRemarque";
+            this.dgRemarque.Width = 200;
             // 
-            // dataGridViewTextBoxColumn20
+            // employeBindingSource
             // 
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "Cellulaire";
-            this.dataGridViewTextBoxColumn20.HeaderText = "Cellulaire";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.employeBindingSource.DataSource = typeof(TP2.Employe);
             // 
-            // dataGridViewTextBoxColumn21
+            // btnEnregistrer
             // 
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "Courriel";
-            this.dataGridViewTextBoxColumn21.HeaderText = "Courriel";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.btnEnregistrer.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnregistrer.Location = new System.Drawing.Point(249, 238);
+            this.btnEnregistrer.Name = "btnEnregistrer";
+            this.btnEnregistrer.Size = new System.Drawing.Size(231, 41);
+            this.btnEnregistrer.TabIndex = 2;
+            this.btnEnregistrer.Text = "Enregistrer les modifications";
+            this.btnEnregistrer.UseVisualStyleBackColor = true;
+            this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click);
             // 
-            // dataGridViewTextBoxColumn22
+            // btnMenu
             // 
-            this.dataGridViewTextBoxColumn22.DataPropertyName = "SalaireHoraire";
-            this.dataGridViewTextBoxColumn22.HeaderText = "SalaireHoraire";
-            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.DataPropertyName = "NoTypeEmploye";
-            this.dataGridViewTextBoxColumn23.DataSource = this.typesEmployeBindingSource;
-            this.dataGridViewTextBoxColumn23.DisplayMember = "Description";
-            this.dataGridViewTextBoxColumn23.HeaderText = "NoTypeEmploye";
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            this.dataGridViewTextBoxColumn23.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn23.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn23.ValueMember = "No";
-            // 
-            // dataGridViewTextBoxColumn24
-            // 
-            this.dataGridViewTextBoxColumn24.DataPropertyName = "Remarque";
-            this.dataGridViewTextBoxColumn24.HeaderText = "Remarque";
-            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.btnMenu.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenu.Location = new System.Drawing.Point(772, 238);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(267, 41);
+            this.btnMenu.TabIndex = 4;
+            this.btnMenu.Text = "Retour au menu";
+            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // frmGestionEmploye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2038, 450);
-            this.Controls.Add(this.employeDataGridView);
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ClientSize = new System.Drawing.Size(1060, 377);
+            this.Controls.Add(this.btnMenu);
+            this.Controls.Add(this.btnSupprEmp);
+            this.Controls.Add(this.btnEnregistrer);
+            this.Controls.Add(this.btnAjouter);
+            this.Controls.Add(this.dgEmploye);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmGestionEmploye";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion des employés";
             this.Load += new System.EventHandler(this.frmGestionEmploye_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.employeDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.msgErreur)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgEmploye)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sexeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.provinceBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typesEmployeBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.employeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sexeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -330,24 +427,28 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn NoTypeEmploye;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridView employeDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.BindingSource sexeBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn23;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.ErrorProvider msgErreur;
+        private System.Windows.Forms.Button btnSupprEmp;
+        private System.Windows.Forms.Button btnAjouter;
+        private System.Windows.Forms.DataGridView dgEmploye;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgNoEmploye;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgMdeP;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgNom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgPrenom;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dgSexe;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgAge;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgNoCivique;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgRue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgVille;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dgProvince;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgTelephone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgCellulaire;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgCourriel;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgSalaireHoraire;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dgTypeEmploye;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgRemarque;
+        private System.Windows.Forms.Button btnMenu;
+        private System.Windows.Forms.Button btnEnregistrer;
     }
 }
