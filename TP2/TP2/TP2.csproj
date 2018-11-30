@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ajoutEmploye.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ajoutEmploye.Designer.cs">
+      <DependentUpon>ajoutEmploye.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAbonnement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ajoutEmploye.resx">
+      <DependentUpon>ajoutEmploye.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAbonnement.resx">
       <DependentUpon>frmAbonnement.cs</DependentUpon>
     </EmbeddedResource>
