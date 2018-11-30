@@ -16,5 +16,10 @@ namespace TP2
         {
             InitializeComponent();
         }
+
+        private void frmAbonnement_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
