@@ -354,7 +354,10 @@
             this.Controls.Add(this.telephoneTextBox);
             this.Controls.Add(villeLabel);
             this.Controls.Add(this.villeTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmAbonnement";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAbonnements";
             this.Load += new System.EventHandler(this.frmAbonnement_Load);
             this.ResumeLayout(false);
