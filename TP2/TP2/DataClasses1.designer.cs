@@ -30,9 +30,6 @@ namespace TP2
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertAbonnement(Abonnement instance);
-    partial void UpdateAbonnement(Abonnement instance);
-    partial void DeleteAbonnement(Abonnement instance);
     partial void InsertDependant(Dependant instance);
     partial void UpdateDependant(Dependant instance);
     partial void DeleteDependant(Dependant instance);
@@ -63,12 +60,15 @@ namespace TP2
     partial void InsertTypesEmploye(TypesEmploye instance);
     partial void UpdateTypesEmploye(TypesEmploye instance);
     partial void DeleteTypesEmploye(TypesEmploye instance);
-    partial void InsertEmploye(Employe instance);
-    partial void UpdateEmploye(Employe instance);
-    partial void DeleteEmploye(Employe instance);
     partial void InsertSexe(Sexe instance);
     partial void UpdateSexe(Sexe instance);
     partial void DeleteSexe(Sexe instance);
+    partial void InsertEmploye(Employe instance);
+    partial void UpdateEmploye(Employe instance);
+    partial void DeleteEmploye(Employe instance);
+    partial void InsertAbonnement(Abonnement instance);
+    partial void UpdateAbonnement(Abonnement instance);
+    partial void DeleteAbonnement(Abonnement instance);
     #endregion
 		
 		public DataClasses1DataContext() : 
@@ -99,14 +99,6 @@ namespace TP2
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<Abonnement> Abonnements
-		{
-			get
-			{
-				return this.GetTable<Abonnement>();
-			}
 		}
 		
 		public System.Data.Linq.Table<Dependant> Dependants
@@ -189,6 +181,14 @@ namespace TP2
 			}
 		}
 		
+		public System.Data.Linq.Table<Sexe> Sexes
+		{
+			get
+			{
+				return this.GetTable<Sexe>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Employe> Employes
 		{
 			get
@@ -197,669 +197,12 @@ namespace TP2
 			}
 		}
 		
-		public System.Data.Linq.Table<Sexe> Sexes
+		public System.Data.Linq.Table<Abonnement> Abonnements
 		{
 			get
 			{
-				return this.GetTable<Sexe>();
+				return this.GetTable<Abonnement>();
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Abonnements")]
-	public partial class Abonnement : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _Id;
-		
-		private System.DateTime _DateAbonnement;
-		
-		private string _Nom;
-		
-		private string _Prenom;
-		
-		private char _Sexe;
-		
-		private System.DateTime _DateNaissance;
-		
-		private int _NoCivique;
-		
-		private string _Rue;
-		
-		private string _Ville;
-		
-		private string _IdProvince;
-		
-		private string _CodePostal;
-		
-		private string _Telephone;
-		
-		private string _Cellulaire;
-		
-		private string _Courriel;
-		
-		private int _NoTypeAbonnement;
-		
-		private string _Remarque;
-		
-		private EntitySet<Dependant> _Dependants;
-		
-		private EntitySet<Depense> _Depenses;
-		
-		private EntitySet<PartiesJouee> _PartiesJouees;
-		
-		private EntitySet<Reabonnement> _Reabonnements;
-		
-		private EntityRef<Province> _Province;
-		
-		private EntityRef<TypesAbonnement> _TypesAbonnement;
-		
-		private EntityRef<Sexe> _Sexe1;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(string value);
-    partial void OnIdChanged();
-    partial void OnDateAbonnementChanging(System.DateTime value);
-    partial void OnDateAbonnementChanged();
-    partial void OnNomChanging(string value);
-    partial void OnNomChanged();
-    partial void OnPrenomChanging(string value);
-    partial void OnPrenomChanged();
-    partial void OnSexeChanging(char value);
-    partial void OnSexeChanged();
-    partial void OnDateNaissanceChanging(System.DateTime value);
-    partial void OnDateNaissanceChanged();
-    partial void OnNoCiviqueChanging(int value);
-    partial void OnNoCiviqueChanged();
-    partial void OnRueChanging(string value);
-    partial void OnRueChanged();
-    partial void OnVilleChanging(string value);
-    partial void OnVilleChanged();
-    partial void OnIdProvinceChanging(string value);
-    partial void OnIdProvinceChanged();
-    partial void OnCodePostalChanging(string value);
-    partial void OnCodePostalChanged();
-    partial void OnTelephoneChanging(string value);
-    partial void OnTelephoneChanged();
-    partial void OnCellulaireChanging(string value);
-    partial void OnCellulaireChanged();
-    partial void OnCourrielChanging(string value);
-    partial void OnCourrielChanged();
-    partial void OnNoTypeAbonnementChanging(int value);
-    partial void OnNoTypeAbonnementChanged();
-    partial void OnRemarqueChanging(string value);
-    partial void OnRemarqueChanged();
-    #endregion
-		
-		public Abonnement()
-		{
-			this._Dependants = new EntitySet<Dependant>(new Action<Dependant>(this.attach_Dependants), new Action<Dependant>(this.detach_Dependants));
-			this._Depenses = new EntitySet<Depense>(new Action<Depense>(this.attach_Depenses), new Action<Depense>(this.detach_Depenses));
-			this._PartiesJouees = new EntitySet<PartiesJouee>(new Action<PartiesJouee>(this.attach_PartiesJouees), new Action<PartiesJouee>(this.detach_PartiesJouees));
-			this._Reabonnements = new EntitySet<Reabonnement>(new Action<Reabonnement>(this.attach_Reabonnements), new Action<Reabonnement>(this.detach_Reabonnements));
-			this._Province = default(EntityRef<Province>);
-			this._TypesAbonnement = default(EntityRef<TypesAbonnement>);
-			this._Sexe1 = default(EntityRef<Sexe>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="VarChar(30) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateAbonnement", DbType="Date NOT NULL")]
-		public System.DateTime DateAbonnement
-		{
-			get
-			{
-				return this._DateAbonnement;
-			}
-			set
-			{
-				if ((this._DateAbonnement != value))
-				{
-					this.OnDateAbonnementChanging(value);
-					this.SendPropertyChanging();
-					this._DateAbonnement = value;
-					this.SendPropertyChanged("DateAbonnement");
-					this.OnDateAbonnementChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nom", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string Nom
-		{
-			get
-			{
-				return this._Nom;
-			}
-			set
-			{
-				if ((this._Nom != value))
-				{
-					this.OnNomChanging(value);
-					this.SendPropertyChanging();
-					this._Nom = value;
-					this.SendPropertyChanged("Nom");
-					this.OnNomChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Prenom", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string Prenom
-		{
-			get
-			{
-				return this._Prenom;
-			}
-			set
-			{
-				if ((this._Prenom != value))
-				{
-					this.OnPrenomChanging(value);
-					this.SendPropertyChanging();
-					this._Prenom = value;
-					this.SendPropertyChanged("Prenom");
-					this.OnPrenomChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sexe", DbType="Char(1) NOT NULL")]
-		public char Sexe
-		{
-			get
-			{
-				return this._Sexe;
-			}
-			set
-			{
-				if ((this._Sexe != value))
-				{
-					if (this._Sexe1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSexeChanging(value);
-					this.SendPropertyChanging();
-					this._Sexe = value;
-					this.SendPropertyChanged("Sexe");
-					this.OnSexeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateNaissance", DbType="Date NOT NULL")]
-		public System.DateTime DateNaissance
-		{
-			get
-			{
-				return this._DateNaissance;
-			}
-			set
-			{
-				if ((this._DateNaissance != value))
-				{
-					this.OnDateNaissanceChanging(value);
-					this.SendPropertyChanging();
-					this._DateNaissance = value;
-					this.SendPropertyChanged("DateNaissance");
-					this.OnDateNaissanceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoCivique", DbType="Int NOT NULL")]
-		public int NoCivique
-		{
-			get
-			{
-				return this._NoCivique;
-			}
-			set
-			{
-				if ((this._NoCivique != value))
-				{
-					this.OnNoCiviqueChanging(value);
-					this.SendPropertyChanging();
-					this._NoCivique = value;
-					this.SendPropertyChanged("NoCivique");
-					this.OnNoCiviqueChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Rue", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string Rue
-		{
-			get
-			{
-				return this._Rue;
-			}
-			set
-			{
-				if ((this._Rue != value))
-				{
-					this.OnRueChanging(value);
-					this.SendPropertyChanging();
-					this._Rue = value;
-					this.SendPropertyChanged("Rue");
-					this.OnRueChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ville", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
-		public string Ville
-		{
-			get
-			{
-				return this._Ville;
-			}
-			set
-			{
-				if ((this._Ville != value))
-				{
-					this.OnVilleChanging(value);
-					this.SendPropertyChanging();
-					this._Ville = value;
-					this.SendPropertyChanged("Ville");
-					this.OnVilleChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdProvince", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
-		public string IdProvince
-		{
-			get
-			{
-				return this._IdProvince;
-			}
-			set
-			{
-				if ((this._IdProvince != value))
-				{
-					if (this._Province.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnIdProvinceChanging(value);
-					this.SendPropertyChanging();
-					this._IdProvince = value;
-					this.SendPropertyChanged("IdProvince");
-					this.OnIdProvinceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodePostal", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
-		public string CodePostal
-		{
-			get
-			{
-				return this._CodePostal;
-			}
-			set
-			{
-				if ((this._CodePostal != value))
-				{
-					this.OnCodePostalChanging(value);
-					this.SendPropertyChanging();
-					this._CodePostal = value;
-					this.SendPropertyChanged("CodePostal");
-					this.OnCodePostalChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telephone", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string Telephone
-		{
-			get
-			{
-				return this._Telephone;
-			}
-			set
-			{
-				if ((this._Telephone != value))
-				{
-					this.OnTelephoneChanging(value);
-					this.SendPropertyChanging();
-					this._Telephone = value;
-					this.SendPropertyChanged("Telephone");
-					this.OnTelephoneChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cellulaire", DbType="VarChar(10)")]
-		public string Cellulaire
-		{
-			get
-			{
-				return this._Cellulaire;
-			}
-			set
-			{
-				if ((this._Cellulaire != value))
-				{
-					this.OnCellulaireChanging(value);
-					this.SendPropertyChanging();
-					this._Cellulaire = value;
-					this.SendPropertyChanged("Cellulaire");
-					this.OnCellulaireChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Courriel", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string Courriel
-		{
-			get
-			{
-				return this._Courriel;
-			}
-			set
-			{
-				if ((this._Courriel != value))
-				{
-					this.OnCourrielChanging(value);
-					this.SendPropertyChanging();
-					this._Courriel = value;
-					this.SendPropertyChanged("Courriel");
-					this.OnCourrielChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoTypeAbonnement", DbType="Int NOT NULL")]
-		public int NoTypeAbonnement
-		{
-			get
-			{
-				return this._NoTypeAbonnement;
-			}
-			set
-			{
-				if ((this._NoTypeAbonnement != value))
-				{
-					if (this._TypesAbonnement.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnNoTypeAbonnementChanging(value);
-					this.SendPropertyChanging();
-					this._NoTypeAbonnement = value;
-					this.SendPropertyChanged("NoTypeAbonnement");
-					this.OnNoTypeAbonnementChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Remarque", DbType="VarChar(50)")]
-		public string Remarque
-		{
-			get
-			{
-				return this._Remarque;
-			}
-			set
-			{
-				if ((this._Remarque != value))
-				{
-					this.OnRemarqueChanging(value);
-					this.SendPropertyChanging();
-					this._Remarque = value;
-					this.SendPropertyChanged("Remarque");
-					this.OnRemarqueChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Abonnement_Dependant", Storage="_Dependants", ThisKey="Id", OtherKey="IdAbonnement")]
-		public EntitySet<Dependant> Dependants
-		{
-			get
-			{
-				return this._Dependants;
-			}
-			set
-			{
-				this._Dependants.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Abonnement_Depense", Storage="_Depenses", ThisKey="Id", OtherKey="IdAbonnement")]
-		public EntitySet<Depense> Depenses
-		{
-			get
-			{
-				return this._Depenses;
-			}
-			set
-			{
-				this._Depenses.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Abonnement_PartiesJouee", Storage="_PartiesJouees", ThisKey="Id", OtherKey="IdAbonnement")]
-		public EntitySet<PartiesJouee> PartiesJouees
-		{
-			get
-			{
-				return this._PartiesJouees;
-			}
-			set
-			{
-				this._PartiesJouees.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Abonnement_Reabonnement", Storage="_Reabonnements", ThisKey="Id", OtherKey="IdAbonnement")]
-		public EntitySet<Reabonnement> Reabonnements
-		{
-			get
-			{
-				return this._Reabonnements;
-			}
-			set
-			{
-				this._Reabonnements.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Province_Abonnement", Storage="_Province", ThisKey="IdProvince", OtherKey="Id", IsForeignKey=true)]
-		public Province Province
-		{
-			get
-			{
-				return this._Province.Entity;
-			}
-			set
-			{
-				Province previousValue = this._Province.Entity;
-				if (((previousValue != value) 
-							|| (this._Province.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Province.Entity = null;
-						previousValue.Abonnements.Remove(this);
-					}
-					this._Province.Entity = value;
-					if ((value != null))
-					{
-						value.Abonnements.Add(this);
-						this._IdProvince = value.Id;
-					}
-					else
-					{
-						this._IdProvince = default(string);
-					}
-					this.SendPropertyChanged("Province");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TypesAbonnement_Abonnement", Storage="_TypesAbonnement", ThisKey="NoTypeAbonnement", OtherKey="No", IsForeignKey=true)]
-		public TypesAbonnement TypesAbonnement
-		{
-			get
-			{
-				return this._TypesAbonnement.Entity;
-			}
-			set
-			{
-				TypesAbonnement previousValue = this._TypesAbonnement.Entity;
-				if (((previousValue != value) 
-							|| (this._TypesAbonnement.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TypesAbonnement.Entity = null;
-						previousValue.Abonnements.Remove(this);
-					}
-					this._TypesAbonnement.Entity = value;
-					if ((value != null))
-					{
-						value.Abonnements.Add(this);
-						this._NoTypeAbonnement = value.No;
-					}
-					else
-					{
-						this._NoTypeAbonnement = default(int);
-					}
-					this.SendPropertyChanged("TypesAbonnement");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sexe_Abonnement", Storage="_Sexe1", ThisKey="Sexe", OtherKey="idSexe", IsForeignKey=true)]
-		public Sexe Sexe1
-		{
-			get
-			{
-				return this._Sexe1.Entity;
-			}
-			set
-			{
-				Sexe previousValue = this._Sexe1.Entity;
-				if (((previousValue != value) 
-							|| (this._Sexe1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Sexe1.Entity = null;
-						previousValue.Abonnements.Remove(this);
-					}
-					this._Sexe1.Entity = value;
-					if ((value != null))
-					{
-						value.Abonnements.Add(this);
-						this._Sexe = value.idSexe;
-					}
-					else
-					{
-						this._Sexe = default(char);
-					}
-					this.SendPropertyChanged("Sexe1");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Dependants(Dependant entity)
-		{
-			this.SendPropertyChanging();
-			entity.Abonnement = this;
-		}
-		
-		private void detach_Dependants(Dependant entity)
-		{
-			this.SendPropertyChanging();
-			entity.Abonnement = null;
-		}
-		
-		private void attach_Depenses(Depense entity)
-		{
-			this.SendPropertyChanging();
-			entity.Abonnement = this;
-		}
-		
-		private void detach_Depenses(Depense entity)
-		{
-			this.SendPropertyChanging();
-			entity.Abonnement = null;
-		}
-		
-		private void attach_PartiesJouees(PartiesJouee entity)
-		{
-			this.SendPropertyChanging();
-			entity.Abonnement = this;
-		}
-		
-		private void detach_PartiesJouees(PartiesJouee entity)
-		{
-			this.SendPropertyChanging();
-			entity.Abonnement = null;
-		}
-		
-		private void attach_Reabonnements(Reabonnement entity)
-		{
-			this.SendPropertyChanging();
-			entity.Abonnement = this;
-		}
-		
-		private void detach_Reabonnements(Reabonnement entity)
-		{
-			this.SendPropertyChanging();
-			entity.Abonnement = null;
 		}
 	}
 	
@@ -883,9 +226,9 @@ namespace TP2
 		
 		private string _Remarque;
 		
-		private EntityRef<Abonnement> _Abonnement;
-		
 		private EntityRef<Sexe> _Sexe1;
+		
+		private EntityRef<Abonnement> _Abonnement;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -909,8 +252,8 @@ namespace TP2
 		
 		public Dependant()
 		{
-			this._Abonnement = default(EntityRef<Abonnement>);
 			this._Sexe1 = default(EntityRef<Sexe>);
+			this._Abonnement = default(EntityRef<Abonnement>);
 			OnCreated();
 		}
 		
@@ -1062,40 +405,6 @@ namespace TP2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Abonnement_Dependant", Storage="_Abonnement", ThisKey="IdAbonnement", OtherKey="Id", IsForeignKey=true)]
-		public Abonnement Abonnement
-		{
-			get
-			{
-				return this._Abonnement.Entity;
-			}
-			set
-			{
-				Abonnement previousValue = this._Abonnement.Entity;
-				if (((previousValue != value) 
-							|| (this._Abonnement.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Abonnement.Entity = null;
-						previousValue.Dependants.Remove(this);
-					}
-					this._Abonnement.Entity = value;
-					if ((value != null))
-					{
-						value.Dependants.Add(this);
-						this._IdAbonnement = value.Id;
-					}
-					else
-					{
-						this._IdAbonnement = default(string);
-					}
-					this.SendPropertyChanged("Abonnement");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sexe_Dependant", Storage="_Sexe1", ThisKey="Sexe", OtherKey="idSexe", IsForeignKey=true)]
 		public Sexe Sexe1
 		{
@@ -1126,6 +435,40 @@ namespace TP2
 						this._Sexe = default(char);
 					}
 					this.SendPropertyChanged("Sexe1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Abonnement_Dependant", Storage="_Abonnement", ThisKey="IdAbonnement", OtherKey="Id", IsForeignKey=true)]
+		public Abonnement Abonnement
+		{
+			get
+			{
+				return this._Abonnement.Entity;
+			}
+			set
+			{
+				Abonnement previousValue = this._Abonnement.Entity;
+				if (((previousValue != value) 
+							|| (this._Abonnement.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Abonnement.Entity = null;
+						previousValue.Dependants.Remove(this);
+					}
+					this._Abonnement.Entity = value;
+					if ((value != null))
+					{
+						value.Dependants.Add(this);
+						this._IdAbonnement = value.Id;
+					}
+					else
+					{
+						this._IdAbonnement = default(string);
+					}
+					this.SendPropertyChanged("Abonnement");
 				}
 			}
 		}
@@ -1169,9 +512,9 @@ namespace TP2
 		
 		private string _Remarque;
 		
-		private EntityRef<Abonnement> _Abonnement;
-		
 		private EntityRef<Service> _Service;
+		
+		private EntityRef<Abonnement> _Abonnement;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1193,8 +536,8 @@ namespace TP2
 		
 		public Depense()
 		{
-			this._Abonnement = default(EntityRef<Abonnement>);
 			this._Service = default(EntityRef<Service>);
+			this._Abonnement = default(EntityRef<Abonnement>);
 			OnCreated();
 		}
 		
@@ -1326,40 +669,6 @@ namespace TP2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Abonnement_Depense", Storage="_Abonnement", ThisKey="IdAbonnement", OtherKey="Id", IsForeignKey=true)]
-		public Abonnement Abonnement
-		{
-			get
-			{
-				return this._Abonnement.Entity;
-			}
-			set
-			{
-				Abonnement previousValue = this._Abonnement.Entity;
-				if (((previousValue != value) 
-							|| (this._Abonnement.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Abonnement.Entity = null;
-						previousValue.Depenses.Remove(this);
-					}
-					this._Abonnement.Entity = value;
-					if ((value != null))
-					{
-						value.Depenses.Add(this);
-						this._IdAbonnement = value.Id;
-					}
-					else
-					{
-						this._IdAbonnement = default(string);
-					}
-					this.SendPropertyChanged("Abonnement");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Service_Depense", Storage="_Service", ThisKey="NoService", OtherKey="No", IsForeignKey=true)]
 		public Service Service
 		{
@@ -1390,6 +699,40 @@ namespace TP2
 						this._NoService = default(int);
 					}
 					this.SendPropertyChanged("Service");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Abonnement_Depense", Storage="_Abonnement", ThisKey="IdAbonnement", OtherKey="Id", IsForeignKey=true)]
+		public Abonnement Abonnement
+		{
+			get
+			{
+				return this._Abonnement.Entity;
+			}
+			set
+			{
+				Abonnement previousValue = this._Abonnement.Entity;
+				if (((previousValue != value) 
+							|| (this._Abonnement.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Abonnement.Entity = null;
+						previousValue.Depenses.Remove(this);
+					}
+					this._Abonnement.Entity = value;
+					if ((value != null))
+					{
+						value.Depenses.Add(this);
+						this._IdAbonnement = value.Id;
+					}
+					else
+					{
+						this._IdAbonnement = default(string);
+					}
+					this.SendPropertyChanged("Abonnement");
 				}
 			}
 		}
@@ -1431,9 +774,9 @@ namespace TP2
 		
 		private string _Remarque;
 		
-		private EntityRef<Abonnement> _Abonnement;
-		
 		private EntityRef<Terrain> _Terrain;
+		
+		private EntityRef<Abonnement> _Abonnement;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1453,8 +796,8 @@ namespace TP2
 		
 		public PartiesJouee()
 		{
-			this._Abonnement = default(EntityRef<Abonnement>);
 			this._Terrain = default(EntityRef<Terrain>);
+			this._Abonnement = default(EntityRef<Abonnement>);
 			OnCreated();
 		}
 		
@@ -1566,40 +909,6 @@ namespace TP2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Abonnement_PartiesJouee", Storage="_Abonnement", ThisKey="IdAbonnement", OtherKey="Id", IsForeignKey=true)]
-		public Abonnement Abonnement
-		{
-			get
-			{
-				return this._Abonnement.Entity;
-			}
-			set
-			{
-				Abonnement previousValue = this._Abonnement.Entity;
-				if (((previousValue != value) 
-							|| (this._Abonnement.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Abonnement.Entity = null;
-						previousValue.PartiesJouees.Remove(this);
-					}
-					this._Abonnement.Entity = value;
-					if ((value != null))
-					{
-						value.PartiesJouees.Add(this);
-						this._IdAbonnement = value.Id;
-					}
-					else
-					{
-						this._IdAbonnement = default(string);
-					}
-					this.SendPropertyChanged("Abonnement");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Terrain_PartiesJouee", Storage="_Terrain", ThisKey="NoTerrain", OtherKey="No", IsForeignKey=true)]
 		public Terrain Terrain
 		{
@@ -1630,6 +939,40 @@ namespace TP2
 						this._NoTerrain = default(int);
 					}
 					this.SendPropertyChanged("Terrain");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Abonnement_PartiesJouee", Storage="_Abonnement", ThisKey="IdAbonnement", OtherKey="Id", IsForeignKey=true)]
+		public Abonnement Abonnement
+		{
+			get
+			{
+				return this._Abonnement.Entity;
+			}
+			set
+			{
+				Abonnement previousValue = this._Abonnement.Entity;
+				if (((previousValue != value) 
+							|| (this._Abonnement.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Abonnement.Entity = null;
+						previousValue.PartiesJouees.Remove(this);
+					}
+					this._Abonnement.Entity = value;
+					if ((value != null))
+					{
+						value.PartiesJouees.Add(this);
+						this._IdAbonnement = value.Id;
+					}
+					else
+					{
+						this._IdAbonnement = default(string);
+					}
+					this.SendPropertyChanged("Abonnement");
 				}
 			}
 		}
@@ -1667,9 +1010,9 @@ namespace TP2
 		
 		private string _Remarque;
 		
-		private EntitySet<Abonnement> _Abonnements;
-		
 		private EntitySet<Employe> _Employes;
+		
+		private EntitySet<Abonnement> _Abonnements;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -1685,8 +1028,8 @@ namespace TP2
 		
 		public Province()
 		{
-			this._Abonnements = new EntitySet<Abonnement>(new Action<Abonnement>(this.attach_Abonnements), new Action<Abonnement>(this.detach_Abonnements));
 			this._Employes = new EntitySet<Employe>(new Action<Employe>(this.attach_Employes), new Action<Employe>(this.detach_Employes));
+			this._Abonnements = new EntitySet<Abonnement>(new Action<Abonnement>(this.attach_Abonnements), new Action<Abonnement>(this.detach_Abonnements));
 			OnCreated();
 		}
 		
@@ -1750,19 +1093,6 @@ namespace TP2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Province_Abonnement", Storage="_Abonnements", ThisKey="Id", OtherKey="IdProvince")]
-		public EntitySet<Abonnement> Abonnements
-		{
-			get
-			{
-				return this._Abonnements;
-			}
-			set
-			{
-				this._Abonnements.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Province_Employe", Storage="_Employes", ThisKey="Id", OtherKey="IdProvince")]
 		public EntitySet<Employe> Employes
 		{
@@ -1773,6 +1103,19 @@ namespace TP2
 			set
 			{
 				this._Employes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Province_Abonnement", Storage="_Abonnements", ThisKey="Id", OtherKey="IdProvince")]
+		public EntitySet<Abonnement> Abonnements
+		{
+			get
+			{
+				return this._Abonnements;
+			}
+			set
+			{
+				this._Abonnements.Assign(value);
 			}
 		}
 		
@@ -1796,18 +1139,6 @@ namespace TP2
 			}
 		}
 		
-		private void attach_Abonnements(Abonnement entity)
-		{
-			this.SendPropertyChanging();
-			entity.Province = this;
-		}
-		
-		private void detach_Abonnements(Abonnement entity)
-		{
-			this.SendPropertyChanging();
-			entity.Province = null;
-		}
-		
 		private void attach_Employes(Employe entity)
 		{
 			this.SendPropertyChanging();
@@ -1815,6 +1146,18 @@ namespace TP2
 		}
 		
 		private void detach_Employes(Employe entity)
+		{
+			this.SendPropertyChanging();
+			entity.Province = null;
+		}
+		
+		private void attach_Abonnements(Abonnement entity)
+		{
+			this.SendPropertyChanging();
+			entity.Province = this;
+		}
+		
+		private void detach_Abonnements(Abonnement entity)
 		{
 			this.SendPropertyChanging();
 			entity.Province = null;
@@ -2572,9 +1915,9 @@ namespace TP2
 		
 		private string _Remarque;
 		
-		private EntitySet<Abonnement> _Abonnements;
-		
 		private EntitySet<PrixDepensesAbonnement> _PrixDepensesAbonnements;
+		
+		private EntitySet<Abonnement> _Abonnements;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -2590,8 +1933,8 @@ namespace TP2
 		
 		public TypesAbonnement()
 		{
-			this._Abonnements = new EntitySet<Abonnement>(new Action<Abonnement>(this.attach_Abonnements), new Action<Abonnement>(this.detach_Abonnements));
 			this._PrixDepensesAbonnements = new EntitySet<PrixDepensesAbonnement>(new Action<PrixDepensesAbonnement>(this.attach_PrixDepensesAbonnements), new Action<PrixDepensesAbonnement>(this.detach_PrixDepensesAbonnements));
+			this._Abonnements = new EntitySet<Abonnement>(new Action<Abonnement>(this.attach_Abonnements), new Action<Abonnement>(this.detach_Abonnements));
 			OnCreated();
 		}
 		
@@ -2655,19 +1998,6 @@ namespace TP2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TypesAbonnement_Abonnement", Storage="_Abonnements", ThisKey="No", OtherKey="NoTypeAbonnement")]
-		public EntitySet<Abonnement> Abonnements
-		{
-			get
-			{
-				return this._Abonnements;
-			}
-			set
-			{
-				this._Abonnements.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TypesAbonnement_PrixDepensesAbonnement", Storage="_PrixDepensesAbonnements", ThisKey="No", OtherKey="NoTypeAbonnement")]
 		public EntitySet<PrixDepensesAbonnement> PrixDepensesAbonnements
 		{
@@ -2678,6 +2008,19 @@ namespace TP2
 			set
 			{
 				this._PrixDepensesAbonnements.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TypesAbonnement_Abonnement", Storage="_Abonnements", ThisKey="No", OtherKey="NoTypeAbonnement")]
+		public EntitySet<Abonnement> Abonnements
+		{
+			get
+			{
+				return this._Abonnements;
+			}
+			set
+			{
+				this._Abonnements.Assign(value);
 			}
 		}
 		
@@ -2701,18 +2044,6 @@ namespace TP2
 			}
 		}
 		
-		private void attach_Abonnements(Abonnement entity)
-		{
-			this.SendPropertyChanging();
-			entity.TypesAbonnement = this;
-		}
-		
-		private void detach_Abonnements(Abonnement entity)
-		{
-			this.SendPropertyChanging();
-			entity.TypesAbonnement = null;
-		}
-		
 		private void attach_PrixDepensesAbonnements(PrixDepensesAbonnement entity)
 		{
 			this.SendPropertyChanging();
@@ -2720,6 +2051,18 @@ namespace TP2
 		}
 		
 		private void detach_PrixDepensesAbonnements(PrixDepensesAbonnement entity)
+		{
+			this.SendPropertyChanging();
+			entity.TypesAbonnement = null;
+		}
+		
+		private void attach_Abonnements(Abonnement entity)
+		{
+			this.SendPropertyChanging();
+			entity.TypesAbonnement = this;
+		}
+		
+		private void detach_Abonnements(Abonnement entity)
 		{
 			this.SendPropertyChanging();
 			entity.TypesAbonnement = null;
@@ -2861,6 +2204,176 @@ namespace TP2
 		{
 			this.SendPropertyChanging();
 			entity.TypesEmploye = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sexe")]
+	public partial class Sexe : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private char _idSexe;
+		
+		private string _Description;
+		
+		private EntitySet<Dependant> _Dependants;
+		
+		private EntitySet<Employe> _Employes;
+		
+		private EntitySet<Abonnement> _Abonnements;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidSexeChanging(char value);
+    partial void OnidSexeChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    #endregion
+		
+		public Sexe()
+		{
+			this._Dependants = new EntitySet<Dependant>(new Action<Dependant>(this.attach_Dependants), new Action<Dependant>(this.detach_Dependants));
+			this._Employes = new EntitySet<Employe>(new Action<Employe>(this.attach_Employes), new Action<Employe>(this.detach_Employes));
+			this._Abonnements = new EntitySet<Abonnement>(new Action<Abonnement>(this.attach_Abonnements), new Action<Abonnement>(this.detach_Abonnements));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idSexe", DbType="Char(1) NOT NULL", IsPrimaryKey=true)]
+		public char idSexe
+		{
+			get
+			{
+				return this._idSexe;
+			}
+			set
+			{
+				if ((this._idSexe != value))
+				{
+					this.OnidSexeChanging(value);
+					this.SendPropertyChanging();
+					this._idSexe = value;
+					this.SendPropertyChanged("idSexe");
+					this.OnidSexeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sexe_Dependant", Storage="_Dependants", ThisKey="idSexe", OtherKey="Sexe")]
+		public EntitySet<Dependant> Dependants
+		{
+			get
+			{
+				return this._Dependants;
+			}
+			set
+			{
+				this._Dependants.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sexe_Employe", Storage="_Employes", ThisKey="idSexe", OtherKey="Sexe")]
+		public EntitySet<Employe> Employes
+		{
+			get
+			{
+				return this._Employes;
+			}
+			set
+			{
+				this._Employes.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sexe_Abonnement", Storage="_Abonnements", ThisKey="idSexe", OtherKey="Sexe")]
+		public EntitySet<Abonnement> Abonnements
+		{
+			get
+			{
+				return this._Abonnements;
+			}
+			set
+			{
+				this._Abonnements.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Dependants(Dependant entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sexe1 = this;
+		}
+		
+		private void detach_Dependants(Dependant entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sexe1 = null;
+		}
+		
+		private void attach_Employes(Employe entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sexe1 = this;
+		}
+		
+		private void detach_Employes(Employe entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sexe1 = null;
+		}
+		
+		private void attach_Abonnements(Abonnement entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sexe1 = this;
+		}
+		
+		private void detach_Abonnements(Abonnement entity)
+		{
+			this.SendPropertyChanging();
+			entity.Sexe1 = null;
 		}
 	}
 	
@@ -3461,94 +2974,441 @@ namespace TP2
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sexe")]
-	public partial class Sexe : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Abonnements")]
+	public partial class Abonnement : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private char _idSexe;
+		private string _Id;
 		
-		private string _Description;
+		private System.DateTime _DateAbonnement;
 		
-		private EntitySet<Abonnement> _Abonnements;
+		private string _Nom;
+		
+		private string _Prenom;
+		
+		private char _Sexe;
+		
+		private System.DateTime _DateNaissance;
+		
+		private int _NoCivique;
+		
+		private string _Rue;
+		
+		private string _Ville;
+		
+		private string _IdProvince;
+		
+		private string _CodePostal;
+		
+		private string _Telephone;
+		
+		private string _Cellulaire;
+		
+		private string _Courriel;
+		
+		private int _NoTypeAbonnement;
+		
+		private string _Remarque;
 		
 		private EntitySet<Dependant> _Dependants;
 		
-		private EntitySet<Employe> _Employes;
+		private EntitySet<Depense> _Depenses;
+		
+		private EntitySet<PartiesJouee> _PartiesJouees;
+		
+		private EntitySet<Reabonnement> _Reabonnements;
+		
+		private EntityRef<Province> _Province;
+		
+		private EntityRef<TypesAbonnement> _TypesAbonnement;
+		
+		private EntityRef<Sexe> _Sexe1;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnidSexeChanging(char value);
-    partial void OnidSexeChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
+    partial void OnIdChanging(string value);
+    partial void OnIdChanged();
+    partial void OnDateAbonnementChanging(System.DateTime value);
+    partial void OnDateAbonnementChanged();
+    partial void OnNomChanging(string value);
+    partial void OnNomChanged();
+    partial void OnPrenomChanging(string value);
+    partial void OnPrenomChanged();
+    partial void OnSexeChanging(char value);
+    partial void OnSexeChanged();
+    partial void OnDateNaissanceChanging(System.DateTime value);
+    partial void OnDateNaissanceChanged();
+    partial void OnNoCiviqueChanging(int value);
+    partial void OnNoCiviqueChanged();
+    partial void OnRueChanging(string value);
+    partial void OnRueChanged();
+    partial void OnVilleChanging(string value);
+    partial void OnVilleChanged();
+    partial void OnIdProvinceChanging(string value);
+    partial void OnIdProvinceChanged();
+    partial void OnCodePostalChanging(string value);
+    partial void OnCodePostalChanged();
+    partial void OnTelephoneChanging(string value);
+    partial void OnTelephoneChanged();
+    partial void OnCellulaireChanging(string value);
+    partial void OnCellulaireChanged();
+    partial void OnCourrielChanging(string value);
+    partial void OnCourrielChanged();
+    partial void OnNoTypeAbonnementChanging(int value);
+    partial void OnNoTypeAbonnementChanged();
+    partial void OnRemarqueChanging(string value);
+    partial void OnRemarqueChanged();
     #endregion
 		
-		public Sexe()
+		public Abonnement()
 		{
-			this._Abonnements = new EntitySet<Abonnement>(new Action<Abonnement>(this.attach_Abonnements), new Action<Abonnement>(this.detach_Abonnements));
 			this._Dependants = new EntitySet<Dependant>(new Action<Dependant>(this.attach_Dependants), new Action<Dependant>(this.detach_Dependants));
-			this._Employes = new EntitySet<Employe>(new Action<Employe>(this.attach_Employes), new Action<Employe>(this.detach_Employes));
+			this._Depenses = new EntitySet<Depense>(new Action<Depense>(this.attach_Depenses), new Action<Depense>(this.detach_Depenses));
+			this._PartiesJouees = new EntitySet<PartiesJouee>(new Action<PartiesJouee>(this.attach_PartiesJouees), new Action<PartiesJouee>(this.detach_PartiesJouees));
+			this._Reabonnements = new EntitySet<Reabonnement>(new Action<Reabonnement>(this.attach_Reabonnements), new Action<Reabonnement>(this.detach_Reabonnements));
+			this._Province = default(EntityRef<Province>);
+			this._TypesAbonnement = default(EntityRef<TypesAbonnement>);
+			this._Sexe1 = default(EntityRef<Sexe>);
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_idSexe", DbType="Char(1) NOT NULL", IsPrimaryKey=true)]
-		public char idSexe
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="VarChar(30) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string Id
 		{
 			get
 			{
-				return this._idSexe;
+				return this._Id;
 			}
 			set
 			{
-				if ((this._idSexe != value))
+				if ((this._Id != value))
 				{
-					this.OnidSexeChanging(value);
+					this.OnIdChanging(value);
 					this.SendPropertyChanging();
-					this._idSexe = value;
-					this.SendPropertyChanged("idSexe");
-					this.OnidSexeChanged();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(5) NOT NULL", CanBeNull=false)]
-		public string Description
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateAbonnement", DbType="Date NOT NULL")]
+		public System.DateTime DateAbonnement
 		{
 			get
 			{
-				return this._Description;
+				return this._DateAbonnement;
 			}
 			set
 			{
-				if ((this._Description != value))
+				if ((this._DateAbonnement != value))
 				{
-					this.OnDescriptionChanging(value);
+					this.OnDateAbonnementChanging(value);
 					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
+					this._DateAbonnement = value;
+					this.SendPropertyChanged("DateAbonnement");
+					this.OnDateAbonnementChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sexe_Abonnement", Storage="_Abonnements", ThisKey="idSexe", OtherKey="Sexe")]
-		public EntitySet<Abonnement> Abonnements
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nom", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Nom
 		{
 			get
 			{
-				return this._Abonnements;
+				return this._Nom;
 			}
 			set
 			{
-				this._Abonnements.Assign(value);
+				if ((this._Nom != value))
+				{
+					this.OnNomChanging(value);
+					this.SendPropertyChanging();
+					this._Nom = value;
+					this.SendPropertyChanged("Nom");
+					this.OnNomChanged();
+				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sexe_Dependant", Storage="_Dependants", ThisKey="idSexe", OtherKey="Sexe")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Prenom", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Prenom
+		{
+			get
+			{
+				return this._Prenom;
+			}
+			set
+			{
+				if ((this._Prenom != value))
+				{
+					this.OnPrenomChanging(value);
+					this.SendPropertyChanging();
+					this._Prenom = value;
+					this.SendPropertyChanged("Prenom");
+					this.OnPrenomChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sexe", DbType="Char(1) NOT NULL")]
+		public char Sexe
+		{
+			get
+			{
+				return this._Sexe;
+			}
+			set
+			{
+				if ((this._Sexe != value))
+				{
+					if (this._Sexe1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSexeChanging(value);
+					this.SendPropertyChanging();
+					this._Sexe = value;
+					this.SendPropertyChanged("Sexe");
+					this.OnSexeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateNaissance", DbType="Date NOT NULL")]
+		public System.DateTime DateNaissance
+		{
+			get
+			{
+				return this._DateNaissance;
+			}
+			set
+			{
+				if ((this._DateNaissance != value))
+				{
+					this.OnDateNaissanceChanging(value);
+					this.SendPropertyChanging();
+					this._DateNaissance = value;
+					this.SendPropertyChanged("DateNaissance");
+					this.OnDateNaissanceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoCivique", DbType="Int NOT NULL")]
+		public int NoCivique
+		{
+			get
+			{
+				return this._NoCivique;
+			}
+			set
+			{
+				if ((this._NoCivique != value))
+				{
+					this.OnNoCiviqueChanging(value);
+					this.SendPropertyChanging();
+					this._NoCivique = value;
+					this.SendPropertyChanged("NoCivique");
+					this.OnNoCiviqueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Rue", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Rue
+		{
+			get
+			{
+				return this._Rue;
+			}
+			set
+			{
+				if ((this._Rue != value))
+				{
+					this.OnRueChanging(value);
+					this.SendPropertyChanging();
+					this._Rue = value;
+					this.SendPropertyChanged("Rue");
+					this.OnRueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ville", DbType="VarChar(30) NOT NULL", CanBeNull=false)]
+		public string Ville
+		{
+			get
+			{
+				return this._Ville;
+			}
+			set
+			{
+				if ((this._Ville != value))
+				{
+					this.OnVilleChanging(value);
+					this.SendPropertyChanging();
+					this._Ville = value;
+					this.SendPropertyChanged("Ville");
+					this.OnVilleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdProvince", DbType="VarChar(2) NOT NULL", CanBeNull=false)]
+		public string IdProvince
+		{
+			get
+			{
+				return this._IdProvince;
+			}
+			set
+			{
+				if ((this._IdProvince != value))
+				{
+					if (this._Province.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnIdProvinceChanging(value);
+					this.SendPropertyChanging();
+					this._IdProvince = value;
+					this.SendPropertyChanged("IdProvince");
+					this.OnIdProvinceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CodePostal", DbType="VarChar(6) NOT NULL", CanBeNull=false)]
+		public string CodePostal
+		{
+			get
+			{
+				return this._CodePostal;
+			}
+			set
+			{
+				if ((this._CodePostal != value))
+				{
+					this.OnCodePostalChanging(value);
+					this.SendPropertyChanging();
+					this._CodePostal = value;
+					this.SendPropertyChanged("CodePostal");
+					this.OnCodePostalChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Telephone", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
+		public string Telephone
+		{
+			get
+			{
+				return this._Telephone;
+			}
+			set
+			{
+				if ((this._Telephone != value))
+				{
+					this.OnTelephoneChanging(value);
+					this.SendPropertyChanging();
+					this._Telephone = value;
+					this.SendPropertyChanged("Telephone");
+					this.OnTelephoneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cellulaire", DbType="VarChar(10)")]
+		public string Cellulaire
+		{
+			get
+			{
+				return this._Cellulaire;
+			}
+			set
+			{
+				if ((this._Cellulaire != value))
+				{
+					this.OnCellulaireChanging(value);
+					this.SendPropertyChanging();
+					this._Cellulaire = value;
+					this.SendPropertyChanged("Cellulaire");
+					this.OnCellulaireChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Courriel", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string Courriel
+		{
+			get
+			{
+				return this._Courriel;
+			}
+			set
+			{
+				if ((this._Courriel != value))
+				{
+					this.OnCourrielChanging(value);
+					this.SendPropertyChanging();
+					this._Courriel = value;
+					this.SendPropertyChanged("Courriel");
+					this.OnCourrielChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NoTypeAbonnement", DbType="Int NOT NULL")]
+		public int NoTypeAbonnement
+		{
+			get
+			{
+				return this._NoTypeAbonnement;
+			}
+			set
+			{
+				if ((this._NoTypeAbonnement != value))
+				{
+					if (this._TypesAbonnement.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnNoTypeAbonnementChanging(value);
+					this.SendPropertyChanging();
+					this._NoTypeAbonnement = value;
+					this.SendPropertyChanged("NoTypeAbonnement");
+					this.OnNoTypeAbonnementChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Remarque", DbType="VarChar(50)")]
+		public string Remarque
+		{
+			get
+			{
+				return this._Remarque;
+			}
+			set
+			{
+				if ((this._Remarque != value))
+				{
+					this.OnRemarqueChanging(value);
+					this.SendPropertyChanging();
+					this._Remarque = value;
+					this.SendPropertyChanged("Remarque");
+					this.OnRemarqueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Abonnement_Dependant", Storage="_Dependants", ThisKey="Id", OtherKey="IdAbonnement")]
 		public EntitySet<Dependant> Dependants
 		{
 			get
@@ -3561,16 +3421,144 @@ namespace TP2
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sexe_Employe", Storage="_Employes", ThisKey="idSexe", OtherKey="Sexe")]
-		public EntitySet<Employe> Employes
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Abonnement_Depense", Storage="_Depenses", ThisKey="Id", OtherKey="IdAbonnement")]
+		public EntitySet<Depense> Depenses
 		{
 			get
 			{
-				return this._Employes;
+				return this._Depenses;
 			}
 			set
 			{
-				this._Employes.Assign(value);
+				this._Depenses.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Abonnement_PartiesJouee", Storage="_PartiesJouees", ThisKey="Id", OtherKey="IdAbonnement")]
+		public EntitySet<PartiesJouee> PartiesJouees
+		{
+			get
+			{
+				return this._PartiesJouees;
+			}
+			set
+			{
+				this._PartiesJouees.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Abonnement_Reabonnement", Storage="_Reabonnements", ThisKey="Id", OtherKey="IdAbonnement")]
+		public EntitySet<Reabonnement> Reabonnements
+		{
+			get
+			{
+				return this._Reabonnements;
+			}
+			set
+			{
+				this._Reabonnements.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Province_Abonnement", Storage="_Province", ThisKey="IdProvince", OtherKey="Id", IsForeignKey=true)]
+		public Province Province
+		{
+			get
+			{
+				return this._Province.Entity;
+			}
+			set
+			{
+				Province previousValue = this._Province.Entity;
+				if (((previousValue != value) 
+							|| (this._Province.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Province.Entity = null;
+						previousValue.Abonnements.Remove(this);
+					}
+					this._Province.Entity = value;
+					if ((value != null))
+					{
+						value.Abonnements.Add(this);
+						this._IdProvince = value.Id;
+					}
+					else
+					{
+						this._IdProvince = default(string);
+					}
+					this.SendPropertyChanged("Province");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TypesAbonnement_Abonnement", Storage="_TypesAbonnement", ThisKey="NoTypeAbonnement", OtherKey="No", IsForeignKey=true)]
+		public TypesAbonnement TypesAbonnement
+		{
+			get
+			{
+				return this._TypesAbonnement.Entity;
+			}
+			set
+			{
+				TypesAbonnement previousValue = this._TypesAbonnement.Entity;
+				if (((previousValue != value) 
+							|| (this._TypesAbonnement.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TypesAbonnement.Entity = null;
+						previousValue.Abonnements.Remove(this);
+					}
+					this._TypesAbonnement.Entity = value;
+					if ((value != null))
+					{
+						value.Abonnements.Add(this);
+						this._NoTypeAbonnement = value.No;
+					}
+					else
+					{
+						this._NoTypeAbonnement = default(int);
+					}
+					this.SendPropertyChanged("TypesAbonnement");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Sexe_Abonnement", Storage="_Sexe1", ThisKey="Sexe", OtherKey="idSexe", IsForeignKey=true)]
+		public Sexe Sexe1
+		{
+			get
+			{
+				return this._Sexe1.Entity;
+			}
+			set
+			{
+				Sexe previousValue = this._Sexe1.Entity;
+				if (((previousValue != value) 
+							|| (this._Sexe1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Sexe1.Entity = null;
+						previousValue.Abonnements.Remove(this);
+					}
+					this._Sexe1.Entity = value;
+					if ((value != null))
+					{
+						value.Abonnements.Add(this);
+						this._Sexe = value.idSexe;
+					}
+					else
+					{
+						this._Sexe = default(char);
+					}
+					this.SendPropertyChanged("Sexe1");
+				}
 			}
 		}
 		
@@ -3594,40 +3582,52 @@ namespace TP2
 			}
 		}
 		
-		private void attach_Abonnements(Abonnement entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sexe1 = this;
-		}
-		
-		private void detach_Abonnements(Abonnement entity)
-		{
-			this.SendPropertyChanging();
-			entity.Sexe1 = null;
-		}
-		
 		private void attach_Dependants(Dependant entity)
 		{
 			this.SendPropertyChanging();
-			entity.Sexe1 = this;
+			entity.Abonnement = this;
 		}
 		
 		private void detach_Dependants(Dependant entity)
 		{
 			this.SendPropertyChanging();
-			entity.Sexe1 = null;
+			entity.Abonnement = null;
 		}
 		
-		private void attach_Employes(Employe entity)
+		private void attach_Depenses(Depense entity)
 		{
 			this.SendPropertyChanging();
-			entity.Sexe1 = this;
+			entity.Abonnement = this;
 		}
 		
-		private void detach_Employes(Employe entity)
+		private void detach_Depenses(Depense entity)
 		{
 			this.SendPropertyChanging();
-			entity.Sexe1 = null;
+			entity.Abonnement = null;
+		}
+		
+		private void attach_PartiesJouees(PartiesJouee entity)
+		{
+			this.SendPropertyChanging();
+			entity.Abonnement = this;
+		}
+		
+		private void detach_PartiesJouees(PartiesJouee entity)
+		{
+			this.SendPropertyChanging();
+			entity.Abonnement = null;
+		}
+		
+		private void attach_Reabonnements(Reabonnement entity)
+		{
+			this.SendPropertyChanging();
+			entity.Abonnement = this;
+		}
+		
+		private void detach_Reabonnements(Reabonnement entity)
+		{
+			this.SendPropertyChanging();
+			entity.Abonnement = null;
 		}
 	}
 }
