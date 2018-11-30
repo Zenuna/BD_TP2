@@ -78,135 +78,150 @@
             // cellulaireLabel
             // 
             cellulaireLabel.AutoSize = true;
-            cellulaireLabel.Location = new System.Drawing.Point(366, 632);
+            cellulaireLabel.Location = new System.Drawing.Point(137, 265);
+            cellulaireLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             cellulaireLabel.Name = "cellulaireLabel";
-            cellulaireLabel.Size = new System.Drawing.Size(144, 32);
+            cellulaireLabel.Size = new System.Drawing.Size(52, 13);
             cellulaireLabel.TabIndex = 35;
             cellulaireLabel.Text = "Cellulaire:";
             // 
             // codePostalLabel
             // 
             codePostalLabel.AutoSize = true;
-            codePostalLabel.Location = new System.Drawing.Point(366, 571);
+            codePostalLabel.Location = new System.Drawing.Point(137, 239);
+            codePostalLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             codePostalLabel.Name = "codePostalLabel";
-            codePostalLabel.Size = new System.Drawing.Size(178, 32);
+            codePostalLabel.Size = new System.Drawing.Size(67, 13);
             codePostalLabel.TabIndex = 37;
             codePostalLabel.Text = "Code Postal:";
             // 
             // courrielLabel
             // 
             courrielLabel.AutoSize = true;
-            courrielLabel.Location = new System.Drawing.Point(1131, 635);
+            courrielLabel.Location = new System.Drawing.Point(424, 266);
+            courrielLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             courrielLabel.Name = "courrielLabel";
-            courrielLabel.Size = new System.Drawing.Size(123, 32);
+            courrielLabel.Size = new System.Drawing.Size(45, 13);
             courrielLabel.TabIndex = 39;
             courrielLabel.Text = "Courriel:";
             // 
             // dateAbonnementLabel
             // 
             dateAbonnementLabel.AutoSize = true;
-            dateAbonnementLabel.Location = new System.Drawing.Point(366, 271);
+            dateAbonnementLabel.Location = new System.Drawing.Point(137, 114);
+            dateAbonnementLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             dateAbonnementLabel.Name = "dateAbonnementLabel";
-            dateAbonnementLabel.Size = new System.Drawing.Size(252, 32);
+            dateAbonnementLabel.Size = new System.Drawing.Size(96, 13);
             dateAbonnementLabel.TabIndex = 41;
             dateAbonnementLabel.Text = "Date Abonnement:";
             // 
             // dateNaissanceLabel
             // 
             dateNaissanceLabel.AutoSize = true;
-            dateNaissanceLabel.Location = new System.Drawing.Point(1131, 395);
+            dateNaissanceLabel.Location = new System.Drawing.Point(424, 166);
+            dateNaissanceLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             dateNaissanceLabel.Name = "dateNaissanceLabel";
-            dateNaissanceLabel.Size = new System.Drawing.Size(223, 32);
+            dateNaissanceLabel.Size = new System.Drawing.Size(86, 13);
             dateNaissanceLabel.TabIndex = 42;
             dateNaissanceLabel.Text = "Date Naissance:";
             // 
             // idProvinceLabel
             // 
             idProvinceLabel.AutoSize = true;
-            idProvinceLabel.Location = new System.Drawing.Point(1131, 510);
+            idProvinceLabel.Location = new System.Drawing.Point(424, 214);
+            idProvinceLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             idProvinceLabel.Name = "idProvinceLabel";
-            idProvinceLabel.Size = new System.Drawing.Size(134, 32);
+            idProvinceLabel.Size = new System.Drawing.Size(52, 13);
             idProvinceLabel.TabIndex = 44;
             idProvinceLabel.Text = "Province:";
             // 
             // noCiviqueLabel
             // 
             noCiviqueLabel.AutoSize = true;
-            noCiviqueLabel.Location = new System.Drawing.Point(366, 449);
+            noCiviqueLabel.Location = new System.Drawing.Point(137, 188);
+            noCiviqueLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             noCiviqueLabel.Name = "noCiviqueLabel";
-            noCiviqueLabel.Size = new System.Drawing.Size(162, 32);
+            noCiviqueLabel.Size = new System.Drawing.Size(62, 13);
             noCiviqueLabel.TabIndex = 46;
             noCiviqueLabel.Text = "No Civique:";
             // 
             // nomLabel
             // 
             nomLabel.AutoSize = true;
-            nomLabel.Location = new System.Drawing.Point(366, 334);
+            nomLabel.Location = new System.Drawing.Point(137, 140);
+            nomLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             nomLabel.Name = "nomLabel";
-            nomLabel.Size = new System.Drawing.Size(82, 32);
+            nomLabel.Size = new System.Drawing.Size(32, 13);
             nomLabel.TabIndex = 48;
             nomLabel.Text = "Nom:";
             // 
             // noTypeAbonnementLabel
             // 
             noTypeAbonnementLabel.AutoSize = true;
-            noTypeAbonnementLabel.Location = new System.Drawing.Point(366, 704);
+            noTypeAbonnementLabel.Location = new System.Drawing.Point(137, 295);
+            noTypeAbonnementLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             noTypeAbonnementLabel.Name = "noTypeAbonnementLabel";
-            noTypeAbonnementLabel.Size = new System.Drawing.Size(298, 32);
+            noTypeAbonnementLabel.Size = new System.Drawing.Size(114, 13);
             noTypeAbonnementLabel.TabIndex = 50;
             noTypeAbonnementLabel.Text = "No Type Abonnement:";
             // 
             // prenomLabel
             // 
             prenomLabel.AutoSize = true;
-            prenomLabel.Location = new System.Drawing.Point(1131, 337);
+            prenomLabel.Location = new System.Drawing.Point(424, 141);
+            prenomLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             prenomLabel.Name = "prenomLabel";
-            prenomLabel.Size = new System.Drawing.Size(122, 32);
+            prenomLabel.Size = new System.Drawing.Size(46, 13);
             prenomLabel.TabIndex = 51;
             prenomLabel.Text = "Prenom:";
             // 
             // remarqueLabel
             // 
             remarqueLabel.AutoSize = true;
-            remarqueLabel.Location = new System.Drawing.Point(1131, 698);
+            remarqueLabel.Location = new System.Drawing.Point(424, 293);
+            remarqueLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             remarqueLabel.Name = "remarqueLabel";
-            remarqueLabel.Size = new System.Drawing.Size(155, 32);
+            remarqueLabel.Size = new System.Drawing.Size(59, 13);
             remarqueLabel.TabIndex = 53;
             remarqueLabel.Text = "Remarque:";
             // 
             // rueLabel
             // 
             rueLabel.AutoSize = true;
-            rueLabel.Location = new System.Drawing.Point(1131, 452);
+            rueLabel.Location = new System.Drawing.Point(424, 190);
+            rueLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             rueLabel.Name = "rueLabel";
-            rueLabel.Size = new System.Drawing.Size(75, 32);
+            rueLabel.Size = new System.Drawing.Size(30, 13);
             rueLabel.TabIndex = 55;
             rueLabel.Text = "Rue:";
             // 
             // sexeLabel
             // 
             sexeLabel.AutoSize = true;
-            sexeLabel.Location = new System.Drawing.Point(366, 391);
+            sexeLabel.Location = new System.Drawing.Point(137, 164);
+            sexeLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             sexeLabel.Name = "sexeLabel";
-            sexeLabel.Size = new System.Drawing.Size(88, 32);
+            sexeLabel.Size = new System.Drawing.Size(34, 13);
             sexeLabel.TabIndex = 57;
             sexeLabel.Text = "Sexe:";
             // 
             // telephoneLabel
             // 
             telephoneLabel.AutoSize = true;
-            telephoneLabel.Location = new System.Drawing.Point(1131, 574);
+            telephoneLabel.Location = new System.Drawing.Point(424, 241);
+            telephoneLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             telephoneLabel.Name = "telephoneLabel";
-            telephoneLabel.Size = new System.Drawing.Size(159, 32);
+            telephoneLabel.Size = new System.Drawing.Size(61, 13);
             telephoneLabel.TabIndex = 59;
             telephoneLabel.Text = "Telephone:";
             // 
             // villeLabel
             // 
             villeLabel.AutoSize = true;
-            villeLabel.Location = new System.Drawing.Point(366, 507);
+            villeLabel.Location = new System.Drawing.Point(137, 213);
+            villeLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             villeLabel.Name = "villeLabel";
-            villeLabel.Size = new System.Drawing.Size(79, 32);
+            villeLabel.Size = new System.Drawing.Size(29, 13);
             villeLabel.TabIndex = 61;
             villeLabel.Text = "Ville:";
             // 
@@ -214,116 +229,131 @@
             // 
             this.cmbTypeAbonnement.DisplayMember = "Description";
             this.cmbTypeAbonnement.FormattingEnabled = true;
-            this.cmbTypeAbonnement.Location = new System.Drawing.Point(670, 704);
+            this.cmbTypeAbonnement.Location = new System.Drawing.Point(251, 295);
+            this.cmbTypeAbonnement.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.cmbTypeAbonnement.Name = "cmbTypeAbonnement";
-            this.cmbTypeAbonnement.Size = new System.Drawing.Size(346, 39);
+            this.cmbTypeAbonnement.Size = new System.Drawing.Size(132, 21);
             this.cmbTypeAbonnement.TabIndex = 64;
             this.cmbTypeAbonnement.ValueMember = "No";
             // 
             // lblDateAbonnement
             // 
             this.lblDateAbonnement.AutoSize = true;
-            this.lblDateAbonnement.Location = new System.Drawing.Point(670, 271);
+            this.lblDateAbonnement.Location = new System.Drawing.Point(251, 114);
+            this.lblDateAbonnement.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblDateAbonnement.Name = "lblDateAbonnement";
-            this.lblDateAbonnement.Size = new System.Drawing.Size(0, 32);
+            this.lblDateAbonnement.Size = new System.Drawing.Size(0, 13);
             this.lblDateAbonnement.TabIndex = 63;
             // 
             // cellulaireTextBox
             // 
-            this.cellulaireTextBox.Location = new System.Drawing.Point(670, 629);
+            this.cellulaireTextBox.Location = new System.Drawing.Point(251, 264);
+            this.cellulaireTextBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.cellulaireTextBox.Name = "cellulaireTextBox";
-            this.cellulaireTextBox.Size = new System.Drawing.Size(289, 38);
+            this.cellulaireTextBox.Size = new System.Drawing.Size(111, 20);
             this.cellulaireTextBox.TabIndex = 36;
             // 
             // codePostalTextBox
             // 
-            this.codePostalTextBox.Location = new System.Drawing.Point(670, 568);
+            this.codePostalTextBox.Location = new System.Drawing.Point(251, 238);
+            this.codePostalTextBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.codePostalTextBox.Name = "codePostalTextBox";
-            this.codePostalTextBox.Size = new System.Drawing.Size(289, 38);
+            this.codePostalTextBox.Size = new System.Drawing.Size(111, 20);
             this.codePostalTextBox.TabIndex = 38;
             // 
             // courrielTextBox
             // 
-            this.courrielTextBox.Location = new System.Drawing.Point(1435, 632);
+            this.courrielTextBox.Location = new System.Drawing.Point(538, 265);
+            this.courrielTextBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.courrielTextBox.Name = "courrielTextBox";
-            this.courrielTextBox.Size = new System.Drawing.Size(331, 38);
+            this.courrielTextBox.Size = new System.Drawing.Size(127, 20);
             this.courrielTextBox.TabIndex = 40;
             // 
             // dateNaissanceDateTimePicker
             // 
-            this.dateNaissanceDateTimePicker.Location = new System.Drawing.Point(1435, 391);
+            this.dateNaissanceDateTimePicker.Location = new System.Drawing.Point(538, 164);
+            this.dateNaissanceDateTimePicker.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.dateNaissanceDateTimePicker.Name = "dateNaissanceDateTimePicker";
-            this.dateNaissanceDateTimePicker.Size = new System.Drawing.Size(331, 38);
+            this.dateNaissanceDateTimePicker.Size = new System.Drawing.Size(127, 20);
             this.dateNaissanceDateTimePicker.TabIndex = 43;
             // 
             // idProvinceTextBox
             // 
-            this.idProvinceTextBox.Location = new System.Drawing.Point(1435, 507);
+            this.idProvinceTextBox.Location = new System.Drawing.Point(538, 213);
+            this.idProvinceTextBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.idProvinceTextBox.Name = "idProvinceTextBox";
-            this.idProvinceTextBox.Size = new System.Drawing.Size(331, 38);
+            this.idProvinceTextBox.Size = new System.Drawing.Size(127, 20);
             this.idProvinceTextBox.TabIndex = 45;
             // 
             // noCiviqueTextBox
             // 
-            this.noCiviqueTextBox.Location = new System.Drawing.Point(670, 446);
+            this.noCiviqueTextBox.Location = new System.Drawing.Point(251, 187);
+            this.noCiviqueTextBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.noCiviqueTextBox.Name = "noCiviqueTextBox";
-            this.noCiviqueTextBox.Size = new System.Drawing.Size(289, 38);
+            this.noCiviqueTextBox.Size = new System.Drawing.Size(111, 20);
             this.noCiviqueTextBox.TabIndex = 47;
             // 
             // nomTextBox
             // 
-            this.nomTextBox.Location = new System.Drawing.Point(670, 331);
+            this.nomTextBox.Location = new System.Drawing.Point(251, 139);
+            this.nomTextBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.nomTextBox.Name = "nomTextBox";
-            this.nomTextBox.Size = new System.Drawing.Size(289, 38);
+            this.nomTextBox.Size = new System.Drawing.Size(111, 20);
             this.nomTextBox.TabIndex = 49;
             // 
             // prenomTextBox
             // 
-            this.prenomTextBox.Location = new System.Drawing.Point(1435, 334);
+            this.prenomTextBox.Location = new System.Drawing.Point(538, 140);
+            this.prenomTextBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.prenomTextBox.Name = "prenomTextBox";
-            this.prenomTextBox.Size = new System.Drawing.Size(331, 38);
+            this.prenomTextBox.Size = new System.Drawing.Size(127, 20);
             this.prenomTextBox.TabIndex = 52;
             // 
             // remarqueTextBox
             // 
-            this.remarqueTextBox.Location = new System.Drawing.Point(1435, 695);
+            this.remarqueTextBox.Location = new System.Drawing.Point(538, 291);
+            this.remarqueTextBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.remarqueTextBox.Name = "remarqueTextBox";
-            this.remarqueTextBox.Size = new System.Drawing.Size(331, 38);
+            this.remarqueTextBox.Size = new System.Drawing.Size(127, 20);
             this.remarqueTextBox.TabIndex = 54;
             // 
             // rueTextBox
             // 
-            this.rueTextBox.Location = new System.Drawing.Point(1435, 449);
+            this.rueTextBox.Location = new System.Drawing.Point(538, 188);
+            this.rueTextBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.rueTextBox.Name = "rueTextBox";
-            this.rueTextBox.Size = new System.Drawing.Size(331, 38);
+            this.rueTextBox.Size = new System.Drawing.Size(127, 20);
             this.rueTextBox.TabIndex = 56;
             // 
             // sexeTextBox
             // 
-            this.sexeTextBox.Location = new System.Drawing.Point(670, 388);
+            this.sexeTextBox.Location = new System.Drawing.Point(251, 163);
+            this.sexeTextBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.sexeTextBox.Name = "sexeTextBox";
-            this.sexeTextBox.Size = new System.Drawing.Size(289, 38);
+            this.sexeTextBox.Size = new System.Drawing.Size(111, 20);
             this.sexeTextBox.TabIndex = 58;
             // 
             // telephoneTextBox
             // 
-            this.telephoneTextBox.Location = new System.Drawing.Point(1435, 571);
+            this.telephoneTextBox.Location = new System.Drawing.Point(538, 239);
+            this.telephoneTextBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.telephoneTextBox.Name = "telephoneTextBox";
-            this.telephoneTextBox.Size = new System.Drawing.Size(331, 38);
+            this.telephoneTextBox.Size = new System.Drawing.Size(127, 20);
             this.telephoneTextBox.TabIndex = 60;
             // 
             // villeTextBox
             // 
-            this.villeTextBox.Location = new System.Drawing.Point(670, 504);
+            this.villeTextBox.Location = new System.Drawing.Point(251, 211);
+            this.villeTextBox.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.villeTextBox.Name = "villeTextBox";
-            this.villeTextBox.Size = new System.Drawing.Size(289, 38);
+            this.villeTextBox.Size = new System.Drawing.Size(111, 20);
             this.villeTextBox.TabIndex = 62;
             // 
             // frmAbonnement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2133, 1015);
+            this.ClientSize = new System.Drawing.Size(800, 426);
             this.Controls.Add(this.cmbTypeAbonnement);
             this.Controls.Add(this.lblDateAbonnement);
             this.Controls.Add(cellulaireLabel);
@@ -355,6 +385,7 @@
             this.Controls.Add(villeLabel);
             this.Controls.Add(this.villeTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
             this.Name = "frmAbonnement";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
