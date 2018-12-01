@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Transactions;
+using System.Text.RegularExpressions;
 
 namespace TP2
 {
@@ -25,23 +26,22 @@ namespace TP2
             typesAbonnementBindingSource.DataSource = dataContext.TypesAbonnements;
             provinceBindingSource.DataSource = dataContext.Provinces;
             abonnementBindingSource.DataSource = lstAbonnePrincipal();
-            abonnementBindingSource1.DataSource = lstAbonneDependant(lstAbonnePrincipal().First().Id);
+            dependantBindingSource.DataSource = lstAbonneDependant(lstAbonnePrincipal().First().Id);
         }
 
-        private List<Abonnement> lstAbonnePrincipal() {
-            List<Abonnement> lstAbonn = dataContext.Abonnements.Where(v => v.Id.Substring(v.Id.Length - 1, 1) == "P").ToList();
-            return lstAbonn;
-        }
-
-        private List<Abonnement> lstAbonneDependant(String strAbonnePrincipalSelect)
+        private List<Abonnement> lstAbonnePrincipal()
         {
-            List<Abonnement> lstAbonn = dataContext.Abonnements.Where(v => v.Id.Substring(0, strAbonnePrincipalSelect.Length-1)== strAbonnePrincipalSelect.Substring(0, strAbonnePrincipalSelect.Length - 1) && v.Id != strAbonnePrincipalSelect).ToList();
-            return lstAbonn;
+            return dataContext.Abonnements.ToList(); ;
+        }
+
+        private List<Dependant> lstAbonneDependant(String strAbonnePrincipalSelect)
+        {
+            return dataContext.Dependants.Where(v => v.IdAbonnement == strAbonnePrincipalSelect).ToList();
         }
 
         private void abonnementDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            abonnementBindingSource1.DataSource = lstAbonneDependant(dgAbonnementPrincipal.CurrentRow.Cells[0].Value.ToString());
+            dependantBindingSource.DataSource = lstAbonneDependant(dgAbonnementPrincipal.CurrentRow.Cells[0].Value.ToString());
         }
 
         private void btnRetour_Click(object sender, EventArgs e)
@@ -51,17 +51,122 @@ namespace TP2
 
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
-            using (var porteeTransaction = new TransactionScope())
+            if (this.ValidateChildren(ValidationConstraints.ImmediateChildren))
             {
-                try
+                using (var porteeTransaction = new TransactionScope())
                 {
-                    dataContext.SubmitChanges();
-                    MessageBox.Show("L'abonnée principal " + dgAbonnementPrincipal.CurrentRow.Cells[0].Value + " et ses dépendants ont été enregistrés.", "Enregistrement d'un abonnée");
-                    porteeTransaction.Complete();
+                    try
+                    {
+                        dataContext.SubmitChanges();
+                        MessageBox.Show("L'abonnée principal " + dgAbonnementPrincipal.CurrentRow.Cells[0].Value + " et ses dépendants ont été enregistrés.", "Enregistrement d'un abonnée");
+                        porteeTransaction.Complete();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, "Impossible de modifier la base de donnée");
+                    }
                 }
-                catch(Exception ex)
+            }
+        }
+
+        private void dependantDataGridView_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            DataGridViewRow dgRow = dependantDataGridView.Rows[e.RowIndex];
+            if (e.FormattedValue.ToString().Trim().Equals("") && e.ColumnIndex != dgRemarqueDep.Index)
+            {
+                dgRow.ErrorText = "Cette case ne peut pas être laisée vide";
+                e.Cancel = true;
+            }
+            else
+            {
+                dgRow.ErrorText = "";
+            }
+        }
+
+        private void dgAbonnementPrincipal_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
+        {
+            Regex regex = new Regex(@"^[0-9]{10}$");
+            DataGridViewRow dgRow = dgAbonnementPrincipal.Rows[e.RowIndex];
+            if (e.FormattedValue.ToString().Trim().Equals("") && e.ColumnIndex != dgRemarque.Index && e.ColumnIndex != dgCellulaire.Index)
+            {
+                dgRow.ErrorText = "Cette case ne peut pas être laisée vide";
+                e.Cancel = true;
+            }
+            else
+            {
+                if (e.ColumnIndex == dgTelephone.Index)
                 {
-                    MessageBox.Show(ex.Message, "Impossible de modifier la base de donnée");
+                    if (!regex.IsMatch(e.FormattedValue.ToString()))
+                    {
+                        dgRow.ErrorText = "Le numéro de téléphone doit être 10 chiffres entre 0 et 9";
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        dgRow.ErrorText = "";
+                    }
+
+                }
+                else if (e.ColumnIndex == dgCellulaire.Index && e.FormattedValue.ToString().Trim().Length > 0)
+                {
+                    if (!regex.IsMatch(e.FormattedValue.ToString()))
+                    {
+                        dgRow.ErrorText = "Le numéro de cellulaire doit être 10 chiffres entre 0 et 9";
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        dgRow.ErrorText = "";
+                    }
+
+                }
+                else if (e.ColumnIndex == dgCourriel.Index)
+                {
+                    string strCourriel = e.FormattedValue.ToString().Trim();
+                    if (strCourriel.Trim().Length == 0)
+                    {
+                        dgRow.ErrorText = "Le courriel ne peut pas être vide";
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        if (!strCourriel.Contains("@"))
+                        {
+                            dgRow.ErrorText = "Le courriel doit contenir un '@'";
+                            e.Cancel = true;
+                        }
+                        else
+                        {
+                            string strCourrielPartDeux = strCourriel.Split('@')[1];
+                            if (strCourrielPartDeux.Contains("@"))
+                            {
+                                dgRow.ErrorText = "Le courriel ne doit pas contenir deux '@'";
+                                e.Cancel = true;
+                            }
+                            else if (strCourrielPartDeux.Contains("."))
+                            {
+                                string strCourrielPartTrois = strCourrielPartDeux.Split('.')[1];
+                                if (strCourrielPartTrois.Contains("."))
+                                {
+                                    dgRow.ErrorText = "Le courriel ne doit pas contenir deux domaines de premier niveau";
+                                    e.Cancel = true;
+                                }
+                                else
+                                {
+                                    dgRow.ErrorText = "";
+                                }
+                            }
+                            else
+                            {
+                                dgRow.ErrorText = "Le courriel doit contenir un domaine de premier niveau";
+                                e.Cancel = true;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    dgRow.ErrorText = "";
                 }
             }
         }
