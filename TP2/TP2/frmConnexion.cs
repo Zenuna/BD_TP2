@@ -24,7 +24,7 @@ namespace TP2
             int noEmp;
             if (int.TryParse(strNo,out noEmp))
             {
-                List<Employe> lstEmp = dataClasses1DataContext.Employes.Where(v => v.No == noEmp).ToList();
+                List<Employe> lstEmp = dataClasses1DataContext.Employes.Where(v => v.No == noEmp).ToList<Employe>();
                 if(lstEmp.Count <= 0)
                 {
                     lblErreurConnexion.Text = "Numéro d'employé inconnu";
