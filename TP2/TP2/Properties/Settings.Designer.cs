@@ -33,5 +33,16 @@ namespace TP2.Properties {
                 return ((string)(this["BD5B6TP2_JouaniquePerreaultConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=sv-sqlinfo.cgodin.qc.ca;Initial Catalog=BD5B6TP2_JouaniquePerreault;U" +
+            "ser ID=5B6Perreault;Password=Sql2018")]
+        public string BD5B6TP2_JouaniquePerreaultConnectionString1 {
+            get {
+                return ((string)(this["BD5B6TP2_JouaniquePerreaultConnectionString1"]));
+            }
+        }
     }
 }

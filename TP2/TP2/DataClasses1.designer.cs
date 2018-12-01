@@ -72,7 +72,7 @@ namespace TP2
     #endregion
 		
 		public DataClasses1DataContext() : 
-				base(global::TP2.Properties.Settings.Default.BD5B6TP2_JouaniquePerreaultConnectionString, mappingSource)
+				base(global::TP2.Properties.Settings.Default.BD5B6TP2_JouaniquePerreaultConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}

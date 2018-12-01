@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BD5B6TP2_JouaniquePerreault" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=sqlinfo.cgodin.qc.ca;Initial Catalog=BD5B6TP2_JouaniquePerreault;User ID=5B6Jouanique" SettingsObjectName="TP2.Properties.Settings" SettingsPropertyName="BD5B6TP2_JouaniquePerreaultConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=sv-sqlinfo.cgodin.qc.ca;Initial Catalog=BD5B6TP2_JouaniquePerreault;User ID=5B6Perreault" SettingsObjectName="TP2.Properties.Settings" SettingsPropertyName="BD5B6TP2_JouaniquePerreaultConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.Dependants" Member="Dependants">
     <Type Name="Dependant">
       <Column Name="Id" Type="System.String" DbType="VarChar(30) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
