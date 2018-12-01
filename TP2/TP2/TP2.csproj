@@ -74,12 +74,6 @@
     <Compile Include="ajoutEmploye.designer.cs">
       <DependentUpon>ajoutEmploye.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAbonnement1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAbonnement1.Designer.cs">
-      <DependentUpon>frmAbonnement1.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmAbonnement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,9 +149,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ajoutEmploye.resx">
       <DependentUpon>ajoutEmploye.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAbonnement1.resx">
-      <DependentUpon>frmAbonnement1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAbonnement.resx">
       <DependentUpon>frmAbonnement.cs</DependentUpon>
