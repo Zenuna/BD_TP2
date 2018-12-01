@@ -248,6 +248,7 @@ namespace TP2
                         {
                             dataClasses1DataContext.Employes.DeleteOnSubmit(emp);
                             dataClasses1DataContext.SubmitChanges(ConflictMode.ContinueOnConflict);
+                            loadDataSource();
                         }
                         catch (ChangeConflictException)
                         {
@@ -273,7 +274,6 @@ namespace TP2
                 }
 
             }
-            loadDataSource();
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
