@@ -61,5 +61,10 @@ namespace TP2
             }
             return lstAbonnVerif;
         }
+
+        private void btbRetour_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

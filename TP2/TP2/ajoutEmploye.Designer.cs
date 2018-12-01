@@ -281,7 +281,7 @@
             0,
             0});
             this.ageNumericUpDown.Name = "ageNumericUpDown";
-            this.ageNumericUpDown.Size = new System.Drawing.Size(206, 20);
+            this.ageNumericUpDown.Size = new System.Drawing.Size(254, 20);
             this.ageNumericUpDown.TabIndex = 2;
             this.ageNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ageNumericUpDown.Value = new decimal(new int[] {
@@ -300,7 +300,7 @@
             this.cellulaireMaskedTextBox.Location = new System.Drawing.Point(156, 311);
             this.cellulaireMaskedTextBox.Mask = "(000) 000-0000";
             this.cellulaireMaskedTextBox.Name = "cellulaireMaskedTextBox";
-            this.cellulaireMaskedTextBox.Size = new System.Drawing.Size(206, 20);
+            this.cellulaireMaskedTextBox.Size = new System.Drawing.Size(254, 20);
             this.cellulaireMaskedTextBox.TabIndex = 4;
             this.cellulaireMaskedTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.cellulaireMaskedTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.cellulaireMaskedTextBox_Validating);
@@ -311,7 +311,7 @@
             this.codePostalMaskedTextBox.Location = new System.Drawing.Point(156, 210);
             this.codePostalMaskedTextBox.Mask = "L0L 0L0";
             this.codePostalMaskedTextBox.Name = "codePostalMaskedTextBox";
-            this.codePostalMaskedTextBox.Size = new System.Drawing.Size(206, 20);
+            this.codePostalMaskedTextBox.Size = new System.Drawing.Size(254, 20);
             this.codePostalMaskedTextBox.TabIndex = 6;
             this.codePostalMaskedTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.codePostalMaskedTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.codePostalMaskedTextBox_Validating);
@@ -322,7 +322,7 @@
             this.motDePasseTextBox.Location = new System.Drawing.Point(156, 34);
             this.motDePasseTextBox.MaxLength = 50;
             this.motDePasseTextBox.Name = "motDePasseTextBox";
-            this.motDePasseTextBox.Size = new System.Drawing.Size(206, 20);
+            this.motDePasseTextBox.Size = new System.Drawing.Size(254, 20);
             this.motDePasseTextBox.TabIndex = 12;
             this.motDePasseTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.motDePasseTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.motDePasseTextBox_Validating);
@@ -333,7 +333,7 @@
             this.noTextBox.Location = new System.Drawing.Point(156, 9);
             this.noTextBox.Name = "noTextBox";
             this.noTextBox.ReadOnly = true;
-            this.noTextBox.Size = new System.Drawing.Size(206, 20);
+            this.noTextBox.Size = new System.Drawing.Size(254, 20);
             this.noTextBox.TabIndex = 14;
             this.noTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -343,7 +343,7 @@
             this.noCiviqueTextBox.Location = new System.Drawing.Point(156, 160);
             this.noCiviqueTextBox.MaxLength = 10;
             this.noCiviqueTextBox.Name = "noCiviqueTextBox";
-            this.noCiviqueTextBox.Size = new System.Drawing.Size(206, 20);
+            this.noCiviqueTextBox.Size = new System.Drawing.Size(254, 20);
             this.noCiviqueTextBox.TabIndex = 16;
             this.noCiviqueTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.noCiviqueTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.noCiviqueTextBox_Validating);
@@ -354,7 +354,7 @@
             this.nomTextBox.Location = new System.Drawing.Point(156, 84);
             this.nomTextBox.MaxLength = 50;
             this.nomTextBox.Name = "nomTextBox";
-            this.nomTextBox.Size = new System.Drawing.Size(206, 20);
+            this.nomTextBox.Size = new System.Drawing.Size(254, 20);
             this.nomTextBox.TabIndex = 18;
             this.nomTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nomTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.nomTextBox_Validating);
@@ -365,7 +365,7 @@
             this.prenomTextBox.Location = new System.Drawing.Point(156, 59);
             this.prenomTextBox.MaxLength = 50;
             this.prenomTextBox.Name = "prenomTextBox";
-            this.prenomTextBox.Size = new System.Drawing.Size(206, 20);
+            this.prenomTextBox.Size = new System.Drawing.Size(254, 20);
             this.prenomTextBox.TabIndex = 22;
             this.prenomTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.prenomTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.prenomTextBox_Validating);
@@ -376,7 +376,7 @@
             this.remarqueTextBox.Location = new System.Drawing.Point(156, 412);
             this.remarqueTextBox.MaxLength = 50;
             this.remarqueTextBox.Name = "remarqueTextBox";
-            this.remarqueTextBox.Size = new System.Drawing.Size(206, 20);
+            this.remarqueTextBox.Size = new System.Drawing.Size(254, 20);
             this.remarqueTextBox.TabIndex = 24;
             this.remarqueTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -386,7 +386,7 @@
             this.rueTextBox.Location = new System.Drawing.Point(156, 185);
             this.rueTextBox.MaxLength = 50;
             this.rueTextBox.Name = "rueTextBox";
-            this.rueTextBox.Size = new System.Drawing.Size(206, 20);
+            this.rueTextBox.Size = new System.Drawing.Size(254, 20);
             this.rueTextBox.TabIndex = 26;
             this.rueTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.rueTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.rueTextBox_Validating);
@@ -397,7 +397,7 @@
             this.villeTextBox.Location = new System.Drawing.Point(156, 235);
             this.villeTextBox.MaxLength = 50;
             this.villeTextBox.Name = "villeTextBox";
-            this.villeTextBox.Size = new System.Drawing.Size(206, 20);
+            this.villeTextBox.Size = new System.Drawing.Size(254, 20);
             this.villeTextBox.TabIndex = 34;
             this.villeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.villeTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.villeTextBox_Validating);
@@ -410,7 +410,7 @@
             this.idProvinceComboBox.FormattingEnabled = true;
             this.idProvinceComboBox.Location = new System.Drawing.Point(156, 260);
             this.idProvinceComboBox.Name = "idProvinceComboBox";
-            this.idProvinceComboBox.Size = new System.Drawing.Size(206, 21);
+            this.idProvinceComboBox.Size = new System.Drawing.Size(254, 21);
             this.idProvinceComboBox.TabIndex = 35;
             this.idProvinceComboBox.ValueMember = "Id";
             // 
@@ -430,7 +430,7 @@
             this.sexeComboBox.FormattingEnabled = true;
             this.sexeComboBox.Location = new System.Drawing.Point(156, 109);
             this.sexeComboBox.Name = "sexeComboBox";
-            this.sexeComboBox.Size = new System.Drawing.Size(206, 21);
+            this.sexeComboBox.Size = new System.Drawing.Size(254, 21);
             this.sexeComboBox.TabIndex = 37;
             this.sexeComboBox.ValueMember = "idSexe";
             // 
@@ -472,7 +472,7 @@
             this.noTypeEmployeComboBox.FormattingEnabled = true;
             this.noTypeEmployeComboBox.Location = new System.Drawing.Point(156, 386);
             this.noTypeEmployeComboBox.Name = "noTypeEmployeComboBox";
-            this.noTypeEmployeComboBox.Size = new System.Drawing.Size(206, 21);
+            this.noTypeEmployeComboBox.Size = new System.Drawing.Size(254, 21);
             this.noTypeEmployeComboBox.TabIndex = 36;
             this.noTypeEmployeComboBox.ValueMember = "No";
             this.noTypeEmployeComboBox.Validating += new System.ComponentModel.CancelEventHandler(this.noTypeEmployeComboBox_Validating);
@@ -498,7 +498,7 @@
             0,
             0});
             this.salaireHoraireNumericUpDown.Name = "salaireHoraireNumericUpDown";
-            this.salaireHoraireNumericUpDown.Size = new System.Drawing.Size(209, 20);
+            this.salaireHoraireNumericUpDown.Size = new System.Drawing.Size(257, 20);
             this.salaireHoraireNumericUpDown.TabIndex = 40;
             this.salaireHoraireNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.salaireHoraireNumericUpDown.Value = new decimal(new int[] {
@@ -513,7 +513,7 @@
             this.telephoneMaskedTextBox.Location = new System.Drawing.Point(155, 287);
             this.telephoneMaskedTextBox.Mask = "(000) 000-0000";
             this.telephoneMaskedTextBox.Name = "telephoneMaskedTextBox";
-            this.telephoneMaskedTextBox.Size = new System.Drawing.Size(207, 20);
+            this.telephoneMaskedTextBox.Size = new System.Drawing.Size(255, 20);
             this.telephoneMaskedTextBox.TabIndex = 41;
             this.telephoneMaskedTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.telephoneMaskedTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.telephoneMaskedTextBox_Validating);
@@ -524,7 +524,7 @@
             this.courrielTextBox.Location = new System.Drawing.Point(155, 337);
             this.courrielTextBox.MaxLength = 50;
             this.courrielTextBox.Name = "courrielTextBox";
-            this.courrielTextBox.Size = new System.Drawing.Size(207, 20);
+            this.courrielTextBox.Size = new System.Drawing.Size(255, 20);
             this.courrielTextBox.TabIndex = 42;
             this.courrielTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.courrielTextBox_Validating);
             // 
