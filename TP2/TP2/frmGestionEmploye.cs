@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Data.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -55,16 +56,46 @@ namespace TP2
                         dgRow.ErrorText = "L'âge doit être entre 16 et 65 ans";
                         e.Cancel = true;
                     }
+                    else
+                    {
+                        dgRow.ErrorText = "";
+                    }
                 }
-                else if (e.ColumnIndex == dgNoCivique.Index && !int.TryParse(e.FormattedValue.ToString(), out noCivique))
+                else if (e.ColumnIndex == dgNoCivique.Index)
                 {
-                    dgRow.ErrorText = "Le numéro civique doit être un entier supérier à 0";
-                    e.Cancel = true;
+                    if (!int.TryParse(e.FormattedValue.ToString(), out noCivique)) { 
+                        dgRow.ErrorText = "Le numéro civique doit être un entier supérier à 0";
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        dgRow.ErrorText = "";
+                    }
+            }
+                else if(e.ColumnIndex == dgTelephone.Index)
+                {
+                    if (!regex.IsMatch(e.FormattedValue.ToString()))
+                    {
+                        dgRow.ErrorText = "Le numéro de téléphone doit être 10 chiffres entre 0 et 9";
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        dgRow.ErrorText = "";
+                    }
+
                 }
-                else if((e.ColumnIndex == dgTelephone.Index || e.ColumnIndex == dgCellulaire.Index) && !regex.IsMatch(e.FormattedValue.ToString()))
-                {
-                    dgRow.ErrorText = "Le numéro de téléphone ou de cellulaire doit être 10 chiffres entre 0 et 9";
-                    e.Cancel = true;
+                else if(e.ColumnIndex == dgCellulaire.Index && e.FormattedValue.ToString().Trim().Length > 0) {
+                    if (!regex.IsMatch(e.FormattedValue.ToString()))
+                    {
+                        dgRow.ErrorText = "Le numéro de cellulaire doit être 10 chiffres entre 0 et 9";
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        dgRow.ErrorText = "";
+                    }
+
                 }
                 else if(e.ColumnIndex == dgSalaireHoraire.Index)
                 {
@@ -79,64 +110,72 @@ namespace TP2
                         dgRow.ErrorText = "Le salaire doit être un montant entre 10 et 500 dollars";
                         e.Cancel = true;
                     }
+                    else
+                    {
+                        dgRow.ErrorText = "";
+                    }
 
+                }
+                else if(e.ColumnIndex == dgMdeP.Index)
+                {
+                    bool blnChiffre = false;
+                    bool blnLettre = false;
+                    bool blnAutre = false;
+                    string strMdeP = e.FormattedValue.ToString().Trim();
+                    if (strMdeP.Length < 8)
+                    {
+                        dgRow.ErrorText = "Le mot de passe est composé au minimum de 8 charactères";
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        char[] lstChar = strMdeP.ToCharArray();
+                        foreach (char c in lstChar)
+                        {
+                            if (Char.IsDigit(c))
+                            {
+                                blnChiffre = true;
+                            }
+                            else if (Char.IsLetter(c))
+                            {
+                                blnLettre = true;
+                            }
+                            else
+                            {
+                                blnAutre = true;
+                            }
+                        }
+                        if (!blnChiffre || !blnLettre || !blnAutre)
+                        {
+                            dgRow.ErrorText = "Le mot de passe doit contenir une lettre, un chiffre et un autre caractère";
+                            e.Cancel = true;
+                        }
+                        else
+                        {
+                            dgRow.ErrorText = "";
+                        }
+                    }
                 }
                 else
                 {
                     dgRow.ErrorText = "";
-                    e.Cancel = false;
                 }
             }
         }
 
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
-            foreach(DataGridViewRow dgRow in dgEmploye.Rows)
+            try
             {
-                int noEmp = 0;
-                if (int.TryParse(dgRow.Cells[0].Value.ToString(), out noEmp))
-                {
-                    Employe emp = dataClasses1DataContext.Employes.Where(v => v.No == noEmp).First();
-                    emp.No = int.Parse(dgRow.Cells[0].Value.ToString());
-                    emp.MotDePasse = dgRow.Cells[1].Value.ToString();
-                    emp.Nom = dgRow.Cells[2].Value.ToString();
-                    emp.Prenom = dgRow.Cells[3].Value.ToString();
-                    emp.Sexe = dgRow.Cells[4].Value.ToString().ToCharArray()[0];
-                    emp.Age = int.Parse(dgRow.Cells[5].Value.ToString());
-                    emp.NoCivique = int.Parse(dgRow.Cells[6].Value.ToString());
-                    emp.Rue = dgRow.Cells[7].Value.ToString();
-                    emp.Ville = dgRow.Cells[8].Value.ToString();
-                    emp.IdProvince = dgRow.Cells[9].Value.ToString();
-                    emp.Telephone = dgRow.Cells[10].Value.ToString();
-                    if (dgRow.Cells[11].Value == null)
-                    {
-                        emp.Cellulaire = "";
-                    }
-                    else
-                    {
-                        emp.Cellulaire = dgRow.Cells[11].Value.ToString();
-                    }
-                    emp.Courriel = dgRow.Cells[12].Value.ToString();
-                    emp.SalaireHoraire = decimal.Parse(dgRow.Cells[13].Value.ToString());
-                    emp.NoTypeEmploye = int.Parse(dgRow.Cells[14].Value.ToString());
-                    if (dgRow.Cells[15].Value == null)
-                    {
-                        emp.Remarque = "";
-                    }
-                    else
-                    {
-                        emp.Remarque = dgRow.Cells[15].Value.ToString();
-                    }
-                    try
-                    {
-
-                        dataClasses1DataContext.SubmitChanges();
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message, "Impossible de modifier cet employé dans la base de donnée");
-                    }
-                }
+                dataClasses1DataContext.SubmitChanges(ConflictMode.ContinueOnConflict);
+            }
+            catch (ChangeConflictException)
+            {
+                dataClasses1DataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepCurrentValues);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erreur lors de l'enregistrement des données");
             }
         }
 
@@ -145,6 +184,7 @@ namespace TP2
             ajoutEmploye fAjoutEmp = new ajoutEmploye();
             this.Hide();
             fAjoutEmp.ShowDialog();
+            loadDataSource();
             this.Show();
         }
 
@@ -163,12 +203,15 @@ namespace TP2
                         try
                         {
                             dataClasses1DataContext.Employes.DeleteOnSubmit(emp);
-                            dataClasses1DataContext.SubmitChanges();
-                            
+                            dataClasses1DataContext.SubmitChanges(ConflictMode.ContinueOnConflict);
+                        }
+                        catch (ChangeConflictException)
+                        {
+                            dataClasses1DataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepCurrentValues);
                         }
                         catch (Exception ex)
                         {
-                            MessageBox.Show(ex.Message, "Impossible de supprimer cet employé dans la base de donnée");
+                            MessageBox.Show(ex.Message, "Erreur lors de la suppression des données");
                         }
                     }
                 }

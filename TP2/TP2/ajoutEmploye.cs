@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Data.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -29,72 +30,237 @@ namespace TP2
 
         private void btnAjouter_Click(object sender, EventArgs e)
         {
-            int noEmploye = int.Parse(noTextBox.Text);
+            if (this.ValidateChildren(ValidationConstraints.ImmediateChildren))
+            {
+                int noEmploye = int.Parse(noTextBox.Text);
+                string strPrenom = prenomTextBox.Text;
+                string strNom = nomTextBox.Text;
+                string strMdeP = motDePasseTextBox.Text;
+                char chrSexe = sexeComboBox.SelectedValue.ToString().ToCharArray()[0];
+                int intAge = int.Parse(ageNumericUpDown.Value.ToString());
+                string strNoCivique = noCiviqueTextBox.Text;
+                string strRue = rueTextBox.Text;
+                string strVille = villeTextBox.Text;
+                string strProvince = idProvinceComboBox.SelectedValue.ToString();
+                string strCodePostal = codePostalMaskedTextBox.Text;
+                string strTelephone = telephoneMaskedTextBox.Text;
+                string strCellulaire = cellulaireMaskedTextBox.Text;
+                string strCourriel = courrielTextBox.Text;
+                decimal dclMoney = decimal.Parse(salaireHoraireNumericUpDown.Value.ToString());
+                int intTypeEmploye = int.Parse(noTypeEmployeComboBox.SelectedValue.ToString());
+                string strRemarque = remarqueTextBox.Text;
+                Employe empAjouter = new Employe
+                {
+                    No = int.Parse(noTextBox.Text),
+                    MotDePasse = strMdeP,
+                    Prenom = strPrenom,
+                    Nom = strNom,
+                    Sexe = chrSexe,
+                    Age = intAge,
+                    NoCivique = strNoCivique,
+                    Rue = strRue,
+                    Ville = strVille,
+                    IdProvince = strProvince,
+                    CodePostal = strCodePostal,
+                    Telephone = strTelephone,
+                    Cellulaire = strCellulaire,
+                    Courriel = strCourriel,
+                    SalaireHoraire = dclMoney,
+                    NoTypeEmploye = intTypeEmploye,
+                    Remarque = strRemarque
+                };
+                try
+                {
+                    dataClasses1DataContext.Employes.InsertOnSubmit(empAjouter);
+                    dataClasses1DataContext.SubmitChanges(ConflictMode.ContinueOnConflict);
+                }
+                catch (ChangeConflictException)
+                {
+                    dataClasses1DataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepCurrentValues);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erreur lors de l'ajout des données");
+                }
+                this.Close();
+            }
+
+        }
+
+        private void motDePasseTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            bool blnChiffre = false;
+            bool blnLettre = false;
+            bool blnAutre = false;
+            string strMdeP = motDePasseTextBox.Text;
+            if (strMdeP.Trim().Length < 8)
+            {
+                errMessage.SetError(motDePasseTextBox, "Le mot de passe est composé au minimum de 8 charactères");
+                e.Cancel = true;
+            }
+            else
+            {
+                char[] lstChar = strMdeP.Trim().ToCharArray();
+                foreach (char c in lstChar)
+                {
+                    if (Char.IsDigit(c))
+                    {
+                        blnChiffre = true;
+                    }
+                    else if (Char.IsLetter(c))
+                    {
+                        blnLettre = true;
+                    }
+                    else
+                    {
+                        blnAutre = true;
+                    }
+                }
+                if(!blnChiffre || !blnLettre || !blnAutre)
+                {
+                    errMessage.SetError(motDePasseTextBox, "Le mot de passe doit contenir une lettre, un chiffre et un autre caractère");
+                }
+                errMessage.SetError(motDePasseTextBox,"");
+            }
+        }
+
+        private void prenomTextBox_Validating(object sender, CancelEventArgs e)
+        {
             string strPrenom = prenomTextBox.Text;
-            if(strPrenom.Trim().Length == 0)
+            if (strPrenom.Trim().Length == 0)
             {
                 errMessage.SetError(prenomTextBox, "Le prénom ne peut pas être vide");
+                e.Cancel = true;
             }
+            else
+            {
+                errMessage.SetError(prenomTextBox, "");
+            }
+        }
+
+        private void nomTextBox_Validating(object sender, CancelEventArgs e)
+        {
             string strNom = nomTextBox.Text;
             if (strNom.Trim().Length == 0)
             {
                 errMessage.SetError(nomTextBox, "Le nom ne peut pas être vide");
+                e.Cancel = true;
             }
-            string strMdeP = motDePasseTextBox.Text;
-            if (strMdeP.Trim().Length == 0)
+            else
             {
-                errMessage.SetError(prenomTextBox, "Le mot de passe ne peut pas être vide");
+                errMessage.SetError(nomTextBox, "");
             }
-            char chrSexe = sexeComboBox.SelectedValue.ToString().ToCharArray()[0];
-            int intAge = 0;
-            if(!int.TryParse(ageNumericUpDown.Value.ToString(),out intAge))
+        }
+
+        private void noCiviqueTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            string strNoCivique = noCiviqueTextBox.Text;
+            if(strNoCivique.Trim().Length == 0)
             {
-                errMessage.SetError(ageNumericUpDown, "L'âge doit être un entier entre 16 et 65");
+                errMessage.SetError(noCiviqueTextBox, "Le numéro civique ne peut pas être vide");
+                e.Cancel = true;
             }
-            int intNoCivique = 0;
-            if (!int.TryParse(noCiviqueTextBox.Text, out intNoCivique))
+            else
             {
-                errMessage.SetError(noCiviqueTextBox, "Le numéro civique doit être un entier positif");
+                errMessage.SetError(noCiviqueTextBox, "");
             }
+        }
+
+        private void rueTextBox_Validating(object sender, CancelEventArgs e)
+        {
             string strRue = rueTextBox.Text;
-            if(strRue.Trim().Length == 0)
+            if (strRue.Trim().Length == 0)
             {
                 errMessage.SetError(rueTextBox, "La rue ne peut pas être vide");
+                e.Cancel = true;
             }
-            string strVille = villeTextBox.Text;
-            if (strVille.Trim().Length == 0)
+            else
             {
-                errMessage.SetError(villeTextBox, "La ville ne peut pas être vide");
+                errMessage.SetError(rueTextBox, "");
             }
-            string strProvince = idProvinceComboBox.SelectedValue.ToString();
+        }
+
+        private void codePostalMaskedTextBox_Validating(object sender, CancelEventArgs e)
+        {
             string strCodePostal = codePostalMaskedTextBox.Text;
             if (strCodePostal.Trim().Length == 0)
             {
                 errMessage.SetError(codePostalMaskedTextBox, "Le code postal ne peut pas être vide");
+                e.Cancel = true;
             }
-            string strTelephone = telephoneTextBox.Text;
-            if (strTelephone.Trim().Length == 0)
+            else
             {
-                errMessage.SetError(telephoneTextBox, "Le numéro de téléphone ne peut pas être vide");
+                errMessage.SetError(codePostalMaskedTextBox, "");
             }
-            string strCellulaire = cellulaireMaskedTextBox.Text;
-            string strCourriel = courrielMaskedTextBox.Text;
+        }
+
+        private void villeTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            string strVille = villeTextBox.Text;
+            if (strVille.Trim().Length == 0)
+            {
+                errMessage.SetError(villeTextBox, "La ville ne peut pas être vide");
+                e.Cancel = true;
+            }
+            else
+            {
+                errMessage.SetError(villeTextBox, "");
+            }
+        }
+
+        private void telephoneMaskedTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            string strTelephone = telephoneMaskedTextBox.Text;
+            if (strTelephone.Replace("(", "").Replace(")", "").Replace("-", "").Trim().Length < 10)
+            {
+                errMessage.SetError(telephoneMaskedTextBox, "Le numéro de téléphone doit être composé de dix chiffres.");
+                e.Cancel = true;
+            }
+            else
+            {
+                errMessage.SetError(telephoneMaskedTextBox, "");
+            }
+        }
+
+        private void courrielTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            string strCourriel = courrielTextBox.Text;
             if (strCourriel.Trim().Length == 0)
             {
-                errMessage.SetError(courrielMaskedTextBox, "Le courriel ne peut pas être vide");
+                errMessage.SetError(courrielTextBox, "Le courriel ne peut pas être vide");
+                e.Cancel = true;
             }
-            decimal dclMoney = 0;
-            if(!decimal.TryParse(salaireHoraireTextBox.Text, out dclMoney))
+            else
             {
-                errMessage.SetError(salaireHoraireTextBox, "Le salaire doit être un chiffre à deux décimal positif entre 10 et 500");
+                errMessage.SetError(courrielTextBox, "");
             }
-            int intTypeEmploye = int.Parse(noTypeEmployeComboBox.SelectedValue.ToString());
-            string strRemarque = remarqueTextBox.Text;
-            Employe empAjouter = new Employe
+        }
+
+        private void noTypeEmployeComboBox_Validating(object sender, CancelEventArgs e)
+        {
+            if(noTypeEmployeComboBox.SelectedValue.ToString().Equals("1"))
             {
-                No = int.Parse(noTextBox.Text)
-            };
-            this.Close();
+                errMessage.SetError(noTypeEmployeComboBox, "Vous ne pouvez pas ajouter un deuxième administrateur");
+                e.Cancel = true;
+            }
+            else
+            {
+                errMessage.SetError(noTypeEmployeComboBox, "");
+            }
+        }
+
+        private void cellulaireMaskedTextBox_Validating(object sender, CancelEventArgs e)
+        {
+            String strCell = cellulaireMaskedTextBox.Text;
+            if (strCell.Replace("(", "").Replace(")", "").Replace("-", "").Trim().Length <10 && strCell.Replace("(", "").Replace(")", "").Replace("-", "").Trim().Length != 0)
+            {
+                errMessage.SetError(cellulaireMaskedTextBox, "Le numéro de cellulaire doit être composé de dix chiffres.");
+                e.Cancel = true;
+            }
+            else
+            {
+                errMessage.SetError(cellulaireMaskedTextBox, "");
+            }
         }
     }
 }
