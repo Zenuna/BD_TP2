@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Transactions;
 
 namespace TP2
 {
@@ -24,7 +25,7 @@ namespace TP2
             typesAbonnementBindingSource.DataSource = dataContext.TypesAbonnements;
             provinceBindingSource.DataSource = dataContext.Provinces;
             abonnementBindingSource.DataSource = lstAbonnePrincipal();
-            abonnementBindingSource1.DataSource = lstAbonneDependant(lstAbonnePrincipal().First().Id.Substring(0, lstAbonnePrincipal().First().Id.Length - 1));
+            abonnementBindingSource1.DataSource = lstAbonneDependant(lstAbonnePrincipal().First().Id);
         }
 
         private List<Abonnement> lstAbonnePrincipal() {
@@ -34,13 +35,13 @@ namespace TP2
 
         private List<Abonnement> lstAbonneDependant(String strAbonnePrincipalSelect)
         {
-            List<Abonnement> lstAbonn = dataContext.Abonnements.Where(v => v.Id.Substring(0, strAbonnePrincipalSelect.Length)== strAbonnePrincipalSelect).ToList();
+            List<Abonnement> lstAbonn = dataContext.Abonnements.Where(v => v.Id.Substring(0, strAbonnePrincipalSelect.Length-1)== strAbonnePrincipalSelect.Substring(0, strAbonnePrincipalSelect.Length - 1) && v.Id != strAbonnePrincipalSelect).ToList();
             return lstAbonn;
         }
 
         private void abonnementDataGridView_SelectionChanged(object sender, EventArgs e)
         {
-            abonnementBindingSource1.DataSource = lstAbonneDependant(dgAbonnementPrincipal.CurrentRow.Cells[0].Value.ToString().Substring(0, dgAbonnementPrincipal.CurrentRow.Cells[0].Value.ToString().Length - 1));
+            abonnementBindingSource1.DataSource = lstAbonneDependant(dgAbonnementPrincipal.CurrentRow.Cells[0].Value.ToString());
         }
 
         private void btnRetour_Click(object sender, EventArgs e)
@@ -50,7 +51,19 @@ namespace TP2
 
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
-
+            using (var porteeTransaction = new TransactionScope())
+            {
+                try
+                {
+                    dataContext.SubmitChanges();
+                    MessageBox.Show("L'abonnée principal " + dgAbonnementPrincipal.CurrentRow.Cells[0].Value + " et ses dépendants ont été enregistrés.", "Enregistrement d'un abonnée");
+                    porteeTransaction.Complete();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Impossible de modifier la base de donnée");
+                }
+            }
         }
     }
 }
