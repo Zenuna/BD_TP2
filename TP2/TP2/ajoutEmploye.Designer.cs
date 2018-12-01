@@ -441,7 +441,7 @@
             // btnRetour
             // 
             this.btnRetour.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRetour.Location = new System.Drawing.Point(191, 452);
+            this.btnRetour.Location = new System.Drawing.Point(214, 452);
             this.btnRetour.Name = "btnRetour";
             this.btnRetour.Size = new System.Drawing.Size(173, 41);
             this.btnRetour.TabIndex = 39;
@@ -452,7 +452,7 @@
             // btnAjouter
             // 
             this.btnAjouter.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAjouter.Location = new System.Drawing.Point(12, 452);
+            this.btnAjouter.Location = new System.Drawing.Point(35, 452);
             this.btnAjouter.Name = "btnAjouter";
             this.btnAjouter.Size = new System.Drawing.Size(173, 41);
             this.btnAjouter.TabIndex = 38;

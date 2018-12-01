@@ -156,6 +156,50 @@ namespace TP2
                         }
                     }
                 }
+                else if(e.ColumnIndex == dgCourriel.Index)
+                {
+                    string strCourriel = e.FormattedValue.ToString().Trim();
+                    if (strCourriel.Trim().Length == 0)
+                    {
+                        dgRow.ErrorText = "Le courriel ne peut pas être vide";
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        if (!strCourriel.Contains("@"))
+                        {
+                            dgRow.ErrorText = "Le courriel doit contenir un '@'";
+                            e.Cancel = true;
+                        }
+                        else
+                        {
+                            string strCourrielPartDeux = strCourriel.Split('@')[1];
+                            if (strCourrielPartDeux.Contains("@"))
+                            {
+                                dgRow.ErrorText = "Le courriel ne doit pas contenir deux '@'";
+                                e.Cancel = true;
+                            }
+                            else if (strCourrielPartDeux.Contains("."))
+                            {
+                                string strCourrielPartTrois = strCourrielPartDeux.Split('.')[1];
+                                if (strCourrielPartTrois.Contains("."))
+                                {
+                                    dgRow.ErrorText = "Le courriel ne doit pas contenir deux domaines de premier niveau";
+                                    e.Cancel = true;
+                                }
+                                else
+                                {
+                                    dgRow.ErrorText = "";
+                                }
+                            }
+                            else
+                            {
+                                dgRow.ErrorText = "Le courriel doit contenir un domaine de premier niveau";
+                                e.Cancel = true;
+                            }
+                        }
+                    }
+                }
                 else
                 {
                     dgRow.ErrorText = "";

@@ -232,7 +232,38 @@ namespace TP2
             }
             else
             {
-                errMessage.SetError(courrielTextBox, "");
+                if (!strCourriel.Contains("@"))
+                {
+                    errMessage.SetError(courrielTextBox, "Le courriel doit contenir un '@'");
+                    e.Cancel = true;
+                }
+                else
+                {
+                    string strCourrielPartDeux = strCourriel.Split('@')[1];
+                    if (strCourrielPartDeux.Contains("@"))
+                    {
+                        errMessage.SetError(courrielTextBox, "Le courriel ne doit pas contenir deux '@'");
+                        e.Cancel = true;
+                    }
+                    else if (strCourrielPartDeux.Contains("."))
+                    {
+                        string strCourrielPartTrois = strCourrielPartDeux.Split('.')[1];
+                        if (strCourrielPartTrois.Contains("."))
+                        {
+                            errMessage.SetError(courrielTextBox, "Le courriel ne doit pas contenir deux domaines de premier niveau");
+                            e.Cancel = true;
+                        }
+                        else
+                        {
+                            errMessage.SetError(courrielTextBox, "");
+                        }
+                    }
+                    else
+                    {
+                        errMessage.SetError(courrielTextBox, "Le courriel doit contenir un domaine de premier niveau");
+                        e.Cancel = true;
+                    }
+                }
             }
         }
 
