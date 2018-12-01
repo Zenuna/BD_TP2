@@ -42,9 +42,9 @@ namespace TP2
                 string strRue = rueTextBox.Text;
                 string strVille = villeTextBox.Text;
                 string strProvince = idProvinceComboBox.SelectedValue.ToString();
-                string strCodePostal = codePostalMaskedTextBox.Text;
-                string strTelephone = telephoneMaskedTextBox.Text;
-                string strCellulaire = cellulaireMaskedTextBox.Text;
+                string strCodePostal = codePostalMaskedTextBox.Text.Replace(" ", "");
+                string strTelephone = telephoneMaskedTextBox.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "").Trim();
+                string strCellulaire = cellulaireMaskedTextBox.Text.Replace("(", "").Replace(")", "").Replace("-", "").Replace(" ", "").Trim();
                 string strCourriel = courrielTextBox.Text;
                 decimal dclMoney = decimal.Parse(salaireHoraireNumericUpDown.Value.ToString());
                 int intTypeEmploye = int.Parse(noTypeEmployeComboBox.SelectedValue.ToString());
@@ -119,8 +119,12 @@ namespace TP2
                 if(!blnChiffre || !blnLettre || !blnAutre)
                 {
                     errMessage.SetError(motDePasseTextBox, "Le mot de passe doit contenir une lettre, un chiffre et un autre caractère");
+                    e.Cancel = true;
                 }
-                errMessage.SetError(motDePasseTextBox,"");
+                else
+                {
+                    errMessage.SetError(motDePasseTextBox, "");
+                }
             }
         }
 
