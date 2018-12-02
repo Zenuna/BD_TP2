@@ -21,7 +21,7 @@ namespace TP2
 
         private void frmReAbonnement_Load(object sender, EventArgs e)
         {
-            abonnementBindingSource.DataSource = loadDG();
+            nomCompletAbonneBindingSource.DataSource = loadDG();
         }
 
         private void btnRenouveler_Click(object sender, EventArgs e)
@@ -34,7 +34,7 @@ namespace TP2
             {
                 dataContext.Reabonnements.InsertOnSubmit(rAb);
                 dataContext.SubmitChanges(ConflictMode.ContinueOnConflict);
-                abonnementBindingSource.DataSource = loadDG();
+                nomCompletAbonneBindingSource.DataSource = loadDG();
             }
             catch (ChangeConflictException)
             {
@@ -46,17 +46,17 @@ namespace TP2
             }
         }
 
-        private List<Abonnement> loadDG()
+        private List<nomCompletAbonne> loadDG()
         {
-            bool blnRetirer = false;
             DateTime dateTime = DateTime.Now;
             List<Abonnement> lstAbonn = dataContext.Abonnements.Where(v => v.DateAbonnement.AddYears(1) <= dateTime && v.Id.Substring(v.Id.Length - 1, 1) == "P").ToList();
-            List<Abonnement> lstAbonnVerif = new List<Abonnement>();
+            List<nomCompletAbonne> lstAbonnVerif = new List<nomCompletAbonne>();
             foreach (Abonnement abb in lstAbonn)
             {
                 if (dataContext.Reabonnements.Where(v => v.IdAbonnement == abb.Id && v.DateRenouvellement.AddYears(1) >= dateTime).Count() == 0)
                 {
-                    lstAbonnVerif.Add(abb);
+                    string nomComplet = abb.Prenom + " " + abb.Nom;
+                    lstAbonnVerif.Add(new nomCompletAbonne(abb.Id, nomComplet));
                 }
             }
             return lstAbonnVerif;

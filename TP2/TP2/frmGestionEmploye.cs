@@ -36,7 +36,6 @@ namespace TP2
             Regex regex = new Regex(@"^[0-9]{10}$");
             DataGridViewRow dgRow = dgEmploye.Rows[e.RowIndex];
             int Age = 0;
-            int noCivique = 0;
             if(e.FormattedValue.ToString().Trim().Equals("") && e.ColumnIndex != dgCellulaire.Index && e.ColumnIndex != dgCellulaire.Index)
             {
                 dgRow.ErrorText = "Cette case ne peut pas être laissée vide";
@@ -61,7 +60,7 @@ namespace TP2
                         dgRow.ErrorText = "";
                     }
                 }
-                else if (e.ColumnIndex == dgNoCivique.Index)
+                /*else if (e.ColumnIndex == dgNoCivique.Index)
                 {
                     if (!int.TryParse(e.FormattedValue.ToString(), out noCivique)) { 
                         dgRow.ErrorText = "Le numéro civique doit être un entier supérier à 0";
@@ -71,7 +70,7 @@ namespace TP2
                     {
                         dgRow.ErrorText = "";
                     }
-            }
+            }*/
                 else if(e.ColumnIndex == dgTelephone.Index)
                 {
                     if (!regex.IsMatch(e.FormattedValue.ToString()))
@@ -209,17 +208,21 @@ namespace TP2
 
         private void btnEnregistrer_Click(object sender, EventArgs e)
         {
-            try
+
+            if (this.ValidateChildren(ValidationConstraints.ImmediateChildren))
             {
-                dataClasses1DataContext.SubmitChanges(ConflictMode.ContinueOnConflict);
-            }
-            catch (ChangeConflictException)
-            {
-                dataClasses1DataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepCurrentValues);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "Erreur lors de l'enregistrement des données");
+                try
+                {
+                    dataClasses1DataContext.SubmitChanges(ConflictMode.ContinueOnConflict);
+                }
+                catch (ChangeConflictException)
+                {
+                    dataClasses1DataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepCurrentValues);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Erreur lors de l'enregistrement des données");
+                }
             }
         }
 

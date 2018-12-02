@@ -146,6 +146,7 @@
     <Compile Include="frmVisualisationStatistiques.Designer.cs">
       <DependentUpon>frmVisualisationStatistiques.cs</DependentUpon>
     </Compile>
+    <Compile Include="nomCompletAbonne.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ajoutEmploye.resx">
@@ -208,6 +209,7 @@
     <None Include="Properties\DataSources\Dependant.datasource" />
     <None Include="Properties\DataSources\Depense.datasource" />
     <None Include="Properties\DataSources\Employe.datasource" />
+    <None Include="Properties\DataSources\nomCompletAbonne.datasource" />
     <None Include="Properties\DataSources\PartiesJouee.datasource" />
     <None Include="Properties\DataSources\PrixDepensesAbonnement.datasource" />
     <None Include="Properties\DataSources\Program.datasource" />

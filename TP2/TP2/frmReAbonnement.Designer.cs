@@ -29,22 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.abonnementBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgAbonnement = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbRemarque = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRenouveler = new System.Windows.Forms.Button();
             this.btbRetour = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.abonnementBindingSource)).BeginInit();
+            this.dgID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgNomComplet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomCompletAbonneBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgAbonnement)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nomCompletAbonneBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // abonnementBindingSource
-            // 
-            this.abonnementBindingSource.DataSource = typeof(TP2.Abonnement);
             // 
             // dgAbonnement
             // 
@@ -54,37 +49,15 @@
             this.dgAbonnement.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgAbonnement.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgAbonnement.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn3});
-            this.dgAbonnement.DataSource = this.abonnementBindingSource;
+            this.dgID,
+            this.dgNomComplet});
+            this.dgAbonnement.DataSource = this.nomCompletAbonneBindingSource;
             this.dgAbonnement.Location = new System.Drawing.Point(12, 12);
             this.dgAbonnement.MultiSelect = false;
             this.dgAbonnement.Name = "dgAbonnement";
             this.dgAbonnement.ReadOnly = true;
             this.dgAbonnement.Size = new System.Drawing.Size(346, 220);
             this.dgAbonnement.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Prenom";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Prenom";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Nom";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Nom";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // tbRemarque
             // 
@@ -126,6 +99,24 @@
             this.btbRetour.UseVisualStyleBackColor = true;
             this.btbRetour.Click += new System.EventHandler(this.btbRetour_Click);
             // 
+            // dgID
+            // 
+            this.dgID.DataPropertyName = "idAbonne";
+            this.dgID.HeaderText = "ID";
+            this.dgID.Name = "dgID";
+            this.dgID.ReadOnly = true;
+            // 
+            // dgNomComplet
+            // 
+            this.dgNomComplet.DataPropertyName = "nomComplet";
+            this.dgNomComplet.HeaderText = "Nom complet";
+            this.dgNomComplet.Name = "dgNomComplet";
+            this.dgNomComplet.ReadOnly = true;
+            // 
+            // nomCompletAbonneBindingSource
+            // 
+            this.nomCompletAbonneBindingSource.DataSource = typeof(TP2.nomCompletAbonne);
+            // 
             // frmReAbonnement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -144,23 +135,21 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Réabonnement";
             this.Load += new System.EventHandler(this.frmReAbonnement_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.abonnementBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgAbonnement)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nomCompletAbonneBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.BindingSource abonnementBindingSource;
         private System.Windows.Forms.DataGridView dgAbonnement;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.TextBox tbRemarque;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnRenouveler;
         private System.Windows.Forms.Button btbRetour;
+        private System.Windows.Forms.BindingSource nomCompletAbonneBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgNomComplet;
     }
 }
