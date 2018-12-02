@@ -5,8 +5,10 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Transactions;
 
 namespace TP2
 {
@@ -19,6 +21,8 @@ namespace TP2
         bool booPrincipalAjoute = false;
         bool booConjointAjoute = false;
         bool booEnfantAjoute = false;
+        string strIDAbonnementPrincipal = "";
+        List<Dependant> lstDependants = new List<Dependant>();
         public frmAbonnement(Employe empConnect)
         {
             InitializeComponent();
@@ -27,6 +31,13 @@ namespace TP2
 
         private void frmAbonnement_Load(object sender, EventArgs e)
         {
+            nbEnfantsAjoute = 0;
+            booPrincipalAjoute = false;
+            booConjointAjoute = false;
+            booEnfantAjoute = false;
+            strIDAbonnementPrincipal = "";
+            lstDependants = new List<Dependant>();
+
             typesAbonnementBindingSource.DataSource = dataClasses1DataContext.TypesAbonnements;
             provinceBindingSource.DataSource = dataClasses1DataContext.Provinces;
             sexeBindingSource.DataSource = dataClasses1DataContext.Sexes;
@@ -45,21 +56,27 @@ namespace TP2
                     dateNaissanceDateTimePicker.MaxDate = DateTime.Now.Date.AddYears(-18);
                     foreach (Control ctrl in panelDependant.Controls)
                     {
-                        ctrl.Enabled = false;
+                        Button btnPanel = ctrl as Button;
+                        if(btnPanel != null)
+                            btnPanel.Enabled = false;
                     }
                     break;
                 case 2:
                     dateNaissanceDateTimePicker.MaxDate = DateTime.Now.Date.AddYears(-60);
                     foreach (Control ctrl in panelDependant.Controls)
                     {
-                        ctrl.Enabled = false;
+                        Button btnPanel = ctrl as Button;
+                        if (btnPanel != null)
+                            btnPanel.Enabled = false;
                     }
                     break;
                 case 3:
                     dateNaissanceDateTimePicker.MaxDate = DateTime.Now.Date.AddYears(-18);
                     foreach (Control ctrl in panelDependant.Controls)
                     {
-                        ctrl.Enabled = true;
+                        Button btnPanel = ctrl as Button;
+                        if (btnPanel != null)
+                            btnPanel.Enabled = true;
                     }
                     btnEnfant.Enabled = false;
                     break;
@@ -67,7 +84,9 @@ namespace TP2
                     dateNaissanceDateTimePicker.MaxDate = DateTime.Now.Date.AddYears(-18);
                     foreach (Control ctrl in panelDependant.Controls)
                     {
-                        ctrl.Enabled = true;
+                        Button btnPanel = ctrl as Button;
+                        if (btnPanel != null)
+                            btnPanel.Enabled = true;
                     }                    
                     lblNbEnfants.Text = "Nombre d'enfants minimum à enregistrer : 1";
                     break;
@@ -75,7 +94,9 @@ namespace TP2
                     dateNaissanceDateTimePicker.MaxDate = DateTime.Now.Date.AddYears(-18);
                     foreach (Control ctrl in panelDependant.Controls)
                     {
-                        ctrl.Enabled = true;
+                        Button btnPanel = ctrl as Button;
+                        if (btnPanel != null)
+                            btnPanel.Enabled = true;
                     }
                     lblNbEnfants.Text = "Nombre d'enfants minimum à enregistrer : 2";
                     break;
@@ -83,18 +104,22 @@ namespace TP2
                     dateNaissanceDateTimePicker.MaxDate = DateTime.Now.Date.AddYears(-18);
                     foreach (Control ctrl in panelDependant.Controls)
                     {
-                        ctrl.Enabled = true;
+                        Button btnPanel = ctrl as Button;
+                        if (btnPanel != null)
+                            btnPanel.Enabled = true;
                     }
                     lblNbEnfants.Text = "Nombre d'enfants minimum à enregistrer : 3";
                     break;                  
             }          
         }
+       
         private void creationAbonnement(int idAjout)
         {
             
 
-            if (this.ValidateChildren(ValidationConstraints.ImmediateChildren))
+            if (this.ValidateChildren(ValidationConstraints.Enabled))
             {
+                              
                 if (idAjout == 1)
                 {
                     booPrincipalAjoute = true;
@@ -103,17 +128,16 @@ namespace TP2
                         select abonnement.Id;
 
                     int idAbonnement = tousLesAbonnements.Count() + 1;
-
-                    string strIdAbonnement="";
+                    string strIdAbonnement = "";
                     if (nomTextBox.Text.Length > 0)
-                        strIdAbonnement = char.ToUpper(nomTextBox.Text[0]) + nomTextBox.Text.ToLower().Substring(1) + "P";
-
+                        strIdAbonnement = char.ToUpper(nomTextBox.Text[0]) + nomTextBox.Text.ToLower().Substring(1) + idAbonnement;
                     string strProvince = cmbProvince.SelectedValue.ToString();
+                    strIDAbonnementPrincipal = strIdAbonnement + "P";
                     DateTime dateAbonnement = Convert.ToDateTime(lblDateAbonnement.Text);
 
                     var nouvelAbonnerPrincipal = new Abonnement
                     {
-                        Id = strIdAbonnement,
+                        Id = strIDAbonnementPrincipal,
                         DateAbonnement = dateAbonnement,
                         Nom = nomTextBox.Text,
                         Prenom = prenomTextBox.Text,
@@ -138,7 +162,30 @@ namespace TP2
                     {
                         dataClasses1DataContext.SubmitChanges();
                         MessageBox.Show($"L'abonnennement {strIdAbonnement} a été ajouté", "Enregistrement de l'abonné principal", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }catch(Exception ex)
+                        foreach (Control ctrl in panelAbonnePrincipal.Controls)
+                        {
+                            TextBox txtboxAbonnement = ctrl as TextBox;
+                            if (txtboxAbonnement != null)
+                            {
+                                txtboxAbonnement.ReadOnly = true;                              
+                            }
+                            MaskedTextBox maskedtxtBox = ctrl as MaskedTextBox;
+                            if (maskedtxtBox != null) maskedtxtBox.ReadOnly = true;
+                            Button btnAjoute = ctrl as Button;
+                            if (btnAjoute != null) btnAjoute.Enabled = false;
+                            ComboBox combo = ctrl as ComboBox;
+                            if (combo != null)
+                            {                                
+                                combo.Enabled = false;
+                            }
+                        }
+                        dateNaissanceDateTimePicker.Enabled = false;
+                        foreach (Control ctrl in panelDependant.Controls)
+                        {
+                            ctrl.Enabled = true;
+                        }
+                    }
+                    catch(Exception ex)
                     {
                         MessageBox.Show("L'abonnennement a échoué"+ex, "Enregistrement de l'abonné principal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
@@ -156,7 +203,32 @@ namespace TP2
                     }
                     else
                     {
-                        booConjointAjoute = true;
+                        string strIDConjoint = strIDAbonnementPrincipal.Substring(0, strIDAbonnementPrincipal.Length - 1) + cmbSexe.SelectedValue + "0";                        
+                        var nouveauDependant = new Dependant
+                        {
+                            Id = strIDConjoint,
+                            Nom = nomTextBox1.Text,
+                            Prenom = prenomTextBox1.Text,
+                            Sexe = Convert.ToChar(cmbSexeDependant.SelectedValue),
+                            DateNaissance = Convert.ToDateTime(dateNaissanceDateTimePicker1.Value),
+                            IdAbonnement = strIDAbonnementPrincipal,
+                            Remarque = remarqueTextBox1.Text
+                        };
+
+                        dataClasses1DataContext.Dependants.InsertOnSubmit(nouveauDependant);
+
+                        try
+                        {
+                            dataClasses1DataContext.SubmitChanges();
+                            MessageBox.Show($"Le dépendant (Conjoint) {strIDConjoint} a été ajouté", "Enregistrement du conjoint", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            btnConjoint.Enabled = false;
+                            booConjointAjoute = true;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("L'ajout du dépendant a échoué", "Enregistrement du conjoint", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        
                     }
                     
                 }else if(idAjout == 3)
@@ -169,7 +241,7 @@ namespace TP2
                     {
                         MessageBox.Show("Le conjoint n'a pas été ajouté", "Avertissement", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
-                    else if (dateNaissanceDateTimePicker1.Value < DateTime.Now.Date.AddYears(-18) || dateNaissanceDateTimePicker1.Value >= DateTime.Now.Date)
+                    else if (dateNaissanceDateTimePicker1.Value <= DateTime.Now.Date.AddYears(-18) || dateNaissanceDateTimePicker1.Value >= DateTime.Now.Date)
                     {
                         MessageBox.Show("L'enfant doit avoir entre 0 et 18 ans", "Avertissement", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
@@ -191,15 +263,34 @@ namespace TP2
                         if (nbEnfantsAjoute == 9)
                         {
                             MessageBox.Show("Vous ne pouvez pas ajouter plus de 9 enfants", "Avertissement", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            btnEnfant.Enabled = false;
                         }
-                        else if ((nbEnfantsAjoute < intNbEnfants) || intNbEnfants == 3)
-                        {
-                            booEnfantAjoute = true;
-                            nbEnfantsAjoute++;
-                            lblEnfantsEnreg.Text = nbEnfantsAjoute + " enfant(s) ajouté(s)";      
+                        else if ((nbEnfantsAjoute <= intNbEnfants) || intNbEnfants == 3)
+                        {                      
+                               
                             if(intNbEnfants != 3 && nbEnfantsAjoute == intNbEnfants)
                             {
+                                btnEnfant.Enabled = false;
+                                booEnfantAjoute = true;
                                 MessageBox.Show("Vous avez enregistré le nombre d'enfant maximal pour le type d'abonnement \n\nVeuillez confirmé l'ajout des enfants.", "Avertissement", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            }
+                            else
+                            {                                
+                                nbEnfantsAjoute++;
+                                if (intNbEnfants == 3 && intNbEnfants == nbEnfantsAjoute) booEnfantAjoute = true;
+                                string strIDEnfant = strIDAbonnementPrincipal.Substring(0, strIDAbonnementPrincipal.Length - 1) + "E" + nbEnfantsAjoute;                              
+                                var nouveauDependant = new Dependant
+                                {
+                                    Id = strIDEnfant,
+                                    Nom = nomTextBox1.Text,
+                                    Prenom = prenomTextBox1.Text,
+                                    Sexe = Convert.ToChar(cmbSexeDependant.SelectedValue),
+                                    DateNaissance = Convert.ToDateTime(dateNaissanceDateTimePicker1.Value),
+                                    IdAbonnement = strIDAbonnementPrincipal,
+                                    Remarque = remarqueTextBox1.Text
+                                };
+                                lstDependants.Add(nouveauDependant);                           
+                                lblEnfantsEnreg.Text = nbEnfantsAjoute + " enfant(s) ajouté(s)";
                             }
                         }                    
                     }
@@ -216,8 +307,12 @@ namespace TP2
         {
             if (nomTextBox.Text.ToString().Trim().Equals(""))
             {
-               // errMessage.SetError(nomTextBox, "Le nom ne peut pas être vide");
-              //  e.Cancel = true;
+               errMessage.SetError(nomTextBox, "Le nom ne peut pas être vide");
+               e.Cancel = true;
+            }else if(!Regex.IsMatch(nomTextBox.Text, "^[a-zA-Z]+$") || nomTextBox.Text.Length > 28)
+            {
+                errMessage.SetError(nomTextBox, "Le nom doit contenir seulement des lettres et une longeur maximale de 28 caractères");
+                e.Cancel = true;
             }
             else errMessage.SetError(nomTextBox, "");
         }
@@ -227,8 +322,13 @@ namespace TP2
         {
             if (noCiviqueTextBox.Text.ToString().Trim().Equals(""))
             {
-                // errMessage.SetError(noCiviqueTextBox, "Le numéro civique ne peut pas être vide");
-                //  e.Cancel = true;
+                errMessage.SetError(noCiviqueTextBox, "Le numéro civique ne peut pas être vide");
+                e.Cancel = true;
+            }
+            else if (!Regex.IsMatch(noCiviqueTextBox.Text, @"^\d+[A-Z]?$") || noCiviqueTextBox.Text.Length > 10)
+            {
+                errMessage.SetError(noCiviqueTextBox, "Le format n'est pas valide ou la longeur dépasse 10 caractères\n\n Format valide : 999 , 999A , 999B . (Lettre majuscule seulement)");
+                e.Cancel = true;
             }
             else errMessage.SetError(noCiviqueTextBox, "");
         }
@@ -237,8 +337,13 @@ namespace TP2
         {
             if (villeTextBox.Text.ToString().Trim().Equals(""))
             {
-                // errMessage.SetError(villeTextBox, "Le numéro civique ne peut pas être vide");
-                //  e.Cancel = true;
+                errMessage.SetError(villeTextBox, "Le numéro civique ne peut pas être vide");
+                e.Cancel = true;
+            }
+            else if (!Regex.IsMatch(villeTextBox.Text, "^[a-zA-Z]+$") || villeTextBox.Text.Length > 30)
+            {
+                errMessage.SetError(villeTextBox, "Le nom de la ville doit contenir seulement des lettres et une longeur maximale de 30 caractères");
+                e.Cancel = true;
             }
             else errMessage.SetError(villeTextBox, "");
 
@@ -258,8 +363,13 @@ namespace TP2
         {
             if (prenomTextBox.Text.ToString().Trim().Equals(""))
             {
-                // errMessage.SetError(prenomTextBox, "Le prenom ne peut pas être vide");
-                //  e.Cancel = true;
+                errMessage.SetError(prenomTextBox, "Le prenom ne peut pas être vide");
+                e.Cancel = true;
+            }
+            else if (!Regex.IsMatch(prenomTextBox.Text, "^[a-zA-Z]+$") || prenomTextBox.Text.Length > 30)
+            {
+                errMessage.SetError(prenomTextBox, "Le prenom doit contenir seulement des lettres et une longeur maximale de 28 caractères");
+                e.Cancel = true;
             }
             else errMessage.SetError(prenomTextBox, "");
         }
@@ -268,8 +378,13 @@ namespace TP2
         {
             if (rueTextBox.Text.ToString().Trim().Equals(""))
             {
-                // errMessage.SetError(rueTextBox, "Le nom de la rue ne peut pas être vide");
-                //  e.Cancel = true;
+                errMessage.SetError(rueTextBox, "Le nom de la rue ne peut pas être vide");
+                e.Cancel = true;
+            }
+            else if (!Regex.IsMatch(rueTextBox.Text, "^[a-zA-Z]+$") || rueTextBox.Text.Length > 30)
+            {
+                errMessage.SetError(rueTextBox, "Le nom de la rue doit contenir seulement des lettres et une longeur maximale de 30 caractères");
+                e.Cancel = true;
             }
             else errMessage.SetError(rueTextBox, "");
         }
@@ -286,10 +401,12 @@ namespace TP2
 
         private void courrielTextBox_Validating(object sender, CancelEventArgs e)
         {
-            if (courrielTextBox.Text.ToString().Trim().Equals(""))
+            Regex regex = new Regex(@"^(([A-Za-zÀ-ÿ])+[\w\.\-]?)+@([\w\-]+)((\.([A-Za-zÀ-ÿ]){2,3})+)$");
+           
+            if (!regex.IsMatch(courrielTextBox.Text))
             {
-                // errMessage.SetError(courrielTextBox, "Le numéro de téléphone ne peut pas être vide");
-                //  e.Cancel = true;
+                errMessage.SetError(courrielTextBox, "Le courriel n'a pas un format valide\n\nExemple : email@cgodin.ca\n\n Seul les caractères spéciaux ( _ , . , -) sont permis");
+                e.Cancel = true;
             }
             else errMessage.SetError(courrielTextBox, "");
         }
@@ -313,8 +430,13 @@ namespace TP2
         {
             if (nomTextBox1.Text.ToString().Trim().Equals(""))
             {
-                // errMessage.SetError(nomTextBox1, "Le numéro de téléphone ne peut pas être vide");
-                //  e.Cancel = true;
+                errMessage.SetError(nomTextBox1, "Le numéro de téléphone ne peut pas être vide");
+                e.Cancel = true;
+            }
+            else if (!Regex.IsMatch(nomTextBox1.Text, "^[a-zA-Z]+$") || nomTextBox1.Text.Length > 30)
+            {
+                errMessage.SetError(nomTextBox1, "Le nom de la personne doit contenir seulement des lettres et une longeur maximale de 30 caractères");
+                e.Cancel = true;
             }
             else errMessage.SetError(nomTextBox1, "");
         }
@@ -323,20 +445,90 @@ namespace TP2
         {
             if (prenomTextBox1.Text.ToString().Trim().Equals(""))
             {
-                // errMessage.SetError(prenomTextBox1, "Le numéro de téléphone ne peut pas être vide");
-                //  e.Cancel = true;
+                errMessage.SetError(prenomTextBox1, "Le numéro de téléphone ne peut pas être vide");
+                e.Cancel = true;
+            }
+            else if (!Regex.IsMatch(prenomTextBox1.Text, "^[a-zA-Z]+$") || prenomTextBox1.Text.Length > 30)
+            {
+                errMessage.SetError(prenomTextBox1, "Le prenom de la personne doit contenir seulement des lettres et une longeur maximale de 30 caractères");
+                e.Cancel = true;
             }
             else errMessage.SetError(prenomTextBox1, "");
         }
 
         private void cellulaireTextBox_Validating(object sender, CancelEventArgs e)
         {
-            if (!cellulaireTextBox.MaskCompleted)
+            if (!cellulaireTextBox.Text.Equals("") && !cellulaireTextBox.MaskCompleted)
             {
                 errMessage.SetError(cellulaireTextBox, "Le numéro de cellulaire doit respecter le format (999) 999-9999");
                 e.Cancel = true;
             }
             else errMessage.SetError(cellulaireTextBox, "");
+        }
+
+        private void btnEnregistrerAbonnement_Click(object sender, EventArgs e)
+        {
+            if (booEnfantAjoute)
+            {
+                using (var porteeTransaction = new TransactionScope())
+                {
+                    try
+                    {
+                        lstDependants.ForEach(c => dataClasses1DataContext.Dependants.InsertOnSubmit(c));
+                        dataClasses1DataContext.SubmitChanges();
+                        MessageBox.Show($"Le(s) dépendant(s) (Enfant) a/ont été(s) ajouté(s)", "Enregistrement de dépendants", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        porteeTransaction.Complete();
+                        resetForm(sender,e);
+                        btnEnregistrerAbonnement.Enabled = false;
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("L'ajout de l'enfant a échoué", "Enregistrement de dépendants", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }else
+            {
+                 MessageBox.Show("Aucun enfant a été ajouté", "Enregistrement de dépendants", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void resetForm(object sender, EventArgs e)
+        {
+            foreach(Control ctrl in panelAbonnePrincipal.Controls)
+            {
+                TextBox txtbox = ctrl as TextBox;
+                if (txtbox != null)
+                {
+                    txtbox.Text = "";
+                    txtbox.ReadOnly = false;
+                }               
+                ComboBox combo = ctrl as ComboBox;
+                if (combo != null)
+                {
+                    combo.SelectedIndex = 0;
+                    combo.Enabled = true;
+                }                
+                MaskedTextBox maskedText = ctrl as MaskedTextBox;
+                if (maskedText != null)
+                {
+                    maskedText.Text = "";
+                    maskedText.ReadOnly = false;
+                }                
+            }
+            foreach (Control ctrl in panelDependant.Controls)
+            {
+                TextBox txtbox = ctrl as TextBox;
+                if (txtbox != null)
+                {
+                    txtbox.Text = "";
+                    txtbox.Enabled = false;
+                }
+            }
+            cmbSexeDependant.Enabled = false;
+            dateNaissanceDateTimePicker1.Enabled = false;
+            btnConfirmerPrincipal.Enabled = true;
+            lblEnfantsEnreg.Text = "";
+            lblNbEnfants.Text = "";
+            frmAbonnement_Load(sender, e);
         }
     }
 }

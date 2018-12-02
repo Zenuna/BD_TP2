@@ -78,12 +78,13 @@
             this.btnEnregistrerAbonnement = new System.Windows.Forms.Button();
             this.btnConfirmerPrincipal = new System.Windows.Forms.Button();
             this.panelDependant = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.lblNbEnfants = new System.Windows.Forms.Label();
             this.lblEnfantsEnreg = new System.Windows.Forms.Label();
+            this.lblNbEnfants = new System.Windows.Forms.Label();
+            this.cmbSexeDependant = new System.Windows.Forms.ComboBox();
             this.cellulaireTextBox = new System.Windows.Forms.MaskedTextBox();
             this.telephoneTextBox = new System.Windows.Forms.MaskedTextBox();
             this.codePostalTextBox = new System.Windows.Forms.MaskedTextBox();
+            this.panelAbonnePrincipal = new System.Windows.Forms.Panel();
             cellulaireLabel = new System.Windows.Forms.Label();
             codePostalLabel = new System.Windows.Forms.Label();
             courrielLabel = new System.Windows.Forms.Label();
@@ -111,12 +112,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.sexeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dependantBindingSource)).BeginInit();
             this.panelDependant.SuspendLayout();
+            this.panelAbonnePrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // cellulaireLabel
             // 
             cellulaireLabel.AutoSize = true;
-            cellulaireLabel.Location = new System.Drawing.Point(63, 211);
+            cellulaireLabel.Location = new System.Drawing.Point(8, 168);
             cellulaireLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             cellulaireLabel.Name = "cellulaireLabel";
             cellulaireLabel.Size = new System.Drawing.Size(52, 13);
@@ -126,7 +128,7 @@
             // codePostalLabel
             // 
             codePostalLabel.AutoSize = true;
-            codePostalLabel.Location = new System.Drawing.Point(63, 185);
+            codePostalLabel.Location = new System.Drawing.Point(8, 142);
             codePostalLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             codePostalLabel.Name = "codePostalLabel";
             codePostalLabel.Size = new System.Drawing.Size(67, 13);
@@ -136,7 +138,7 @@
             // courrielLabel
             // 
             courrielLabel.AutoSize = true;
-            courrielLabel.Location = new System.Drawing.Point(350, 212);
+            courrielLabel.Location = new System.Drawing.Point(295, 169);
             courrielLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             courrielLabel.Name = "courrielLabel";
             courrielLabel.Size = new System.Drawing.Size(45, 13);
@@ -146,7 +148,7 @@
             // dateAbonnementLabel
             // 
             dateAbonnementLabel.AutoSize = true;
-            dateAbonnementLabel.Location = new System.Drawing.Point(63, 60);
+            dateAbonnementLabel.Location = new System.Drawing.Point(8, 17);
             dateAbonnementLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             dateAbonnementLabel.Name = "dateAbonnementLabel";
             dateAbonnementLabel.Size = new System.Drawing.Size(96, 13);
@@ -156,7 +158,7 @@
             // dateNaissanceLabel
             // 
             dateNaissanceLabel.AutoSize = true;
-            dateNaissanceLabel.Location = new System.Drawing.Point(350, 112);
+            dateNaissanceLabel.Location = new System.Drawing.Point(295, 69);
             dateNaissanceLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             dateNaissanceLabel.Name = "dateNaissanceLabel";
             dateNaissanceLabel.Size = new System.Drawing.Size(86, 13);
@@ -166,7 +168,7 @@
             // idProvinceLabel
             // 
             idProvinceLabel.AutoSize = true;
-            idProvinceLabel.Location = new System.Drawing.Point(350, 160);
+            idProvinceLabel.Location = new System.Drawing.Point(295, 117);
             idProvinceLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             idProvinceLabel.Name = "idProvinceLabel";
             idProvinceLabel.Size = new System.Drawing.Size(52, 13);
@@ -176,7 +178,7 @@
             // noCiviqueLabel
             // 
             noCiviqueLabel.AutoSize = true;
-            noCiviqueLabel.Location = new System.Drawing.Point(63, 134);
+            noCiviqueLabel.Location = new System.Drawing.Point(8, 91);
             noCiviqueLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             noCiviqueLabel.Name = "noCiviqueLabel";
             noCiviqueLabel.Size = new System.Drawing.Size(62, 13);
@@ -186,7 +188,7 @@
             // nomLabel
             // 
             nomLabel.AutoSize = true;
-            nomLabel.Location = new System.Drawing.Point(63, 86);
+            nomLabel.Location = new System.Drawing.Point(8, 43);
             nomLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             nomLabel.Name = "nomLabel";
             nomLabel.Size = new System.Drawing.Size(32, 13);
@@ -196,7 +198,7 @@
             // noTypeAbonnementLabel
             // 
             noTypeAbonnementLabel.AutoSize = true;
-            noTypeAbonnementLabel.Location = new System.Drawing.Point(63, 241);
+            noTypeAbonnementLabel.Location = new System.Drawing.Point(8, 198);
             noTypeAbonnementLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             noTypeAbonnementLabel.Name = "noTypeAbonnementLabel";
             noTypeAbonnementLabel.Size = new System.Drawing.Size(114, 13);
@@ -206,7 +208,7 @@
             // prenomLabel
             // 
             prenomLabel.AutoSize = true;
-            prenomLabel.Location = new System.Drawing.Point(350, 87);
+            prenomLabel.Location = new System.Drawing.Point(295, 44);
             prenomLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             prenomLabel.Name = "prenomLabel";
             prenomLabel.Size = new System.Drawing.Size(46, 13);
@@ -216,7 +218,7 @@
             // remarqueLabel
             // 
             remarqueLabel.AutoSize = true;
-            remarqueLabel.Location = new System.Drawing.Point(350, 239);
+            remarqueLabel.Location = new System.Drawing.Point(295, 196);
             remarqueLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             remarqueLabel.Name = "remarqueLabel";
             remarqueLabel.Size = new System.Drawing.Size(59, 13);
@@ -226,7 +228,7 @@
             // rueLabel
             // 
             rueLabel.AutoSize = true;
-            rueLabel.Location = new System.Drawing.Point(350, 136);
+            rueLabel.Location = new System.Drawing.Point(295, 93);
             rueLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             rueLabel.Name = "rueLabel";
             rueLabel.Size = new System.Drawing.Size(30, 13);
@@ -236,7 +238,7 @@
             // sexeLabel
             // 
             sexeLabel.AutoSize = true;
-            sexeLabel.Location = new System.Drawing.Point(63, 110);
+            sexeLabel.Location = new System.Drawing.Point(8, 67);
             sexeLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             sexeLabel.Name = "sexeLabel";
             sexeLabel.Size = new System.Drawing.Size(34, 13);
@@ -246,7 +248,7 @@
             // telephoneLabel
             // 
             telephoneLabel.AutoSize = true;
-            telephoneLabel.Location = new System.Drawing.Point(350, 187);
+            telephoneLabel.Location = new System.Drawing.Point(295, 144);
             telephoneLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             telephoneLabel.Name = "telephoneLabel";
             telephoneLabel.Size = new System.Drawing.Size(61, 13);
@@ -256,12 +258,57 @@
             // villeLabel
             // 
             villeLabel.AutoSize = true;
-            villeLabel.Location = new System.Drawing.Point(63, 159);
+            villeLabel.Location = new System.Drawing.Point(8, 116);
             villeLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             villeLabel.Name = "villeLabel";
             villeLabel.Size = new System.Drawing.Size(29, 13);
             villeLabel.TabIndex = 31;
             villeLabel.Text = "Ville:";
+            // 
+            // dateNaissanceLabel1
+            // 
+            dateNaissanceLabel1.AutoSize = true;
+            dateNaissanceLabel1.Location = new System.Drawing.Point(242, 27);
+            dateNaissanceLabel1.Name = "dateNaissanceLabel1";
+            dateNaissanceLabel1.Size = new System.Drawing.Size(86, 13);
+            dateNaissanceLabel1.TabIndex = 35;
+            dateNaissanceLabel1.Text = "Date Naissance:";
+            // 
+            // nomLabel1
+            // 
+            nomLabel1.AutoSize = true;
+            nomLabel1.Location = new System.Drawing.Point(242, 57);
+            nomLabel1.Name = "nomLabel1";
+            nomLabel1.Size = new System.Drawing.Size(32, 13);
+            nomLabel1.TabIndex = 41;
+            nomLabel1.Text = "Nom:";
+            // 
+            // prenomLabel1
+            // 
+            prenomLabel1.AutoSize = true;
+            prenomLabel1.Location = new System.Drawing.Point(242, 83);
+            prenomLabel1.Name = "prenomLabel1";
+            prenomLabel1.Size = new System.Drawing.Size(46, 13);
+            prenomLabel1.TabIndex = 43;
+            prenomLabel1.Text = "Prenom:";
+            // 
+            // remarqueLabel1
+            // 
+            remarqueLabel1.AutoSize = true;
+            remarqueLabel1.Location = new System.Drawing.Point(242, 136);
+            remarqueLabel1.Name = "remarqueLabel1";
+            remarqueLabel1.Size = new System.Drawing.Size(59, 13);
+            remarqueLabel1.TabIndex = 45;
+            remarqueLabel1.Text = "Remarque:";
+            // 
+            // sexeLabel1
+            // 
+            sexeLabel1.AutoSize = true;
+            sexeLabel1.Location = new System.Drawing.Point(242, 110);
+            sexeLabel1.Name = "sexeLabel1";
+            sexeLabel1.Size = new System.Drawing.Size(34, 13);
+            sexeLabel1.TabIndex = 47;
+            sexeLabel1.Text = "Sexe:";
             // 
             // abonnementBindingSource
             // 
@@ -270,7 +317,7 @@
             // courrielTextBox
             // 
             this.courrielTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.abonnementBindingSource, "Courriel", true));
-            this.courrielTextBox.Location = new System.Drawing.Point(464, 211);
+            this.courrielTextBox.Location = new System.Drawing.Point(409, 168);
             this.courrielTextBox.Margin = new System.Windows.Forms.Padding(1);
             this.courrielTextBox.Name = "courrielTextBox";
             this.courrielTextBox.Size = new System.Drawing.Size(127, 20);
@@ -280,7 +327,7 @@
             // dateNaissanceDateTimePicker
             // 
             this.dateNaissanceDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.abonnementBindingSource, "DateNaissance", true));
-            this.dateNaissanceDateTimePicker.Location = new System.Drawing.Point(464, 110);
+            this.dateNaissanceDateTimePicker.Location = new System.Drawing.Point(409, 67);
             this.dateNaissanceDateTimePicker.Margin = new System.Windows.Forms.Padding(1);
             this.dateNaissanceDateTimePicker.Name = "dateNaissanceDateTimePicker";
             this.dateNaissanceDateTimePicker.Size = new System.Drawing.Size(127, 20);
@@ -289,8 +336,9 @@
             // noCiviqueTextBox
             // 
             this.noCiviqueTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.abonnementBindingSource, "NoCivique", true));
-            this.noCiviqueTextBox.Location = new System.Drawing.Point(177, 133);
+            this.noCiviqueTextBox.Location = new System.Drawing.Point(122, 90);
             this.noCiviqueTextBox.Margin = new System.Windows.Forms.Padding(1);
+            this.noCiviqueTextBox.MaxLength = 10;
             this.noCiviqueTextBox.Name = "noCiviqueTextBox";
             this.noCiviqueTextBox.Size = new System.Drawing.Size(111, 20);
             this.noCiviqueTextBox.TabIndex = 5;
@@ -299,8 +347,9 @@
             // nomTextBox
             // 
             this.nomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.abonnementBindingSource, "Nom", true));
-            this.nomTextBox.Location = new System.Drawing.Point(177, 85);
+            this.nomTextBox.Location = new System.Drawing.Point(122, 42);
             this.nomTextBox.Margin = new System.Windows.Forms.Padding(1);
+            this.nomTextBox.MaxLength = 28;
             this.nomTextBox.Name = "nomTextBox";
             this.nomTextBox.Size = new System.Drawing.Size(111, 20);
             this.nomTextBox.TabIndex = 1;
@@ -309,8 +358,9 @@
             // prenomTextBox
             // 
             this.prenomTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.abonnementBindingSource, "Prenom", true));
-            this.prenomTextBox.Location = new System.Drawing.Point(464, 86);
+            this.prenomTextBox.Location = new System.Drawing.Point(409, 43);
             this.prenomTextBox.Margin = new System.Windows.Forms.Padding(1);
+            this.prenomTextBox.MaxLength = 30;
             this.prenomTextBox.Name = "prenomTextBox";
             this.prenomTextBox.Size = new System.Drawing.Size(127, 20);
             this.prenomTextBox.TabIndex = 2;
@@ -319,8 +369,9 @@
             // remarqueTextBox
             // 
             this.remarqueTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.abonnementBindingSource, "Remarque", true));
-            this.remarqueTextBox.Location = new System.Drawing.Point(464, 237);
+            this.remarqueTextBox.Location = new System.Drawing.Point(409, 194);
             this.remarqueTextBox.Margin = new System.Windows.Forms.Padding(1);
+            this.remarqueTextBox.MaxLength = 50;
             this.remarqueTextBox.Name = "remarqueTextBox";
             this.remarqueTextBox.Size = new System.Drawing.Size(127, 20);
             this.remarqueTextBox.TabIndex = 14;
@@ -328,8 +379,9 @@
             // rueTextBox
             // 
             this.rueTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.abonnementBindingSource, "Rue", true));
-            this.rueTextBox.Location = new System.Drawing.Point(464, 134);
+            this.rueTextBox.Location = new System.Drawing.Point(409, 91);
             this.rueTextBox.Margin = new System.Windows.Forms.Padding(1);
+            this.rueTextBox.MaxLength = 30;
             this.rueTextBox.Name = "rueTextBox";
             this.rueTextBox.Size = new System.Drawing.Size(127, 20);
             this.rueTextBox.TabIndex = 6;
@@ -338,8 +390,9 @@
             // villeTextBox
             // 
             this.villeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.abonnementBindingSource, "Ville", true));
-            this.villeTextBox.Location = new System.Drawing.Point(177, 157);
+            this.villeTextBox.Location = new System.Drawing.Point(122, 114);
             this.villeTextBox.Margin = new System.Windows.Forms.Padding(1);
+            this.villeTextBox.MaxLength = 30;
             this.villeTextBox.Name = "villeTextBox";
             this.villeTextBox.Size = new System.Drawing.Size(111, 20);
             this.villeTextBox.TabIndex = 7;
@@ -348,7 +401,7 @@
             // lblDateAbonnement
             // 
             this.lblDateAbonnement.AutoSize = true;
-            this.lblDateAbonnement.Location = new System.Drawing.Point(177, 60);
+            this.lblDateAbonnement.Location = new System.Drawing.Point(122, 17);
             this.lblDateAbonnement.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.lblDateAbonnement.Name = "lblDateAbonnement";
             this.lblDateAbonnement.Size = new System.Drawing.Size(0, 13);
@@ -359,7 +412,7 @@
             this.cmbTypeAbonnement.DataSource = this.typesAbonnementBindingSource;
             this.cmbTypeAbonnement.DisplayMember = "Description";
             this.cmbTypeAbonnement.FormattingEnabled = true;
-            this.cmbTypeAbonnement.Location = new System.Drawing.Point(177, 241);
+            this.cmbTypeAbonnement.Location = new System.Drawing.Point(122, 198);
             this.cmbTypeAbonnement.Margin = new System.Windows.Forms.Padding(1);
             this.cmbTypeAbonnement.Name = "cmbTypeAbonnement";
             this.cmbTypeAbonnement.Size = new System.Drawing.Size(132, 21);
@@ -380,10 +433,10 @@
             this.cmbProvince.DataSource = this.provinceBindingSource;
             this.cmbProvince.DisplayMember = "Nom";
             this.cmbProvince.FormattingEnabled = true;
-            this.cmbProvince.Location = new System.Drawing.Point(464, 160);
+            this.cmbProvince.Location = new System.Drawing.Point(409, 117);
             this.cmbProvince.Name = "cmbProvince";
             this.cmbProvince.Size = new System.Drawing.Size(127, 21);
-            this.cmbProvince.TabIndex = 34;
+            this.cmbProvince.TabIndex = 8;
             this.cmbProvince.ValueMember = "Id";
             // 
             // provinceBindingSource
@@ -395,10 +448,10 @@
             this.cmbSexe.DataSource = this.sexeBindingSource;
             this.cmbSexe.DisplayMember = "Description";
             this.cmbSexe.FormattingEnabled = true;
-            this.cmbSexe.Location = new System.Drawing.Point(177, 109);
+            this.cmbSexe.Location = new System.Drawing.Point(122, 66);
             this.cmbSexe.Name = "cmbSexe";
             this.cmbSexe.Size = new System.Drawing.Size(74, 21);
-            this.cmbSexe.TabIndex = 35;
+            this.cmbSexe.TabIndex = 3;
             this.cmbSexe.ValueMember = "idSexe";
             // 
             // sexeBindingSource
@@ -409,91 +462,51 @@
             // 
             this.dependantBindingSource.DataSource = typeof(TP2.Dependant);
             // 
-            // dateNaissanceLabel1
-            // 
-            dateNaissanceLabel1.AutoSize = true;
-            dateNaissanceLabel1.Location = new System.Drawing.Point(242, 27);
-            dateNaissanceLabel1.Name = "dateNaissanceLabel1";
-            dateNaissanceLabel1.Size = new System.Drawing.Size(86, 13);
-            dateNaissanceLabel1.TabIndex = 35;
-            dateNaissanceLabel1.Text = "Date Naissance:";
-            // 
             // dateNaissanceDateTimePicker1
             // 
             this.dateNaissanceDateTimePicker1.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.dependantBindingSource, "DateNaissance", true));
+            this.dateNaissanceDateTimePicker1.Enabled = false;
             this.dateNaissanceDateTimePicker1.Location = new System.Drawing.Point(334, 23);
             this.dateNaissanceDateTimePicker1.Name = "dateNaissanceDateTimePicker1";
             this.dateNaissanceDateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateNaissanceDateTimePicker1.TabIndex = 36;
-            // 
-            // nomLabel1
-            // 
-            nomLabel1.AutoSize = true;
-            nomLabel1.Location = new System.Drawing.Point(242, 57);
-            nomLabel1.Name = "nomLabel1";
-            nomLabel1.Size = new System.Drawing.Size(32, 13);
-            nomLabel1.TabIndex = 41;
-            nomLabel1.Text = "Nom:";
+            this.dateNaissanceDateTimePicker1.TabIndex = 16;
             // 
             // nomTextBox1
             // 
             this.nomTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dependantBindingSource, "Nom", true));
+            this.nomTextBox1.Enabled = false;
             this.nomTextBox1.Location = new System.Drawing.Point(334, 54);
             this.nomTextBox1.Name = "nomTextBox1";
             this.nomTextBox1.Size = new System.Drawing.Size(200, 20);
-            this.nomTextBox1.TabIndex = 42;
+            this.nomTextBox1.TabIndex = 17;
             this.nomTextBox1.Validating += new System.ComponentModel.CancelEventHandler(this.nomTextBox1_Validating);
-            // 
-            // prenomLabel1
-            // 
-            prenomLabel1.AutoSize = true;
-            prenomLabel1.Location = new System.Drawing.Point(242, 83);
-            prenomLabel1.Name = "prenomLabel1";
-            prenomLabel1.Size = new System.Drawing.Size(46, 13);
-            prenomLabel1.TabIndex = 43;
-            prenomLabel1.Text = "Prenom:";
             // 
             // prenomTextBox1
             // 
             this.prenomTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dependantBindingSource, "Prenom", true));
+            this.prenomTextBox1.Enabled = false;
             this.prenomTextBox1.Location = new System.Drawing.Point(334, 80);
             this.prenomTextBox1.Name = "prenomTextBox1";
             this.prenomTextBox1.Size = new System.Drawing.Size(200, 20);
-            this.prenomTextBox1.TabIndex = 44;
+            this.prenomTextBox1.TabIndex = 18;
             this.prenomTextBox1.Validating += new System.ComponentModel.CancelEventHandler(this.prenomTextBox1_Validating);
-            // 
-            // remarqueLabel1
-            // 
-            remarqueLabel1.AutoSize = true;
-            remarqueLabel1.Location = new System.Drawing.Point(242, 136);
-            remarqueLabel1.Name = "remarqueLabel1";
-            remarqueLabel1.Size = new System.Drawing.Size(59, 13);
-            remarqueLabel1.TabIndex = 45;
-            remarqueLabel1.Text = "Remarque:";
             // 
             // remarqueTextBox1
             // 
             this.remarqueTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dependantBindingSource, "Remarque", true));
+            this.remarqueTextBox1.Enabled = false;
             this.remarqueTextBox1.Location = new System.Drawing.Point(334, 133);
+            this.remarqueTextBox1.MaxLength = 50;
             this.remarqueTextBox1.Name = "remarqueTextBox1";
             this.remarqueTextBox1.Size = new System.Drawing.Size(200, 20);
-            this.remarqueTextBox1.TabIndex = 46;
-            // 
-            // sexeLabel1
-            // 
-            sexeLabel1.AutoSize = true;
-            sexeLabel1.Location = new System.Drawing.Point(242, 110);
-            sexeLabel1.Name = "sexeLabel1";
-            sexeLabel1.Size = new System.Drawing.Size(34, 13);
-            sexeLabel1.TabIndex = 47;
-            sexeLabel1.Text = "Sexe:";
+            this.remarqueTextBox1.TabIndex = 20;
             // 
             // btnConjoint
             // 
             this.btnConjoint.Location = new System.Drawing.Point(9, 27);
             this.btnConjoint.Name = "btnConjoint";
             this.btnConjoint.Size = new System.Drawing.Size(139, 23);
-            this.btnConjoint.TabIndex = 49;
+            this.btnConjoint.TabIndex = 21;
             this.btnConjoint.Text = "Ajouter un conjoint";
             this.btnConjoint.UseVisualStyleBackColor = true;
             this.btnConjoint.Click += new System.EventHandler(this.btnConjoint_Click);
@@ -503,7 +516,7 @@
             this.btnEnfant.Location = new System.Drawing.Point(9, 83);
             this.btnEnfant.Name = "btnEnfant";
             this.btnEnfant.Size = new System.Drawing.Size(139, 23);
-            this.btnEnfant.TabIndex = 50;
+            this.btnEnfant.TabIndex = 22;
             this.btnEnfant.Text = "Ajouter un enfant";
             this.btnEnfant.UseVisualStyleBackColor = true;
             this.btnEnfant.Click += new System.EventHandler(this.btnEnfant_Click);
@@ -534,16 +547,17 @@
             this.btnEnregistrerAbonnement.Location = new System.Drawing.Point(9, 167);
             this.btnEnregistrerAbonnement.Name = "btnEnregistrerAbonnement";
             this.btnEnregistrerAbonnement.Size = new System.Drawing.Size(176, 25);
-            this.btnEnregistrerAbonnement.TabIndex = 53;
+            this.btnEnregistrerAbonnement.TabIndex = 23;
             this.btnEnregistrerAbonnement.Text = "Confirmer l\'ajout des enfants";
             this.btnEnregistrerAbonnement.UseVisualStyleBackColor = true;
+            this.btnEnregistrerAbonnement.Click += new System.EventHandler(this.btnEnregistrerAbonnement_Click);
             // 
             // btnConfirmerPrincipal
             // 
-            this.btnConfirmerPrincipal.Location = new System.Drawing.Point(252, 277);
+            this.btnConfirmerPrincipal.Location = new System.Drawing.Point(197, 234);
             this.btnConfirmerPrincipal.Name = "btnConfirmerPrincipal";
             this.btnConfirmerPrincipal.Size = new System.Drawing.Size(184, 23);
-            this.btnConfirmerPrincipal.TabIndex = 54;
+            this.btnConfirmerPrincipal.TabIndex = 15;
             this.btnConfirmerPrincipal.Text = "Confirmer l\'abonné principal";
             this.btnConfirmerPrincipal.UseVisualStyleBackColor = true;
             this.btnConfirmerPrincipal.Click += new System.EventHandler(this.btnConfirmerPrincipal_Click);
@@ -553,7 +567,7 @@
             this.panelDependant.Controls.Add(this.lblEnfantsEnreg);
             this.panelDependant.Controls.Add(this.btnEnregistrerAbonnement);
             this.panelDependant.Controls.Add(this.lblNbEnfants);
-            this.panelDependant.Controls.Add(this.comboBox1);
+            this.panelDependant.Controls.Add(this.cmbSexeDependant);
             this.panelDependant.Controls.Add(sexeLabel1);
             this.panelDependant.Controls.Add(this.remarqueTextBox1);
             this.panelDependant.Controls.Add(this.btnEnfant);
@@ -570,16 +584,13 @@
             this.panelDependant.Size = new System.Drawing.Size(567, 211);
             this.panelDependant.TabIndex = 55;
             // 
-            // comboBox1
+            // lblEnfantsEnreg
             // 
-            this.comboBox1.DataSource = this.sexeBindingSource;
-            this.comboBox1.DisplayMember = "Description";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(334, 106);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(74, 21);
-            this.comboBox1.TabIndex = 56;
-            this.comboBox1.ValueMember = "idSexe";
+            this.lblEnfantsEnreg.AutoSize = true;
+            this.lblEnfantsEnreg.Location = new System.Drawing.Point(12, 136);
+            this.lblEnfantsEnreg.Name = "lblEnfantsEnreg";
+            this.lblEnfantsEnreg.Size = new System.Drawing.Size(0, 13);
+            this.lblEnfantsEnreg.TabIndex = 58;
             // 
             // lblNbEnfants
             // 
@@ -590,84 +601,96 @@
             this.lblNbEnfants.Size = new System.Drawing.Size(0, 13);
             this.lblNbEnfants.TabIndex = 57;
             // 
-            // lblEnfantsEnreg
+            // cmbSexeDependant
             // 
-            this.lblEnfantsEnreg.AutoSize = true;
-            this.lblEnfantsEnreg.Location = new System.Drawing.Point(12, 136);
-            this.lblEnfantsEnreg.Name = "lblEnfantsEnreg";
-            this.lblEnfantsEnreg.Size = new System.Drawing.Size(0, 13);
-            this.lblEnfantsEnreg.TabIndex = 58;
+            this.cmbSexeDependant.DataSource = this.sexeBindingSource;
+            this.cmbSexeDependant.DisplayMember = "Description";
+            this.cmbSexeDependant.Enabled = false;
+            this.cmbSexeDependant.FormattingEnabled = true;
+            this.cmbSexeDependant.Location = new System.Drawing.Point(334, 106);
+            this.cmbSexeDependant.Name = "cmbSexeDependant";
+            this.cmbSexeDependant.Size = new System.Drawing.Size(74, 21);
+            this.cmbSexeDependant.TabIndex = 19;
+            this.cmbSexeDependant.ValueMember = "idSexe";
             // 
             // cellulaireTextBox
             // 
-            this.cellulaireTextBox.Location = new System.Drawing.Point(177, 212);
+            this.cellulaireTextBox.Location = new System.Drawing.Point(122, 169);
             this.cellulaireTextBox.Mask = "(999) 000-0000";
             this.cellulaireTextBox.Name = "cellulaireTextBox";
             this.cellulaireTextBox.Size = new System.Drawing.Size(111, 20);
-            this.cellulaireTextBox.TabIndex = 56;
+            this.cellulaireTextBox.TabIndex = 11;
             this.cellulaireTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.cellulaireTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.cellulaireTextBox_Validating);
             // 
             // telephoneTextBox
             // 
-            this.telephoneTextBox.Location = new System.Drawing.Point(464, 187);
+            this.telephoneTextBox.Location = new System.Drawing.Point(409, 144);
             this.telephoneTextBox.Mask = "(999) 000-0000";
             this.telephoneTextBox.Name = "telephoneTextBox";
             this.telephoneTextBox.Size = new System.Drawing.Size(127, 20);
-            this.telephoneTextBox.TabIndex = 57;
+            this.telephoneTextBox.TabIndex = 10;
             this.telephoneTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.telephoneTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.telephoneTextBox_Validating);
             // 
             // codePostalTextBox
             // 
-            this.codePostalTextBox.Location = new System.Drawing.Point(177, 185);
+            this.codePostalTextBox.Location = new System.Drawing.Point(122, 142);
             this.codePostalTextBox.Mask = "L0L-0L0";
             this.codePostalTextBox.Name = "codePostalTextBox";
             this.codePostalTextBox.Size = new System.Drawing.Size(100, 20);
-            this.codePostalTextBox.TabIndex = 58;
+            this.codePostalTextBox.TabIndex = 9;
             this.codePostalTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.codePostalTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.codePostalTextBox_Validating);
+            // 
+            // panelAbonnePrincipal
+            // 
+            this.panelAbonnePrincipal.Controls.Add(this.courrielTextBox);
+            this.panelAbonnePrincipal.Controls.Add(this.codePostalTextBox);
+            this.panelAbonnePrincipal.Controls.Add(this.villeTextBox);
+            this.panelAbonnePrincipal.Controls.Add(this.telephoneTextBox);
+            this.panelAbonnePrincipal.Controls.Add(villeLabel);
+            this.panelAbonnePrincipal.Controls.Add(this.cellulaireTextBox);
+            this.panelAbonnePrincipal.Controls.Add(telephoneLabel);
+            this.panelAbonnePrincipal.Controls.Add(sexeLabel);
+            this.panelAbonnePrincipal.Controls.Add(this.btnConfirmerPrincipal);
+            this.panelAbonnePrincipal.Controls.Add(this.rueTextBox);
+            this.panelAbonnePrincipal.Controls.Add(rueLabel);
+            this.panelAbonnePrincipal.Controls.Add(this.remarqueTextBox);
+            this.panelAbonnePrincipal.Controls.Add(this.cmbSexe);
+            this.panelAbonnePrincipal.Controls.Add(remarqueLabel);
+            this.panelAbonnePrincipal.Controls.Add(this.cmbProvince);
+            this.panelAbonnePrincipal.Controls.Add(this.prenomTextBox);
+            this.panelAbonnePrincipal.Controls.Add(this.cmbTypeAbonnement);
+            this.panelAbonnePrincipal.Controls.Add(prenomLabel);
+            this.panelAbonnePrincipal.Controls.Add(this.lblDateAbonnement);
+            this.panelAbonnePrincipal.Controls.Add(noTypeAbonnementLabel);
+            this.panelAbonnePrincipal.Controls.Add(cellulaireLabel);
+            this.panelAbonnePrincipal.Controls.Add(this.nomTextBox);
+            this.panelAbonnePrincipal.Controls.Add(codePostalLabel);
+            this.panelAbonnePrincipal.Controls.Add(nomLabel);
+            this.panelAbonnePrincipal.Controls.Add(courrielLabel);
+            this.panelAbonnePrincipal.Controls.Add(this.noCiviqueTextBox);
+            this.panelAbonnePrincipal.Controls.Add(noCiviqueLabel);
+            this.panelAbonnePrincipal.Controls.Add(dateAbonnementLabel);
+            this.panelAbonnePrincipal.Controls.Add(idProvinceLabel);
+            this.panelAbonnePrincipal.Controls.Add(dateNaissanceLabel);
+            this.panelAbonnePrincipal.Controls.Add(this.dateNaissanceDateTimePicker);
+            this.panelAbonnePrincipal.Location = new System.Drawing.Point(75, 51);
+            this.panelAbonnePrincipal.Name = "panelAbonnePrincipal";
+            this.panelAbonnePrincipal.Size = new System.Drawing.Size(552, 265);
+            this.panelAbonnePrincipal.TabIndex = 59;
             // 
             // frmAbonnement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(709, 589);
-            this.Controls.Add(this.codePostalTextBox);
-            this.Controls.Add(this.telephoneTextBox);
-            this.Controls.Add(this.cellulaireTextBox);
+            this.ClientSize = new System.Drawing.Size(713, 589);
+            this.Controls.Add(this.panelAbonnePrincipal);
             this.Controls.Add(this.panelDependant);
-            this.Controls.Add(this.btnConfirmerPrincipal);
             this.Controls.Add(this.lblConjointEnfant);
             this.Controls.Add(this.lblAjoutePrincipal);
-            this.Controls.Add(this.cmbSexe);
-            this.Controls.Add(this.cmbProvince);
-            this.Controls.Add(this.cmbTypeAbonnement);
-            this.Controls.Add(this.lblDateAbonnement);
-            this.Controls.Add(cellulaireLabel);
-            this.Controls.Add(codePostalLabel);
-            this.Controls.Add(courrielLabel);
-            this.Controls.Add(this.courrielTextBox);
-            this.Controls.Add(dateAbonnementLabel);
-            this.Controls.Add(dateNaissanceLabel);
-            this.Controls.Add(this.dateNaissanceDateTimePicker);
-            this.Controls.Add(idProvinceLabel);
-            this.Controls.Add(noCiviqueLabel);
-            this.Controls.Add(this.noCiviqueTextBox);
-            this.Controls.Add(nomLabel);
-            this.Controls.Add(this.nomTextBox);
-            this.Controls.Add(noTypeAbonnementLabel);
-            this.Controls.Add(prenomLabel);
-            this.Controls.Add(this.prenomTextBox);
-            this.Controls.Add(remarqueLabel);
-            this.Controls.Add(this.remarqueTextBox);
-            this.Controls.Add(rueLabel);
-            this.Controls.Add(this.rueTextBox);
-            this.Controls.Add(sexeLabel);
-            this.Controls.Add(telephoneLabel);
-            this.Controls.Add(villeLabel);
-            this.Controls.Add(this.villeTextBox);
             this.Name = "frmAbonnement";
             this.Text = "Abonnement";
             this.Load += new System.EventHandler(this.frmAbonnement_Load);
@@ -679,6 +702,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dependantBindingSource)).EndInit();
             this.panelDependant.ResumeLayout(false);
             this.panelDependant.PerformLayout();
+            this.panelAbonnePrincipal.ResumeLayout(false);
+            this.panelAbonnePrincipal.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -715,11 +740,12 @@
         private System.Windows.Forms.Button btnConfirmerPrincipal;
         private System.Windows.Forms.Button btnEnregistrerAbonnement;
         private System.Windows.Forms.Panel panelDependant;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbSexeDependant;
         private System.Windows.Forms.Label lblNbEnfants;
         private System.Windows.Forms.Label lblEnfantsEnreg;
         private System.Windows.Forms.MaskedTextBox cellulaireTextBox;
         private System.Windows.Forms.MaskedTextBox telephoneTextBox;
         private System.Windows.Forms.MaskedTextBox codePostalTextBox;
+        private System.Windows.Forms.Panel panelAbonnePrincipal;
     }
 }
