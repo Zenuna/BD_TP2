@@ -148,6 +148,7 @@
     </Compile>
     <Compile Include="ModPrixDepense.cs" />
     <Compile Include="nomCompletAbonne.cs" />
+    <Compile Include="nomCompletIDAbonne.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ajoutEmploye.resx">
@@ -213,6 +214,7 @@
     <None Include="Properties\DataSources\ModPrixDepense1.datasource" />
     <None Include="Properties\DataSources\ModPrixDepense2.datasource" />
     <None Include="Properties\DataSources\nomCompletAbonne.datasource" />
+    <None Include="Properties\DataSources\nomCompletIDAbonne.datasource" />
     <None Include="Properties\DataSources\PartiesJouee.datasource" />
     <None Include="Properties\DataSources\PrixDepensesAbonnement.datasource" />
     <None Include="Properties\DataSources\Program.datasource" />
