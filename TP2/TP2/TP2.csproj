@@ -71,17 +71,10 @@
   <ItemGroup>
     <Compile Include="AbonneStats.cs" />
     <Compile Include="ajoutEmploye.cs">
-      <Compile Include="nomCompletIDAbonne.cs" />
-      <Compile Include="ModPrixDepense.cs" />
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ajoutEmploye.designer.cs">
       <DependentUpon>ajoutEmploye.cs</DependentUpon>
-    </Compile>
-    <Compile Include="BD5B6TP2_JouaniquePerreaultDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BD5B6TP2_JouaniquePerreaultDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="DepenseStats.cs" />
     <Compile Include="frmAbonnement.cs">
@@ -157,6 +150,8 @@
     </Compile>
     <Compile Include="nomCompletAbonne.cs" />
     <Compile Include="PartiesJoueesStats.cs" />
+    <Compile Include="nomCompletIDAbonne.cs" />
+    <Compile Include="ModPrixDepense.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ajoutEmploye.resx">
@@ -210,17 +205,6 @@
     <EmbeddedResource Include="StatsDepensesMoisAbonnement.rdlc" />
     <EmbeddedResource Include="StatsPartiesAnneeTerrain.rdlc" />
     <EmbeddedResource Include="StatsPartiesMoisTerrain.rdlc" />
-    <None Include="BD5B6TP2_JouaniquePerreaultDataSet.xsc">
-      <DependentUpon>BD5B6TP2_JouaniquePerreaultDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BD5B6TP2_JouaniquePerreaultDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BD5B6TP2_JouaniquePerreaultDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BD5B6TP2_JouaniquePerreaultDataSet.xss">
-      <DependentUpon>BD5B6TP2_JouaniquePerreaultDataSet.xsd</DependentUpon>
-    </None>
     <None Include="DataClasses1.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
