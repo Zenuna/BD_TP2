@@ -29,276 +29,227 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.Label descriptionLabel;
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource5 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource6 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.AbonneStatsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.PartiesJoueesStatsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DepenseStatsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.dgTabUn = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.reportViewer3 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.reportViewer4 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.reportViewer5 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.reportViewer6 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.abonnementBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboTypeAbonnementTabUn = new System.Windows.Forms.ComboBox();
             this.typesAbonnementBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.typesAbonnementBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.dateTimeTabUn = new System.Windows.Forms.DateTimePicker();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
-            descriptionLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.AbonneStatsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PartiesJoueesStatsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DepenseStatsBindingSource)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgTabUn)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.abonnementBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typesAbonnementBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typesAbonnementBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
-            // descriptionLabel
+            // AbonneStatsBindingSource
             // 
-            descriptionLabel.AutoSize = true;
-            descriptionLabel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            descriptionLabel.Location = new System.Drawing.Point(456, 7);
-            descriptionLabel.Name = "descriptionLabel";
-            descriptionLabel.Size = new System.Drawing.Size(119, 19);
-            descriptionLabel.TabIndex = 1;
-            descriptionLabel.Text = "Type d\'abonné:";
+            this.AbonneStatsBindingSource.DataSource = typeof(TP2.AbonneStats);
+            // 
+            // PartiesJoueesStatsBindingSource
+            // 
+            this.PartiesJoueesStatsBindingSource.DataSource = typeof(TP2.PartiesJoueesStats);
+            // 
+            // DepenseStatsBindingSource
+            // 
+            this.DepenseStatsBindingSource.DataSource = typeof(TP2.DepenseStats);
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Location = new System.Drawing.Point(8, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(785, 404);
             this.tabControl1.TabIndex = 0;
-            this.tabControl1.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabControl1_Selected);
             // 
             // tabPage1
             // 
             this.tabPage1.AutoScroll = true;
-            this.tabPage1.Controls.Add(this.dgTabUn);
-            this.tabPage1.Controls.Add(this.label1);
-            this.tabPage1.Controls.Add(descriptionLabel);
-            this.tabPage1.Controls.Add(this.comboTypeAbonnementTabUn);
-            this.tabPage1.Controls.Add(this.dateTimeTabUn);
+            this.tabPage1.Controls.Add(this.reportViewer1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(777, 378);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Abonnements par année ";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Enter += new System.EventHandler(this.tabPage1_Enter);
             // 
-            // dgTabUn
+            // reportViewer1
             // 
-            this.dgTabUn.AllowUserToAddRows = false;
-            this.dgTabUn.AllowUserToDeleteRows = false;
-            this.dgTabUn.AutoGenerateColumns = false;
-            this.dgTabUn.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgTabUn.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.dataGridViewTextBoxColumn12,
-            this.dataGridViewTextBoxColumn13,
-            this.dataGridViewTextBoxColumn14,
-            this.dataGridViewTextBoxColumn15,
-            this.dataGridViewTextBoxColumn16,
-            this.dataGridViewTextBoxColumn17,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn19});
-            this.dgTabUn.DataSource = this.abonnementBindingSource;
-            this.dgTabUn.Location = new System.Drawing.Point(10, 39);
-            this.dgTabUn.Name = "dgTabUn";
-            this.dgTabUn.ReadOnly = true;
-            this.dgTabUn.Size = new System.Drawing.Size(756, 301);
-            this.dgTabUn.TabIndex = 4;
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "AbonneAnneeType";
+            reportDataSource1.Value = this.AbonneStatsBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "TP2.StatsAbonneAnneeType.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(3, 3);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(771, 372);
+            this.reportViewer1.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn1
+            // tabPage2
             // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.tabPage2.Controls.Add(this.reportViewer2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(777, 378);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Abonnements par mois";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Enter);
             // 
-            // dataGridViewTextBoxColumn2
+            // reportViewer2
             // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "DateAbonnement";
-            this.dataGridViewTextBoxColumn2.HeaderText = "DateAbonnement";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.reportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource2.Name = "AbonneMoisType";
+            reportDataSource2.Value = this.AbonneStatsBindingSource;
+            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer2.LocalReport.ReportEmbeddedResource = "TP2.StatsAbonneMoisType.rdlc";
+            this.reportViewer2.Location = new System.Drawing.Point(3, 3);
+            this.reportViewer2.Name = "reportViewer2";
+            this.reportViewer2.ServerReport.BearerToken = null;
+            this.reportViewer2.Size = new System.Drawing.Size(771, 372);
+            this.reportViewer2.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn3
+            // tabPage3
             // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Nom";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Nom";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.tabPage3.Controls.Add(this.reportViewer3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(777, 378);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Parties jouées par année";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage3.Enter += new System.EventHandler(this.tabPage3_Enter);
             // 
-            // dataGridViewTextBoxColumn4
+            // reportViewer3
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Prenom";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Prenom";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.reportViewer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource3.Name = "PartieAnneeTerrain";
+            reportDataSource3.Value = this.PartiesJoueesStatsBindingSource;
+            this.reportViewer3.LocalReport.DataSources.Add(reportDataSource3);
+            this.reportViewer3.LocalReport.ReportEmbeddedResource = "TP2.StatsPartiesAnneeTerrain.rdlc";
+            this.reportViewer3.Location = new System.Drawing.Point(3, 3);
+            this.reportViewer3.Name = "reportViewer3";
+            this.reportViewer3.ServerReport.BearerToken = null;
+            this.reportViewer3.Size = new System.Drawing.Size(771, 372);
+            this.reportViewer3.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn5
+            // tabPage4
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Sexe";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Sexe";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.tabPage4.Controls.Add(this.reportViewer4);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(777, 378);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Parties jouées par mois";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tabPage4.Enter += new System.EventHandler(this.tabPage4_Enter);
             // 
-            // dataGridViewTextBoxColumn6
+            // reportViewer4
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "DateNaissance";
-            this.dataGridViewTextBoxColumn6.HeaderText = "DateNaissance";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.reportViewer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource4.Name = "PartiesMoisTerrain";
+            reportDataSource4.Value = this.PartiesJoueesStatsBindingSource;
+            this.reportViewer4.LocalReport.DataSources.Add(reportDataSource4);
+            this.reportViewer4.LocalReport.ReportEmbeddedResource = "TP2.StatsPartiesMoisTerrain.rdlc";
+            this.reportViewer4.Location = new System.Drawing.Point(3, 3);
+            this.reportViewer4.Name = "reportViewer4";
+            this.reportViewer4.ServerReport.BearerToken = null;
+            this.reportViewer4.Size = new System.Drawing.Size(771, 372);
+            this.reportViewer4.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn7
+            // tabPage5
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "NoCivique";
-            this.dataGridViewTextBoxColumn7.HeaderText = "NoCivique";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.tabPage5.Controls.Add(this.reportViewer5);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(777, 378);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Dépenses par année";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            this.tabPage5.Enter += new System.EventHandler(this.tabPage5_Enter);
             // 
-            // dataGridViewTextBoxColumn8
+            // reportViewer5
             // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "Rue";
-            this.dataGridViewTextBoxColumn8.HeaderText = "Rue";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.reportViewer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource5.Name = "DepensesAnneeAbonnement";
+            reportDataSource5.Value = this.DepenseStatsBindingSource;
+            this.reportViewer5.LocalReport.DataSources.Add(reportDataSource5);
+            this.reportViewer5.LocalReport.ReportEmbeddedResource = "TP2.StatsDepensesAnneeAbonnement.rdlc";
+            this.reportViewer5.Location = new System.Drawing.Point(3, 3);
+            this.reportViewer5.Name = "reportViewer5";
+            this.reportViewer5.ServerReport.BearerToken = null;
+            this.reportViewer5.Size = new System.Drawing.Size(771, 372);
+            this.reportViewer5.TabIndex = 0;
             // 
-            // dataGridViewTextBoxColumn9
+            // tabPage6
             // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "Ville";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Ville";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.tabPage6.Controls.Add(this.reportViewer6);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(777, 378);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Dépenses par mois";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            this.tabPage6.Enter += new System.EventHandler(this.tabPage6_Enter);
             // 
-            // dataGridViewTextBoxColumn10
+            // reportViewer6
             // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "IdProvince";
-            this.dataGridViewTextBoxColumn10.HeaderText = "IdProvince";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "CodePostal";
-            this.dataGridViewTextBoxColumn11.HeaderText = "CodePostal";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Telephone";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Telephone";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Cellulaire";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Cellulaire";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Courriel";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Courriel";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.DataPropertyName = "NoTypeAbonnement";
-            this.dataGridViewTextBoxColumn15.HeaderText = "NoTypeAbonnement";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "Remarque";
-            this.dataGridViewTextBoxColumn16.HeaderText = "Remarque";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "Province";
-            this.dataGridViewTextBoxColumn17.HeaderText = "Province";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "TypesAbonnement";
-            this.dataGridViewTextBoxColumn18.HeaderText = "TypesAbonnement";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "Sexe1";
-            this.dataGridViewTextBoxColumn19.HeaderText = "Sexe1";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            this.reportViewer6.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource6.Name = "DepensesMoisAbonnement";
+            reportDataSource6.Value = this.DepenseStatsBindingSource;
+            this.reportViewer6.LocalReport.DataSources.Add(reportDataSource6);
+            this.reportViewer6.LocalReport.ReportEmbeddedResource = "TP2.StatsDepensesMoisAbonnement.rdlc";
+            this.reportViewer6.Location = new System.Drawing.Point(3, 3);
+            this.reportViewer6.Name = "reportViewer6";
+            this.reportViewer6.ServerReport.BearerToken = null;
+            this.reportViewer6.Size = new System.Drawing.Size(771, 372);
+            this.reportViewer6.TabIndex = 0;
             // 
             // abonnementBindingSource
             // 
             this.abonnementBindingSource.DataSource = typeof(TP2.Abonnement);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 19);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Année:";
-            // 
-            // comboTypeAbonnementTabUn
-            // 
-            this.comboTypeAbonnementTabUn.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.typesAbonnementBindingSource, "Description", true));
-            this.comboTypeAbonnementTabUn.DataSource = this.typesAbonnementBindingSource1;
-            this.comboTypeAbonnementTabUn.DisplayMember = "Description";
-            this.comboTypeAbonnementTabUn.FormattingEnabled = true;
-            this.comboTypeAbonnementTabUn.Location = new System.Drawing.Point(581, 6);
-            this.comboTypeAbonnementTabUn.Name = "comboTypeAbonnementTabUn";
-            this.comboTypeAbonnementTabUn.Size = new System.Drawing.Size(190, 21);
-            this.comboTypeAbonnementTabUn.TabIndex = 2;
-            this.comboTypeAbonnementTabUn.ValueMember = "No";
-            this.comboTypeAbonnementTabUn.SelectedIndexChanged += new System.EventHandler(this.comboTypeAbonnementTabUn_SelectedIndexChanged);
-            this.comboTypeAbonnementTabUn.SelectedValueChanged += new System.EventHandler(this.comboTypeAbonnementTabUn_SelectedValueChanged);
             // 
             // typesAbonnementBindingSource
             // 
@@ -307,29 +258,6 @@
             // typesAbonnementBindingSource1
             // 
             this.typesAbonnementBindingSource1.DataSource = typeof(TP2.TypesAbonnement);
-            // 
-            // dateTimeTabUn
-            // 
-            this.dateTimeTabUn.CustomFormat = "yyyy";
-            this.dateTimeTabUn.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimeTabUn.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimeTabUn.Location = new System.Drawing.Point(72, 6);
-            this.dateTimeTabUn.MinDate = new System.DateTime(2000, 12, 12, 0, 0, 0, 0);
-            this.dateTimeTabUn.Name = "dateTimeTabUn";
-            this.dateTimeTabUn.ShowUpDown = true;
-            this.dateTimeTabUn.Size = new System.Drawing.Size(81, 27);
-            this.dateTimeTabUn.TabIndex = 0;
-            this.dateTimeTabUn.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(777, 409);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -349,13 +277,21 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tabControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmVisualisationStatistiques";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Visualisation des statistiques";
             this.Load += new System.EventHandler(this.frmVisualisationStatistiques_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.AbonneStatsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PartiesJoueesStatsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DepenseStatsBindingSource)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgTabUn)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.abonnementBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typesAbonnementBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typesAbonnementBindingSource1)).EndInit();
@@ -367,33 +303,23 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboTypeAbonnementTabUn;
         private System.Windows.Forms.BindingSource typesAbonnementBindingSource;
-        private System.Windows.Forms.DateTimePicker dateTimeTabUn;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView dgTabUn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.BindingSource abonnementBindingSource;
         private System.Windows.Forms.BindingSource typesAbonnementBindingSource1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.BindingSource AbonneStatsBindingSource;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.BindingSource PartiesJoueesStatsBindingSource;
+        private System.Windows.Forms.BindingSource DepenseStatsBindingSource;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer2;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer3;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer4;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer5;
+        private Microsoft.Reporting.WinForms.ReportViewer reportViewer6;
     }
 }

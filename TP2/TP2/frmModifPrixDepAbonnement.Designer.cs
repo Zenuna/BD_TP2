@@ -31,12 +31,12 @@
             this.components = new System.ComponentModel.Container();
             this.btnEnregistrer = new System.Windows.Forms.Button();
             this.dgModPrixDep = new System.Windows.Forms.DataGridView();
-            this.lblModificationBlock = new System.Windows.Forms.Label();
             this.no = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prix = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.depensesObligatoires = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.modPrixDepenseBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.lblModificationBlock = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgModPrixDep)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.modPrixDepenseBindingSource2)).BeginInit();
             this.SuspendLayout();
@@ -67,15 +67,6 @@
             this.dgModPrixDep.Size = new System.Drawing.Size(347, 220);
             this.dgModPrixDep.TabIndex = 1;
             this.dgModPrixDep.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgModPrixDep_CellValidating);
-            // 
-            // lblModificationBlock
-            // 
-            this.lblModificationBlock.AutoSize = true;
-            this.lblModificationBlock.ForeColor = System.Drawing.Color.DarkRed;
-            this.lblModificationBlock.Location = new System.Drawing.Point(38, 31);
-            this.lblModificationBlock.Name = "lblModificationBlock";
-            this.lblModificationBlock.Size = new System.Drawing.Size(0, 13);
-            this.lblModificationBlock.TabIndex = 2;
             // 
             // no
             // 
@@ -112,6 +103,15 @@
             // 
             this.modPrixDepenseBindingSource2.DataSource = typeof(TP2.ModPrixDepense);
             // 
+            // lblModificationBlock
+            // 
+            this.lblModificationBlock.AutoSize = true;
+            this.lblModificationBlock.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblModificationBlock.Location = new System.Drawing.Point(38, 31);
+            this.lblModificationBlock.Name = "lblModificationBlock";
+            this.lblModificationBlock.Size = new System.Drawing.Size(0, 13);
+            this.lblModificationBlock.TabIndex = 2;
+            // 
             // frmModifPrixDepAbonnement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -120,6 +120,7 @@
             this.Controls.Add(this.lblModificationBlock);
             this.Controls.Add(this.dgModPrixDep);
             this.Controls.Add(this.btnEnregistrer);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmModifPrixDepAbonnement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modification des prix et des dépenses d\'abonnement";

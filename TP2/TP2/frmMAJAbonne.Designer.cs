@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.abonnementBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgAbonnementPrincipal = new System.Windows.Forms.DataGridView();
             this.sexeBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -230,8 +230,8 @@
             // dgDateNaissanceDep
             // 
             this.dgDateNaissanceDep.DataPropertyName = "DateNaissance";
-            dataGridViewCellStyle6.Format = "d";
-            this.dgDateNaissanceDep.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Format = "d";
+            this.dgDateNaissanceDep.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgDateNaissanceDep.HeaderText = "Date de naissance";
             this.dgDateNaissanceDep.Name = "dgDateNaissanceDep";
             this.dgDateNaissanceDep.ReadOnly = true;
@@ -253,9 +253,9 @@
             // dgDateAbonnement
             // 
             this.dgDateAbonnement.DataPropertyName = "DateAbonnement";
-            dataGridViewCellStyle4.Format = "d";
-            dataGridViewCellStyle4.NullValue = null;
-            this.dgDateAbonnement.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dgDateAbonnement.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgDateAbonnement.HeaderText = "Date d\'abonnement";
             this.dgDateAbonnement.Name = "dgDateAbonnement";
             this.dgDateAbonnement.ReadOnly = true;
@@ -289,9 +289,9 @@
             // dgDateNaissance
             // 
             this.dgDateNaissance.DataPropertyName = "DateNaissance";
-            dataGridViewCellStyle5.Format = "d";
-            dataGridViewCellStyle5.NullValue = null;
-            this.dgDateNaissance.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Format = "d";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dgDateNaissance.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgDateNaissance.HeaderText = "Date de naissance";
             this.dgDateNaissance.Name = "dgDateNaissance";
             this.dgDateNaissance.ReadOnly = true;
@@ -341,6 +341,7 @@
             this.dgTelephone.HeaderText = "Téléphone";
             this.dgTelephone.MaxInputLength = 10;
             this.dgTelephone.Name = "dgTelephone";
+            this.dgTelephone.ToolTipText = "Format : ##########";
             // 
             // dgCellulaire
             // 
@@ -348,6 +349,7 @@
             this.dgCellulaire.HeaderText = "Cellulaire";
             this.dgCellulaire.MaxInputLength = 10;
             this.dgCellulaire.Name = "dgCellulaire";
+            this.dgCellulaire.ToolTipText = "Format : ##########";
             // 
             // dgCourriel
             // 
@@ -355,6 +357,7 @@
             this.dgCourriel.HeaderText = "Courriel";
             this.dgCourriel.MaxInputLength = 50;
             this.dgCourriel.Name = "dgCourriel";
+            this.dgCourriel.ToolTipText = "Format : LLLLLL@LLL.LLL";
             // 
             // dgTypeAbonnement
             // 
@@ -388,6 +391,7 @@
             this.Controls.Add(this.dgAbonnementPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmMAJAbonne";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mise à jour des abonnés";
             this.Load += new System.EventHandler(this.frmMAJAbonne_Load);
             ((System.ComponentModel.ISupportInitialize)(this.abonnementBindingSource)).EndInit();

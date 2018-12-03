@@ -191,6 +191,7 @@
             this.Controls.Add(pointageLabel);
             this.Controls.Add(remarqueLabel);
             this.Controls.Add(this.remarqueTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmInscriptionPartieGolf";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inscription d\'une partie de golf jouée";

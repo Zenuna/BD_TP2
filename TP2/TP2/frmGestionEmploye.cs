@@ -60,22 +60,11 @@ namespace TP2
                         dgRow.ErrorText = "";
                     }
                 }
-                /*else if (e.ColumnIndex == dgNoCivique.Index)
-                {
-                    if (!int.TryParse(e.FormattedValue.ToString(), out noCivique)) { 
-                        dgRow.ErrorText = "Le numéro civique doit être un entier supérier à 0";
-                        e.Cancel = true;
-                    }
-                    else
-                    {
-                        dgRow.ErrorText = "";
-                    }
-            }*/
                 else if(e.ColumnIndex == dgTelephone.Index)
                 {
                     if (!regex.IsMatch(e.FormattedValue.ToString()))
                     {
-                        dgRow.ErrorText = "Le numéro de téléphone doit être 10 chiffres entre 0 et 9";
+                        dgRow.ErrorText = "Le numéro de téléphone doit être 10 chiffres entre 0 et 9 | Format : ##########";
                         e.Cancel = true;
                     }
                     else
@@ -87,7 +76,7 @@ namespace TP2
                 else if(e.ColumnIndex == dgCellulaire.Index && e.FormattedValue.ToString().Trim().Length > 0) {
                     if (!regex.IsMatch(e.FormattedValue.ToString()))
                     {
-                        dgRow.ErrorText = "Le numéro de cellulaire doit être 10 chiffres entre 0 et 9";
+                        dgRow.ErrorText = "Le numéro de cellulaire doit être 10 chiffres entre 0 et 9 | Format : ##########";
                         e.Cancel = true;
                     }
                     else
@@ -158,16 +147,9 @@ namespace TP2
                 else if(e.ColumnIndex == dgCourriel.Index)
                 {
                     string strCourriel = e.FormattedValue.ToString().Trim();
-                    if (strCourriel.Trim().Length == 0)
-                    {
-                        dgRow.ErrorText = "Le courriel ne peut pas être vide";
-                        e.Cancel = true;
-                    }
-                    else
-                    {
                         if (!strCourriel.Contains("@"))
                         {
-                            dgRow.ErrorText = "Le courriel doit contenir un '@'";
+                            dgRow.ErrorText = "Le courriel doit contenir un '@' | Format : LLLLLL@LLL.LLL";
                             e.Cancel = true;
                         }
                         else
@@ -175,7 +157,7 @@ namespace TP2
                             string strCourrielPartDeux = strCourriel.Split('@')[1];
                             if (strCourrielPartDeux.Contains("@"))
                             {
-                                dgRow.ErrorText = "Le courriel ne doit pas contenir deux '@'";
+                                dgRow.ErrorText = "Le courriel ne doit pas contenir deux '@' | Format : LLLLLL@LLL.LLL";
                                 e.Cancel = true;
                             }
                             else if (strCourrielPartDeux.Contains("."))
@@ -183,7 +165,7 @@ namespace TP2
                                 string strCourrielPartTrois = strCourrielPartDeux.Split('.')[1];
                                 if (strCourrielPartTrois.Contains("."))
                                 {
-                                    dgRow.ErrorText = "Le courriel ne doit pas contenir deux domaines de premier niveau";
+                                    dgRow.ErrorText = "Le courriel ne doit pas contenir deux domaines de premier niveau | Format : LLLLLL@LLL.LLL";
                                     e.Cancel = true;
                                 }
                                 else
@@ -193,12 +175,11 @@ namespace TP2
                             }
                             else
                             {
-                                dgRow.ErrorText = "Le courriel doit contenir un domaine de premier niveau";
+                                dgRow.ErrorText = "Le courriel doit contenir un domaine de premier niveau | Format : LLLLLL@LLL.LLL";
                                 e.Cancel = true;
                             }
                         }
                     }
-                }
                 else
                 {
                     dgRow.ErrorText = "";

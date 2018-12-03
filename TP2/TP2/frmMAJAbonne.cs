@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Transactions;
 using System.Text.RegularExpressions;
+using System.Data.Linq;
 
 namespace TP2
 {
@@ -57,11 +58,15 @@ namespace TP2
                 {
                     try
                     {
-                        dataContext.SubmitChanges();
-                        MessageBox.Show("L'abonnée principal " + dgAbonnementPrincipal.CurrentRow.Cells[0].Value + " et ses dépendants ont été enregistrés.", "Enregistrement d'un abonnée");
+                        dataContext.SubmitChanges(ConflictMode.ContinueOnConflict);
+                        MessageBox.Show("Données enregistrées","Sauvegarde des données");
                         porteeTransaction.Complete();
                     }
-                    catch (Exception ex)
+                catch (ChangeConflictException)
+                {
+                        dataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepCurrentValues);
+                }
+                catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, "Impossible de modifier la base de donnée");
                     }
@@ -98,7 +103,7 @@ namespace TP2
                 {
                     if (!regex.IsMatch(e.FormattedValue.ToString()))
                     {
-                        dgRow.ErrorText = "Le numéro de téléphone doit être 10 chiffres entre 0 et 9";
+                        dgRow.ErrorText = "Le numéro de téléphone doit être 10 chiffres entre 0 et 9 | Format : ##########";
                         e.Cancel = true;
                     }
                     else
@@ -111,7 +116,7 @@ namespace TP2
                 {
                     if (!regex.IsMatch(e.FormattedValue.ToString()))
                     {
-                        dgRow.ErrorText = "Le numéro de cellulaire doit être 10 chiffres entre 0 et 9";
+                        dgRow.ErrorText = "Le numéro de cellulaire doit être 10 chiffres entre 0 et 9 | Format : ##########";
                         e.Cancel = true;
                     }
                     else
@@ -123,16 +128,9 @@ namespace TP2
                 else if (e.ColumnIndex == dgCourriel.Index)
                 {
                     string strCourriel = e.FormattedValue.ToString().Trim();
-                    if (strCourriel.Trim().Length == 0)
-                    {
-                        dgRow.ErrorText = "Le courriel ne peut pas être vide";
-                        e.Cancel = true;
-                    }
-                    else
-                    {
                         if (!strCourriel.Contains("@"))
                         {
-                            dgRow.ErrorText = "Le courriel doit contenir un '@'";
+                            dgRow.ErrorText = "Le courriel doit contenir un '@' | Format : LLLLLL@LLL.LLL";
                             e.Cancel = true;
                         }
                         else
@@ -140,7 +138,7 @@ namespace TP2
                             string strCourrielPartDeux = strCourriel.Split('@')[1];
                             if (strCourrielPartDeux.Contains("@"))
                             {
-                                dgRow.ErrorText = "Le courriel ne doit pas contenir deux '@'";
+                                dgRow.ErrorText = "Le courriel ne doit pas contenir deux '@' | Format : LLLLLL@LLL.LLL";
                                 e.Cancel = true;
                             }
                             else if (strCourrielPartDeux.Contains("."))
@@ -148,7 +146,7 @@ namespace TP2
                                 string strCourrielPartTrois = strCourrielPartDeux.Split('.')[1];
                                 if (strCourrielPartTrois.Contains("."))
                                 {
-                                    dgRow.ErrorText = "Le courriel ne doit pas contenir deux domaines de premier niveau";
+                                    dgRow.ErrorText = "Le courriel ne doit pas contenir deux domaines de premier niveau | Format : LLLLLL@LLL.LLL";
                                     e.Cancel = true;
                                 }
                                 else
@@ -158,12 +156,11 @@ namespace TP2
                             }
                             else
                             {
-                                dgRow.ErrorText = "Le courriel doit contenir un domaine de premier niveau";
+                                dgRow.ErrorText = "Le courriel doit contenir un domaine de premier niveau | Format : LLLLLL@LLL.LLL";
                                 e.Cancel = true;
                             }
                         }
                     }
-                }
                 else
                 {
                     dgRow.ErrorText = "";
