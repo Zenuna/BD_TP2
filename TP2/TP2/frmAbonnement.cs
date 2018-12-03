@@ -60,6 +60,7 @@ namespace TP2
                         if(btnPanel != null)
                             btnPanel.Enabled = false;
                     }
+                    lblNbEnfants.Text = "";
                     break;
                 case 2:
                     dateNaissanceDateTimePicker.MaxDate = DateTime.Now.Date.AddYears(-60);
@@ -69,6 +70,7 @@ namespace TP2
                         if (btnPanel != null)
                             btnPanel.Enabled = false;
                     }
+                    lblNbEnfants.Text = "";
                     break;
                 case 3:
                     dateNaissanceDateTimePicker.MaxDate = DateTime.Now.Date.AddYears(-18);
@@ -78,6 +80,7 @@ namespace TP2
                         if (btnPanel != null)
                             btnPanel.Enabled = true;
                     }
+                    lblNbEnfants.Text = "";
                     btnEnfant.Enabled = false;
                     break;
                 case 4:
@@ -88,7 +91,7 @@ namespace TP2
                         if (btnPanel != null)
                             btnPanel.Enabled = true;
                     }                    
-                    lblNbEnfants.Text = "Nombre d'enfants minimum à enregistrer : 1";
+                    lblNbEnfants.Text = "Nombre d'enfant minimum à enregistrer : 1";
                     break;
                 case 5:
                     dateNaissanceDateTimePicker.MaxDate = DateTime.Now.Date.AddYears(-18);
@@ -140,7 +143,7 @@ namespace TP2
                         Id = strIDAbonnementPrincipal,
                         DateAbonnement = dateAbonnement,
                         Nom = nomTextBox.Text,
-                        Prenom = prenomTextBox.Text,
+                        Prenom= prenomTextBox.Text,
                         Sexe = Convert.ToChar(cmbSexe.SelectedValue),
                         DateNaissance = Convert.ToDateTime(dateNaissanceDateTimePicker.Value),
                         NoCivique = noCiviqueTextBox.Text,
@@ -180,14 +183,17 @@ namespace TP2
                             }
                         }
                         dateNaissanceDateTimePicker.Enabled = false;
+                        // Devrait juste enable selon le combo ?
+                        // Parce que sinon ça enable dès le clique
                         foreach (Control ctrl in panelDependant.Controls)
                         {
                             ctrl.Enabled = true;
                         }
+                        cmbTypeAbonnement_SelectedIndexChanged(this, new EventArgs());
                     }
                     catch(Exception ex)
                     {
-                        MessageBox.Show("L'abonnennement a échoué"+ex, "Enregistrement de l'abonné principal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("L'abonnennement a échoué "+ex, "Enregistrement de l'abonné principal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
 
 
@@ -199,7 +205,7 @@ namespace TP2
                     }
                     else if (dateNaissanceDateTimePicker1.Value > DateTime.Now.Date.AddYears(-18))
                     {
-                        MessageBox.Show("Le conjoint dois avoir plus de 18 ans", "Avertissement", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Le/La conjoint(e) doit avoir plus de 18 ans", "Avertissement", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else
                     {
@@ -239,7 +245,7 @@ namespace TP2
                     }
                     else if (!booConjointAjoute)
                     {
-                        MessageBox.Show("Le conjoint n'a pas été ajouté", "Avertissement", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Le/La conjoint(e) n'a pas été ajouté(e)", "Avertissement", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                     else if (dateNaissanceDateTimePicker1.Value <= DateTime.Now.Date.AddYears(-18) || dateNaissanceDateTimePicker1.Value >= DateTime.Now.Date)
                     {
@@ -272,7 +278,7 @@ namespace TP2
                             {
                                 btnEnfant.Enabled = false;
                                 booEnfantAjoute = true;
-                                MessageBox.Show("Vous avez enregistré le nombre d'enfant maximal pour le type d'abonnement \n\nVeuillez confirmé l'ajout des enfants.", "Avertissement", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                MessageBox.Show("Vous avez enregistré le nombre maximal d'enfant pour ce type d'abonnement \n\nVeuillez confirmer l'ajout des enfants.", "Avertissement", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             }
                             else
                             {                                
@@ -311,7 +317,7 @@ namespace TP2
                e.Cancel = true;
             }else if(!Regex.IsMatch(nomTextBox.Text, "^[a-zA-Z]+$") || nomTextBox.Text.Length > 28)
             {
-                errMessage.SetError(nomTextBox, "Le nom doit contenir seulement des lettres et une longeur maximale de 28 caractères");
+                errMessage.SetError(nomTextBox, "Le nom doit contenir seulement des lettres et une longueur maximale de 28 caractères");
                 e.Cancel = true;
             }
             else errMessage.SetError(nomTextBox, "");
@@ -327,7 +333,7 @@ namespace TP2
             }
             else if (!Regex.IsMatch(noCiviqueTextBox.Text, @"^\d+[A-Z]?$") || noCiviqueTextBox.Text.Length > 10)
             {
-                errMessage.SetError(noCiviqueTextBox, "Le format n'est pas valide ou la longeur dépasse 10 caractères\n\n Format valide : 999 , 999A , 999B . (Lettre majuscule seulement)");
+                errMessage.SetError(noCiviqueTextBox, "Le format n'est pas valide ou la longueur dépasse 10 caractères\n\n Format valide : 999 , 999A , 999B . (Lettre majuscule seulement)");
                 e.Cancel = true;
             }
             else errMessage.SetError(noCiviqueTextBox, "");
@@ -342,7 +348,7 @@ namespace TP2
             }
             else if (!Regex.IsMatch(villeTextBox.Text, "^[a-zA-Z]+$") || villeTextBox.Text.Length > 30)
             {
-                errMessage.SetError(villeTextBox, "Le nom de la ville doit contenir seulement des lettres et une longeur maximale de 30 caractères");
+                errMessage.SetError(villeTextBox, "Le nom de la ville doit contenir seulement des lettres et une longueur maximale de 30 caractères");
                 e.Cancel = true;
             }
             else errMessage.SetError(villeTextBox, "");
@@ -363,12 +369,12 @@ namespace TP2
         {
             if (prenomTextBox.Text.ToString().Trim().Equals(""))
             {
-                errMessage.SetError(prenomTextBox, "Le prenom ne peut pas être vide");
+                errMessage.SetError(prenomTextBox, "Le prénom ne peut pas être vide");
                 e.Cancel = true;
             }
             else if (!Regex.IsMatch(prenomTextBox.Text, "^[a-zA-Z]+$") || prenomTextBox.Text.Length > 30)
             {
-                errMessage.SetError(prenomTextBox, "Le prenom doit contenir seulement des lettres et une longeur maximale de 28 caractères");
+                errMessage.SetError(prenomTextBox, "Le prénom doit contenir seulement des lettres et une longueur maximale de 28 caractères");
                 e.Cancel = true;
             }
             else errMessage.SetError(prenomTextBox, "");
@@ -383,7 +389,7 @@ namespace TP2
             }
             else if (!Regex.IsMatch(rueTextBox.Text, "^[a-zA-Z]+$") || rueTextBox.Text.Length > 30)
             {
-                errMessage.SetError(rueTextBox, "Le nom de la rue doit contenir seulement des lettres et une longeur maximale de 30 caractères");
+                errMessage.SetError(rueTextBox, "Le nom de la rue doit contenir seulement des lettres et une longueur maximale de 30 caractères");
                 e.Cancel = true;
             }
             else errMessage.SetError(rueTextBox, "");
@@ -435,7 +441,7 @@ namespace TP2
             }
             else if (!Regex.IsMatch(nomTextBox1.Text, "^[a-zA-Z]+$") || nomTextBox1.Text.Length > 30)
             {
-                errMessage.SetError(nomTextBox1, "Le nom de la personne doit contenir seulement des lettres et une longeur maximale de 30 caractères");
+                errMessage.SetError(nomTextBox1, "Le nom de la personne doit contenir seulement des lettres et une longueur maximale de 30 caractères");
                 e.Cancel = true;
             }
             else errMessage.SetError(nomTextBox1, "");
@@ -450,7 +456,7 @@ namespace TP2
             }
             else if (!Regex.IsMatch(prenomTextBox1.Text, "^[a-zA-Z]+$") || prenomTextBox1.Text.Length > 30)
             {
-                errMessage.SetError(prenomTextBox1, "Le prenom de la personne doit contenir seulement des lettres et une longeur maximale de 30 caractères");
+                errMessage.SetError(prenomTextBox1, "Le prénom de la personne doit contenir seulement des lettres et une longueur maximale de 30 caractères");
                 e.Cancel = true;
             }
             else errMessage.SetError(prenomTextBox1, "");
@@ -476,7 +482,7 @@ namespace TP2
                     {
                         lstDependants.ForEach(c => dataClasses1DataContext.Dependants.InsertOnSubmit(c));
                         dataClasses1DataContext.SubmitChanges();
-                        MessageBox.Show($"Le(s) dépendant(s) (Enfant) a/ont été(s) ajouté(s)", "Enregistrement de dépendants", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show($"Le(s) dépendant(s) (enfant) a/ont été(s) ajouté(s)", "Enregistrement de dépendants", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         porteeTransaction.Complete();
                         resetForm(sender,e);
                         btnEnregistrerAbonnement.Enabled = false;

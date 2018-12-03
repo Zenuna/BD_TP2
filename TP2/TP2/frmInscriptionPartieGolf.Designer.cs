@@ -57,7 +57,7 @@
             // datePartieLabel
             // 
             datePartieLabel.AutoSize = true;
-            datePartieLabel.Location = new System.Drawing.Point(34, 69);
+            datePartieLabel.Location = new System.Drawing.Point(70, 69);
             datePartieLabel.Name = "datePartieLabel";
             datePartieLabel.Size = new System.Drawing.Size(63, 13);
             datePartieLabel.TabIndex = 1;
@@ -66,7 +66,7 @@
             // noTerrainLabel
             // 
             noTerrainLabel.AutoSize = true;
-            noTerrainLabel.Location = new System.Drawing.Point(36, 121);
+            noTerrainLabel.Location = new System.Drawing.Point(54, 121);
             noTerrainLabel.Name = "noTerrainLabel";
             noTerrainLabel.Size = new System.Drawing.Size(79, 13);
             noTerrainLabel.TabIndex = 5;
@@ -75,7 +75,7 @@
             // pointageLabel
             // 
             pointageLabel.AutoSize = true;
-            pointageLabel.Location = new System.Drawing.Point(36, 147);
+            pointageLabel.Location = new System.Drawing.Point(81, 147);
             pointageLabel.Name = "pointageLabel";
             pointageLabel.Size = new System.Drawing.Size(52, 13);
             pointageLabel.TabIndex = 7;
@@ -84,7 +84,7 @@
             // remarqueLabel
             // 
             remarqueLabel.AutoSize = true;
-            remarqueLabel.Location = new System.Drawing.Point(36, 173);
+            remarqueLabel.Location = new System.Drawing.Point(74, 173);
             remarqueLabel.Name = "remarqueLabel";
             remarqueLabel.Size = new System.Drawing.Size(59, 13);
             remarqueLabel.TabIndex = 9;
@@ -111,6 +111,7 @@
             this.remarqueTextBox.Name = "remarqueTextBox";
             this.remarqueTextBox.Size = new System.Drawing.Size(200, 20);
             this.remarqueTextBox.TabIndex = 10;
+            this.remarqueTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // cmbAbonne
             // 
@@ -161,8 +162,9 @@
             0,
             0});
             this.nUDPointage.Name = "nUDPointage";
-            this.nUDPointage.Size = new System.Drawing.Size(52, 20);
+            this.nUDPointage.Size = new System.Drawing.Size(200, 20);
             this.nUDPointage.TabIndex = 14;
+            this.nUDPointage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnEnregistrement
             // 

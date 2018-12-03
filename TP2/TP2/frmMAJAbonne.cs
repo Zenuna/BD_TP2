@@ -91,6 +91,7 @@ namespace TP2
         private void dgAbonnementPrincipal_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             Regex regex = new Regex(@"^[0-9]{10}$");
+            Regex regexCodePostal = new Regex(@"^([A-Z][0-9]){3}$");
             DataGridViewRow dgRow = dgAbonnementPrincipal.Rows[e.RowIndex];
             if (e.FormattedValue.ToString().Trim().Equals("") && e.ColumnIndex != dgRemarque.Index && e.ColumnIndex != dgCellulaire.Index)
             {
@@ -99,7 +100,19 @@ namespace TP2
             }
             else
             {
-                if (e.ColumnIndex == dgTelephone.Index)
+                if(e.ColumnIndex == dgCodePostal.Index)
+                {
+                    if (!regexCodePostal.IsMatch(e.FormattedValue.ToString().ToUpper()))
+                    {
+                        dgRow.ErrorText = "Le code postal doit être de format : L#L#L#";
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        dgRow.ErrorText = "";
+                    }
+                }
+                else if (e.ColumnIndex == dgTelephone.Index)
                 {
                     if (!regex.IsMatch(e.FormattedValue.ToString()))
                     {

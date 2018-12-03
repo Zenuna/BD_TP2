@@ -51,7 +51,7 @@ namespace TP2
         {
             frmGestionEmploye fGestionEmploye = new frmGestionEmploye(empConnect);
             this.Hide();
-            fGestionEmploye.ShowDialog();
+            fGestionEmploye.ShowDialog(this);
             this.Show();
         }
 
@@ -59,7 +59,7 @@ namespace TP2
         {
             frmAbonnement fAbonnement= new frmAbonnement(empConnect);
             this.Hide();
-            fAbonnement.ShowDialog();
+            fAbonnement.ShowDialog(this);
             this.Show();
         }
 
@@ -67,7 +67,7 @@ namespace TP2
         {
             frmReAbonnement fReAbonnement= new frmReAbonnement(empConnect);
             this.Hide();
-            fReAbonnement.ShowDialog();
+            fReAbonnement.ShowDialog(this);
             this.Show();
         }
 
@@ -75,7 +75,7 @@ namespace TP2
         {
             frmMAJAbonne fMAJAbonne = new frmMAJAbonne(empConnect);
             this.Hide();
-            fMAJAbonne.ShowDialog();
+            fMAJAbonne.ShowDialog(this);
             this.Show();
         }
 
@@ -83,7 +83,7 @@ namespace TP2
         {
             frmModifPrixDepAbonnement fModifPrixDepAbonnement= new frmModifPrixDepAbonnement(empConnect);
             this.Hide();
-            fModifPrixDepAbonnement.ShowDialog();
+            fModifPrixDepAbonnement.ShowDialog(this);
             this.Show();
         }
 
@@ -91,7 +91,7 @@ namespace TP2
         {
             frmInscriptionPartieGolf fInscriptionPartieGolf= new frmInscriptionPartieGolf(empConnect);
             this.Hide();
-            fInscriptionPartieGolf.ShowDialog();
+            fInscriptionPartieGolf.ShowDialog(this);
             this.Show();
         }
 
@@ -99,7 +99,7 @@ namespace TP2
         {
             frmInscriptionDepense fInscriptionDepense = new frmInscriptionDepense(empConnect);
             this.Hide();
-            fInscriptionDepense.ShowDialog();
+            fInscriptionDepense.ShowDialog(this);
             this.Show();
         }
 
@@ -107,7 +107,7 @@ namespace TP2
         {
             frmVisualisationRapport fVisualisationRapport = new frmVisualisationRapport(empConnect);
             this.Hide();
-            fVisualisationRapport.ShowDialog();
+            fVisualisationRapport.ShowDialog(this);
             this.Show();
         }
 
@@ -115,7 +115,7 @@ namespace TP2
         {
             frmVisualisationStatistiques fVisualisationStatistiques = new frmVisualisationStatistiques(empConnect);
             this.Hide();
-            fVisualisationStatistiques.ShowDialog();
+            fVisualisationStatistiques.ShowDialog(this);
             this.Show();
         }
 

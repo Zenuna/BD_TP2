@@ -131,9 +131,9 @@
             codePostalLabel.Location = new System.Drawing.Point(8, 142);
             codePostalLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             codePostalLabel.Name = "codePostalLabel";
-            codePostalLabel.Size = new System.Drawing.Size(67, 13);
+            codePostalLabel.Size = new System.Drawing.Size(66, 13);
             codePostalLabel.TabIndex = 3;
-            codePostalLabel.Text = "Code Postal:";
+            codePostalLabel.Text = "Code postal:";
             // 
             // courrielLabel
             // 
@@ -161,9 +161,9 @@
             dateNaissanceLabel.Location = new System.Drawing.Point(295, 69);
             dateNaissanceLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             dateNaissanceLabel.Name = "dateNaissanceLabel";
-            dateNaissanceLabel.Size = new System.Drawing.Size(86, 13);
+            dateNaissanceLabel.Size = new System.Drawing.Size(99, 13);
             dateNaissanceLabel.TabIndex = 9;
-            dateNaissanceLabel.Text = "Date Naissance:";
+            dateNaissanceLabel.Text = "Date de naissance:";
             // 
             // idProvinceLabel
             // 
@@ -201,9 +201,9 @@
             noTypeAbonnementLabel.Location = new System.Drawing.Point(8, 198);
             noTypeAbonnementLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             noTypeAbonnementLabel.Name = "noTypeAbonnementLabel";
-            noTypeAbonnementLabel.Size = new System.Drawing.Size(114, 13);
+            noTypeAbonnementLabel.Size = new System.Drawing.Size(104, 13);
             noTypeAbonnementLabel.TabIndex = 19;
-            noTypeAbonnementLabel.Text = "No Type Abonnement:";
+            noTypeAbonnementLabel.Text = "Type d\'abonnement:";
             // 
             // prenomLabel
             // 
@@ -211,9 +211,9 @@
             prenomLabel.Location = new System.Drawing.Point(295, 44);
             prenomLabel.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             prenomLabel.Name = "prenomLabel";
-            prenomLabel.Size = new System.Drawing.Size(46, 13);
+            prenomLabel.Size = new System.Drawing.Size(43, 13);
             prenomLabel.TabIndex = 21;
-            prenomLabel.Text = "Prenom:";
+            prenomLabel.Text = "Prénom";
             // 
             // remarqueLabel
             // 
@@ -253,7 +253,7 @@
             telephoneLabel.Name = "telephoneLabel";
             telephoneLabel.Size = new System.Drawing.Size(61, 13);
             telephoneLabel.TabIndex = 29;
-            telephoneLabel.Text = "Telephone:";
+            telephoneLabel.Text = "Téléphone:";
             // 
             // villeLabel
             // 
@@ -268,16 +268,16 @@
             // dateNaissanceLabel1
             // 
             dateNaissanceLabel1.AutoSize = true;
-            dateNaissanceLabel1.Location = new System.Drawing.Point(242, 27);
+            dateNaissanceLabel1.Location = new System.Drawing.Point(229, 27);
             dateNaissanceLabel1.Name = "dateNaissanceLabel1";
-            dateNaissanceLabel1.Size = new System.Drawing.Size(86, 13);
+            dateNaissanceLabel1.Size = new System.Drawing.Size(99, 13);
             dateNaissanceLabel1.TabIndex = 35;
-            dateNaissanceLabel1.Text = "Date Naissance:";
+            dateNaissanceLabel1.Text = "Date de naissance:";
             // 
             // nomLabel1
             // 
             nomLabel1.AutoSize = true;
-            nomLabel1.Location = new System.Drawing.Point(242, 57);
+            nomLabel1.Location = new System.Drawing.Point(296, 57);
             nomLabel1.Name = "nomLabel1";
             nomLabel1.Size = new System.Drawing.Size(32, 13);
             nomLabel1.TabIndex = 41;
@@ -286,16 +286,16 @@
             // prenomLabel1
             // 
             prenomLabel1.AutoSize = true;
-            prenomLabel1.Location = new System.Drawing.Point(242, 83);
+            prenomLabel1.Location = new System.Drawing.Point(282, 83);
             prenomLabel1.Name = "prenomLabel1";
             prenomLabel1.Size = new System.Drawing.Size(46, 13);
             prenomLabel1.TabIndex = 43;
-            prenomLabel1.Text = "Prenom:";
+            prenomLabel1.Text = "Prénom:";
             // 
             // remarqueLabel1
             // 
             remarqueLabel1.AutoSize = true;
-            remarqueLabel1.Location = new System.Drawing.Point(242, 136);
+            remarqueLabel1.Location = new System.Drawing.Point(269, 136);
             remarqueLabel1.Name = "remarqueLabel1";
             remarqueLabel1.Size = new System.Drawing.Size(59, 13);
             remarqueLabel1.TabIndex = 45;
@@ -304,7 +304,7 @@
             // sexeLabel1
             // 
             sexeLabel1.AutoSize = true;
-            sexeLabel1.Location = new System.Drawing.Point(242, 110);
+            sexeLabel1.Location = new System.Drawing.Point(294, 110);
             sexeLabel1.Name = "sexeLabel1";
             sexeLabel1.Size = new System.Drawing.Size(34, 13);
             sexeLabel1.TabIndex = 47;
@@ -320,8 +320,9 @@
             this.courrielTextBox.Location = new System.Drawing.Point(409, 168);
             this.courrielTextBox.Margin = new System.Windows.Forms.Padding(1);
             this.courrielTextBox.Name = "courrielTextBox";
-            this.courrielTextBox.Size = new System.Drawing.Size(127, 20);
+            this.courrielTextBox.Size = new System.Drawing.Size(132, 20);
             this.courrielTextBox.TabIndex = 12;
+            this.courrielTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.courrielTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.courrielTextBox_Validating);
             // 
             // dateNaissanceDateTimePicker
@@ -330,7 +331,7 @@
             this.dateNaissanceDateTimePicker.Location = new System.Drawing.Point(409, 67);
             this.dateNaissanceDateTimePicker.Margin = new System.Windows.Forms.Padding(1);
             this.dateNaissanceDateTimePicker.Name = "dateNaissanceDateTimePicker";
-            this.dateNaissanceDateTimePicker.Size = new System.Drawing.Size(127, 20);
+            this.dateNaissanceDateTimePicker.Size = new System.Drawing.Size(132, 20);
             this.dateNaissanceDateTimePicker.TabIndex = 4;
             // 
             // noCiviqueTextBox
@@ -340,8 +341,9 @@
             this.noCiviqueTextBox.Margin = new System.Windows.Forms.Padding(1);
             this.noCiviqueTextBox.MaxLength = 10;
             this.noCiviqueTextBox.Name = "noCiviqueTextBox";
-            this.noCiviqueTextBox.Size = new System.Drawing.Size(111, 20);
+            this.noCiviqueTextBox.Size = new System.Drawing.Size(132, 20);
             this.noCiviqueTextBox.TabIndex = 5;
+            this.noCiviqueTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.noCiviqueTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.noCiviqueTextBox_Validating);
             // 
             // nomTextBox
@@ -351,8 +353,9 @@
             this.nomTextBox.Margin = new System.Windows.Forms.Padding(1);
             this.nomTextBox.MaxLength = 28;
             this.nomTextBox.Name = "nomTextBox";
-            this.nomTextBox.Size = new System.Drawing.Size(111, 20);
+            this.nomTextBox.Size = new System.Drawing.Size(132, 20);
             this.nomTextBox.TabIndex = 1;
+            this.nomTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nomTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.nomTextBox_Validating);
             // 
             // prenomTextBox
@@ -362,8 +365,9 @@
             this.prenomTextBox.Margin = new System.Windows.Forms.Padding(1);
             this.prenomTextBox.MaxLength = 30;
             this.prenomTextBox.Name = "prenomTextBox";
-            this.prenomTextBox.Size = new System.Drawing.Size(127, 20);
+            this.prenomTextBox.Size = new System.Drawing.Size(132, 20);
             this.prenomTextBox.TabIndex = 2;
+            this.prenomTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.prenomTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.prenomTextBox_Validating);
             // 
             // remarqueTextBox
@@ -373,8 +377,9 @@
             this.remarqueTextBox.Margin = new System.Windows.Forms.Padding(1);
             this.remarqueTextBox.MaxLength = 50;
             this.remarqueTextBox.Name = "remarqueTextBox";
-            this.remarqueTextBox.Size = new System.Drawing.Size(127, 20);
+            this.remarqueTextBox.Size = new System.Drawing.Size(132, 20);
             this.remarqueTextBox.TabIndex = 14;
+            this.remarqueTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // rueTextBox
             // 
@@ -383,8 +388,9 @@
             this.rueTextBox.Margin = new System.Windows.Forms.Padding(1);
             this.rueTextBox.MaxLength = 30;
             this.rueTextBox.Name = "rueTextBox";
-            this.rueTextBox.Size = new System.Drawing.Size(127, 20);
+            this.rueTextBox.Size = new System.Drawing.Size(132, 20);
             this.rueTextBox.TabIndex = 6;
+            this.rueTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.rueTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.rueTextBox_Validating);
             // 
             // villeTextBox
@@ -394,8 +400,9 @@
             this.villeTextBox.Margin = new System.Windows.Forms.Padding(1);
             this.villeTextBox.MaxLength = 30;
             this.villeTextBox.Name = "villeTextBox";
-            this.villeTextBox.Size = new System.Drawing.Size(111, 20);
+            this.villeTextBox.Size = new System.Drawing.Size(132, 20);
             this.villeTextBox.TabIndex = 7;
+            this.villeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.villeTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.villeTextBox_Validating);
             // 
             // lblDateAbonnement
@@ -435,7 +442,7 @@
             this.cmbProvince.FormattingEnabled = true;
             this.cmbProvince.Location = new System.Drawing.Point(409, 117);
             this.cmbProvince.Name = "cmbProvince";
-            this.cmbProvince.Size = new System.Drawing.Size(127, 21);
+            this.cmbProvince.Size = new System.Drawing.Size(132, 21);
             this.cmbProvince.TabIndex = 8;
             this.cmbProvince.ValueMember = "Id";
             // 
@@ -450,7 +457,7 @@
             this.cmbSexe.FormattingEnabled = true;
             this.cmbSexe.Location = new System.Drawing.Point(122, 66);
             this.cmbSexe.Name = "cmbSexe";
-            this.cmbSexe.Size = new System.Drawing.Size(74, 21);
+            this.cmbSexe.Size = new System.Drawing.Size(132, 21);
             this.cmbSexe.TabIndex = 3;
             this.cmbSexe.ValueMember = "idSexe";
             // 
@@ -479,6 +486,7 @@
             this.nomTextBox1.Name = "nomTextBox1";
             this.nomTextBox1.Size = new System.Drawing.Size(200, 20);
             this.nomTextBox1.TabIndex = 17;
+            this.nomTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nomTextBox1.Validating += new System.ComponentModel.CancelEventHandler(this.nomTextBox1_Validating);
             // 
             // prenomTextBox1
@@ -489,6 +497,7 @@
             this.prenomTextBox1.Name = "prenomTextBox1";
             this.prenomTextBox1.Size = new System.Drawing.Size(200, 20);
             this.prenomTextBox1.TabIndex = 18;
+            this.prenomTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.prenomTextBox1.Validating += new System.ComponentModel.CancelEventHandler(this.prenomTextBox1_Validating);
             // 
             // remarqueTextBox1
@@ -500,6 +509,7 @@
             this.remarqueTextBox1.Name = "remarqueTextBox1";
             this.remarqueTextBox1.Size = new System.Drawing.Size(200, 20);
             this.remarqueTextBox1.TabIndex = 20;
+            this.remarqueTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // btnConjoint
             // 
@@ -609,27 +619,29 @@
             this.cmbSexeDependant.FormattingEnabled = true;
             this.cmbSexeDependant.Location = new System.Drawing.Point(334, 106);
             this.cmbSexeDependant.Name = "cmbSexeDependant";
-            this.cmbSexeDependant.Size = new System.Drawing.Size(74, 21);
+            this.cmbSexeDependant.Size = new System.Drawing.Size(200, 21);
             this.cmbSexeDependant.TabIndex = 19;
             this.cmbSexeDependant.ValueMember = "idSexe";
             // 
             // cellulaireTextBox
             // 
             this.cellulaireTextBox.Location = new System.Drawing.Point(122, 169);
-            this.cellulaireTextBox.Mask = "(999) 000-0000";
+            this.cellulaireTextBox.Mask = "(000) 000-0000";
             this.cellulaireTextBox.Name = "cellulaireTextBox";
-            this.cellulaireTextBox.Size = new System.Drawing.Size(111, 20);
+            this.cellulaireTextBox.Size = new System.Drawing.Size(132, 20);
             this.cellulaireTextBox.TabIndex = 11;
+            this.cellulaireTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.cellulaireTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.cellulaireTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.cellulaireTextBox_Validating);
             // 
             // telephoneTextBox
             // 
             this.telephoneTextBox.Location = new System.Drawing.Point(409, 144);
-            this.telephoneTextBox.Mask = "(999) 000-0000";
+            this.telephoneTextBox.Mask = "(000) 000-0000";
             this.telephoneTextBox.Name = "telephoneTextBox";
-            this.telephoneTextBox.Size = new System.Drawing.Size(127, 20);
+            this.telephoneTextBox.Size = new System.Drawing.Size(132, 20);
             this.telephoneTextBox.TabIndex = 10;
+            this.telephoneTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.telephoneTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.telephoneTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.telephoneTextBox_Validating);
             // 
@@ -638,8 +650,9 @@
             this.codePostalTextBox.Location = new System.Drawing.Point(122, 142);
             this.codePostalTextBox.Mask = "L0L-0L0";
             this.codePostalTextBox.Name = "codePostalTextBox";
-            this.codePostalTextBox.Size = new System.Drawing.Size(100, 20);
+            this.codePostalTextBox.Size = new System.Drawing.Size(132, 20);
             this.codePostalTextBox.TabIndex = 9;
+            this.codePostalTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.codePostalTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.codePostalTextBox.Validating += new System.ComponentModel.CancelEventHandler(this.codePostalTextBox_Validating);
             // 

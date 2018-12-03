@@ -34,6 +34,7 @@ namespace TP2
         private void dgEmploye_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             Regex regex = new Regex(@"^[0-9]{10}$");
+            Regex regexCodePostal = new Regex(@"^([A-Z][0-9]){3}$");
             DataGridViewRow dgRow = dgEmploye.Rows[e.RowIndex];
             int Age = 0;
             if(e.FormattedValue.ToString().Trim().Equals("") && e.ColumnIndex != dgCellulaire.Index && e.ColumnIndex != dgCellulaire.Index)
@@ -43,7 +44,19 @@ namespace TP2
             }
             else 
             {
-                if (e.ColumnIndex == dgAge.Index && !int.TryParse(e.FormattedValue.ToString(), out Age))
+                if (e.ColumnIndex == dgCodePostal.Index)
+                {
+                    if (!regexCodePostal.IsMatch(e.FormattedValue.ToString().ToUpper()))
+                    {
+                        dgRow.ErrorText = "Le code postal doit être de format : L#L#L#";
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        dgRow.ErrorText = "";
+                    }
+                }
+                else if (e.ColumnIndex == dgAge.Index && !int.TryParse(e.FormattedValue.ToString(), out Age))
                 {
                     dgRow.ErrorText = "L'âge doit être un entier positif";
                     e.Cancel = true;

@@ -62,6 +62,7 @@
             this.dgNoCivique = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgRue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgVille = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgCodePostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgProvince = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dgTelephone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgCellulaire = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -192,6 +193,7 @@
             this.dgNoCivique,
             this.dgRue,
             this.dgVille,
+            this.dgCodePostal,
             this.dgProvince,
             this.dgTelephone,
             this.dgCellulaire,
@@ -321,6 +323,14 @@
             this.dgVille.MaxInputLength = 50;
             this.dgVille.Name = "dgVille";
             // 
+            // dgCodePostal
+            // 
+            this.dgCodePostal.DataPropertyName = "CodePostal";
+            this.dgCodePostal.HeaderText = "Code postal";
+            this.dgCodePostal.MaxInputLength = 6;
+            this.dgCodePostal.Name = "dgCodePostal";
+            this.dgCodePostal.ToolTipText = "Format : L#L#L#";
+            // 
             // dgProvince
             // 
             this.dgProvince.DataPropertyName = "IdProvince";
@@ -447,6 +457,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgNoCivique;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgRue;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgVille;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgCodePostal;
         private System.Windows.Forms.DataGridViewComboBoxColumn dgProvince;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgTelephone;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgCellulaire;
