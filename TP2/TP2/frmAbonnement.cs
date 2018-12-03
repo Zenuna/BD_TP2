@@ -81,6 +81,7 @@ namespace TP2
                             btnPanel.Enabled = true;
                     }
                     lblNbEnfants.Text = "";
+                    btnEnregistrerAbonnement.Enabled = false;
                     btnEnfant.Enabled = false;
                     break;
                 case 4:
