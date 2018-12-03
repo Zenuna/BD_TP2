@@ -33,8 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.Common.dll</HintPath>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
@@ -42,8 +42,8 @@
     <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.ProcessingObjectModel.DLL</HintPath>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
@@ -69,12 +69,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbonneStats.cs" />
     <Compile Include="ajoutEmploye.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ajoutEmploye.designer.cs">
       <DependentUpon>ajoutEmploye.cs</DependentUpon>
     </Compile>
+    <Compile Include="BD5B6TP2_JouaniquePerreaultDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BD5B6TP2_JouaniquePerreaultDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DepenseStats.cs" />
     <Compile Include="frmAbonnement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +154,7 @@
       <DependentUpon>frmVisualisationStatistiques.cs</DependentUpon>
     </Compile>
     <Compile Include="nomCompletAbonne.cs" />
+    <Compile Include="PartiesJoueesStats.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ajoutEmploye.resx">
@@ -194,6 +202,23 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="StatsAbonneAnneeType.rdlc" />
+    <EmbeddedResource Include="StatsAbonneMoisType.rdlc" />
+    <EmbeddedResource Include="StatsDepensesAnneeAbonnement.rdlc" />
+    <EmbeddedResource Include="StatsDepensesMoisAbonnement.rdlc" />
+    <EmbeddedResource Include="StatsPartiesAnneeTerrain.rdlc" />
+    <EmbeddedResource Include="StatsPartiesMoisTerrain.rdlc" />
+    <None Include="BD5B6TP2_JouaniquePerreaultDataSet.xsc">
+      <DependentUpon>BD5B6TP2_JouaniquePerreaultDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BD5B6TP2_JouaniquePerreaultDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BD5B6TP2_JouaniquePerreaultDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BD5B6TP2_JouaniquePerreaultDataSet.xss">
+      <DependentUpon>BD5B6TP2_JouaniquePerreaultDataSet.xsd</DependentUpon>
+    </None>
     <None Include="DataClasses1.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>DataClasses1.designer.cs</LastGenOutput>
@@ -204,13 +229,16 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Abonnement.datasource" />
+    <None Include="Properties\DataSources\AbonneStats.datasource" />
     <None Include="Properties\DataSources\Connexion.datasource" />
     <None Include="Properties\DataSources\DataClasses1DataContext.datasource" />
     <None Include="Properties\DataSources\Dependant.datasource" />
     <None Include="Properties\DataSources\Depense.datasource" />
+    <None Include="Properties\DataSources\DepenseStats.datasource" />
     <None Include="Properties\DataSources\Employe.datasource" />
     <None Include="Properties\DataSources\nomCompletAbonne.datasource" />
     <None Include="Properties\DataSources\PartiesJouee.datasource" />
+    <None Include="Properties\DataSources\PartiesJoueesStats.datasource" />
     <None Include="Properties\DataSources\PrixDepensesAbonnement.datasource" />
     <None Include="Properties\DataSources\Program.datasource" />
     <None Include="Properties\DataSources\Province.datasource" />
