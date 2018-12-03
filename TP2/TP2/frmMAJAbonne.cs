@@ -27,6 +27,7 @@ namespace TP2
             provinceBindingSource.DataSource = dataContext.Provinces;
             abonnementBindingSource.DataSource = lstAbonnePrincipal();
             dependantBindingSource.DataSource = lstAbonneDependant(lstAbonnePrincipal().First().Id);
+            this.reportViewer1.RefreshReport();
         }
 
         private List<Abonnement> lstAbonnePrincipal()

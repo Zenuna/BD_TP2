@@ -691,7 +691,9 @@
             this.Controls.Add(this.panelDependant);
             this.Controls.Add(this.lblConjointEnfant);
             this.Controls.Add(this.lblAjoutePrincipal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmAbonnement";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Abonnement";
             this.Load += new System.EventHandler(this.frmAbonnement_Load);
             ((System.ComponentModel.ISupportInitialize)(this.abonnementBindingSource)).EndInit();
