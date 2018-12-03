@@ -341,6 +341,7 @@
             this.dgTelephone.HeaderText = "Téléphone";
             this.dgTelephone.MaxInputLength = 10;
             this.dgTelephone.Name = "dgTelephone";
+            this.dgTelephone.ToolTipText = "Format : ##########";
             // 
             // dgCellulaire
             // 
@@ -348,6 +349,7 @@
             this.dgCellulaire.HeaderText = "Cellulaire";
             this.dgCellulaire.MaxInputLength = 10;
             this.dgCellulaire.Name = "dgCellulaire";
+            this.dgCellulaire.ToolTipText = "Format : ##########";
             // 
             // dgCourriel
             // 
@@ -355,6 +357,7 @@
             this.dgCourriel.HeaderText = "Courriel";
             this.dgCourriel.MaxInputLength = 50;
             this.dgCourriel.Name = "dgCourriel";
+            this.dgCourriel.ToolTipText = "Format : LLLLLL@LLL.LLL";
             this.dgCourriel.Width = 150;
             // 
             // dgSalaireHoraire

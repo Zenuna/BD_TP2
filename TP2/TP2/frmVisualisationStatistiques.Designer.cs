@@ -35,26 +35,29 @@
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource5 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource6 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.AbonneStatsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.PartiesJoueesStatsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DepenseStatsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.reportViewer3 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.reportViewer4 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.reportViewer5 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.reportViewer6 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.abonnementBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.typesAbonnementBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.typesAbonnementBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
-            this.AbonneStatsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.PartiesJoueesStatsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DepenseStatsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.reportViewer2 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.reportViewer3 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.reportViewer4 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.reportViewer5 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.reportViewer6 = new Microsoft.Reporting.WinForms.ReportViewer();
+            ((System.ComponentModel.ISupportInitialize)(this.AbonneStatsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PartiesJoueesStatsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DepenseStatsBindingSource)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -65,10 +68,19 @@
             ((System.ComponentModel.ISupportInitialize)(this.abonnementBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typesAbonnementBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typesAbonnementBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AbonneStatsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PartiesJoueesStatsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DepenseStatsBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // AbonneStatsBindingSource
+            // 
+            this.AbonneStatsBindingSource.DataSource = typeof(TP2.AbonneStats);
+            // 
+            // PartiesJoueesStatsBindingSource
+            // 
+            this.PartiesJoueesStatsBindingSource.DataSource = typeof(TP2.PartiesJoueesStats);
+            // 
+            // DepenseStatsBindingSource
+            // 
+            this.DepenseStatsBindingSource.DataSource = typeof(TP2.DepenseStats);
             // 
             // tabControl1
             // 
@@ -97,6 +109,19 @@
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Enter += new System.EventHandler(this.tabPage1_Enter);
             // 
+            // reportViewer1
+            // 
+            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "AbonneAnneeType";
+            reportDataSource1.Value = this.AbonneStatsBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "TP2.StatsAbonneAnneeType.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(3, 3);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(771, 372);
+            this.reportViewer1.TabIndex = 0;
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.reportViewer2);
@@ -108,6 +133,19 @@
             this.tabPage2.Text = "Abonnements par mois";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Enter += new System.EventHandler(this.tabPage2_Enter);
+            // 
+            // reportViewer2
+            // 
+            this.reportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource2.Name = "AbonneMoisType";
+            reportDataSource2.Value = this.AbonneStatsBindingSource;
+            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer2.LocalReport.ReportEmbeddedResource = "TP2.StatsAbonneMoisType.rdlc";
+            this.reportViewer2.Location = new System.Drawing.Point(3, 3);
+            this.reportViewer2.Name = "reportViewer2";
+            this.reportViewer2.ServerReport.BearerToken = null;
+            this.reportViewer2.Size = new System.Drawing.Size(771, 372);
+            this.reportViewer2.TabIndex = 0;
             // 
             // tabPage3
             // 
@@ -121,6 +159,19 @@
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Enter += new System.EventHandler(this.tabPage3_Enter);
             // 
+            // reportViewer3
+            // 
+            this.reportViewer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource3.Name = "PartieAnneeTerrain";
+            reportDataSource3.Value = this.PartiesJoueesStatsBindingSource;
+            this.reportViewer3.LocalReport.DataSources.Add(reportDataSource3);
+            this.reportViewer3.LocalReport.ReportEmbeddedResource = "TP2.StatsPartiesAnneeTerrain.rdlc";
+            this.reportViewer3.Location = new System.Drawing.Point(3, 3);
+            this.reportViewer3.Name = "reportViewer3";
+            this.reportViewer3.ServerReport.BearerToken = null;
+            this.reportViewer3.Size = new System.Drawing.Size(771, 372);
+            this.reportViewer3.TabIndex = 0;
+            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.reportViewer4);
@@ -132,6 +183,19 @@
             this.tabPage4.Text = "Parties jouées par mois";
             this.tabPage4.UseVisualStyleBackColor = true;
             this.tabPage4.Enter += new System.EventHandler(this.tabPage4_Enter);
+            // 
+            // reportViewer4
+            // 
+            this.reportViewer4.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource4.Name = "PartiesMoisTerrain";
+            reportDataSource4.Value = this.PartiesJoueesStatsBindingSource;
+            this.reportViewer4.LocalReport.DataSources.Add(reportDataSource4);
+            this.reportViewer4.LocalReport.ReportEmbeddedResource = "TP2.StatsPartiesMoisTerrain.rdlc";
+            this.reportViewer4.Location = new System.Drawing.Point(3, 3);
+            this.reportViewer4.Name = "reportViewer4";
+            this.reportViewer4.ServerReport.BearerToken = null;
+            this.reportViewer4.Size = new System.Drawing.Size(771, 372);
+            this.reportViewer4.TabIndex = 0;
             // 
             // tabPage5
             // 
@@ -145,6 +209,19 @@
             this.tabPage5.UseVisualStyleBackColor = true;
             this.tabPage5.Enter += new System.EventHandler(this.tabPage5_Enter);
             // 
+            // reportViewer5
+            // 
+            this.reportViewer5.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource5.Name = "DepensesAnneeAbonnement";
+            reportDataSource5.Value = this.DepenseStatsBindingSource;
+            this.reportViewer5.LocalReport.DataSources.Add(reportDataSource5);
+            this.reportViewer5.LocalReport.ReportEmbeddedResource = "TP2.StatsDepensesAnneeAbonnement.rdlc";
+            this.reportViewer5.Location = new System.Drawing.Point(3, 3);
+            this.reportViewer5.Name = "reportViewer5";
+            this.reportViewer5.ServerReport.BearerToken = null;
+            this.reportViewer5.Size = new System.Drawing.Size(771, 372);
+            this.reportViewer5.TabIndex = 0;
+            // 
             // tabPage6
             // 
             this.tabPage6.Controls.Add(this.reportViewer6);
@@ -156,6 +233,19 @@
             this.tabPage6.Text = "Dépenses par mois";
             this.tabPage6.UseVisualStyleBackColor = true;
             this.tabPage6.Enter += new System.EventHandler(this.tabPage6_Enter);
+            // 
+            // reportViewer6
+            // 
+            this.reportViewer6.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource6.Name = "DepensesMoisAbonnement";
+            reportDataSource6.Value = this.DepenseStatsBindingSource;
+            this.reportViewer6.LocalReport.DataSources.Add(reportDataSource6);
+            this.reportViewer6.LocalReport.ReportEmbeddedResource = "TP2.StatsDepensesMoisAbonnement.rdlc";
+            this.reportViewer6.Location = new System.Drawing.Point(3, 3);
+            this.reportViewer6.Name = "reportViewer6";
+            this.reportViewer6.ServerReport.BearerToken = null;
+            this.reportViewer6.Size = new System.Drawing.Size(771, 372);
+            this.reportViewer6.TabIndex = 0;
             // 
             // abonnementBindingSource
             // 
@@ -180,96 +270,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // AbonneStatsBindingSource
-            // 
-            this.AbonneStatsBindingSource.DataSource = typeof(TP2.AbonneStats);
-            // 
-            // PartiesJoueesStatsBindingSource
-            // 
-            this.PartiesJoueesStatsBindingSource.DataSource = typeof(TP2.PartiesJoueesStats);
-            // 
-            // DepenseStatsBindingSource
-            // 
-            this.DepenseStatsBindingSource.DataSource = typeof(TP2.DepenseStats);
-            // 
-            // reportViewer1
-            // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "AbonneAnneeType";
-            reportDataSource1.Value = this.AbonneStatsBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "TP2.StatsAbonneAnneeType.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(3, 3);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(771, 372);
-            this.reportViewer1.TabIndex = 0;
-            // 
-            // reportViewer2
-            // 
-            this.reportViewer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource2.Name = "AbonneMoisType";
-            reportDataSource2.Value = this.AbonneStatsBindingSource;
-            this.reportViewer2.LocalReport.DataSources.Add(reportDataSource2);
-            this.reportViewer2.LocalReport.ReportEmbeddedResource = "TP2.StatsAbonneMoisType.rdlc";
-            this.reportViewer2.Location = new System.Drawing.Point(3, 3);
-            this.reportViewer2.Name = "reportViewer2";
-            this.reportViewer2.ServerReport.BearerToken = null;
-            this.reportViewer2.Size = new System.Drawing.Size(771, 372);
-            this.reportViewer2.TabIndex = 0;
-            // 
-            // reportViewer3
-            // 
-            this.reportViewer3.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource3.Name = "PartieAnneeTerrain";
-            reportDataSource3.Value = this.PartiesJoueesStatsBindingSource;
-            this.reportViewer3.LocalReport.DataSources.Add(reportDataSource3);
-            this.reportViewer3.LocalReport.ReportEmbeddedResource = "TP2.StatsPartiesAnneeTerrain.rdlc";
-            this.reportViewer3.Location = new System.Drawing.Point(3, 3);
-            this.reportViewer3.Name = "reportViewer3";
-            this.reportViewer3.ServerReport.BearerToken = null;
-            this.reportViewer3.Size = new System.Drawing.Size(771, 372);
-            this.reportViewer3.TabIndex = 0;
-            // 
-            // reportViewer4
-            // 
-            this.reportViewer4.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource4.Name = "PartiesMoisTerrain";
-            reportDataSource4.Value = this.PartiesJoueesStatsBindingSource;
-            this.reportViewer4.LocalReport.DataSources.Add(reportDataSource4);
-            this.reportViewer4.LocalReport.ReportEmbeddedResource = "TP2.StatsPartiesMoisTerrain.rdlc";
-            this.reportViewer4.Location = new System.Drawing.Point(3, 3);
-            this.reportViewer4.Name = "reportViewer4";
-            this.reportViewer4.ServerReport.BearerToken = null;
-            this.reportViewer4.Size = new System.Drawing.Size(771, 372);
-            this.reportViewer4.TabIndex = 0;
-            // 
-            // reportViewer5
-            // 
-            this.reportViewer5.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource5.Name = "DepensesAnneeAbonnement";
-            reportDataSource5.Value = this.DepenseStatsBindingSource;
-            this.reportViewer5.LocalReport.DataSources.Add(reportDataSource5);
-            this.reportViewer5.LocalReport.ReportEmbeddedResource = "TP2.StatsDepensesAnneeAbonnement.rdlc";
-            this.reportViewer5.Location = new System.Drawing.Point(3, 3);
-            this.reportViewer5.Name = "reportViewer5";
-            this.reportViewer5.ServerReport.BearerToken = null;
-            this.reportViewer5.Size = new System.Drawing.Size(771, 372);
-            this.reportViewer5.TabIndex = 0;
-            // 
-            // reportViewer6
-            // 
-            this.reportViewer6.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource6.Name = "DepensesMoisAbonnement";
-            reportDataSource6.Value = this.DepenseStatsBindingSource;
-            this.reportViewer6.LocalReport.DataSources.Add(reportDataSource6);
-            this.reportViewer6.LocalReport.ReportEmbeddedResource = "TP2.StatsDepensesMoisAbonnement.rdlc";
-            this.reportViewer6.Location = new System.Drawing.Point(3, 3);
-            this.reportViewer6.Name = "reportViewer6";
-            this.reportViewer6.ServerReport.BearerToken = null;
-            this.reportViewer6.Size = new System.Drawing.Size(771, 372);
-            this.reportViewer6.TabIndex = 0;
-            // 
             // frmVisualisationStatistiques
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,8 +279,12 @@
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmVisualisationStatistiques";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Visualisation des statistiques";
             this.Load += new System.EventHandler(this.frmVisualisationStatistiques_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.AbonneStatsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PartiesJoueesStatsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DepenseStatsBindingSource)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -291,9 +295,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.abonnementBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typesAbonnementBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typesAbonnementBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AbonneStatsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PartiesJoueesStatsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DepenseStatsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
