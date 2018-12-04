@@ -33,20 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Report.Viewer.11.0.0.0\lib\net\Microsoft.ReportViewer.WebForms.DLL</HintPath>
     </Reference>
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.900.148\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
@@ -76,6 +67,7 @@
     <Compile Include="ajoutEmploye.designer.cs">
       <DependentUpon>ajoutEmploye.cs</DependentUpon>
     </Compile>
+    <Compile Include="DepensesParAnnee.cs" />
     <Compile Include="DepenseStats.cs" />
     <Compile Include="frmAbonnement.cs">
       <SubType>Form</SubType>
@@ -99,6 +91,12 @@
     </Compile>
     <Compile Include="frmGestionEmploye.Designer.cs">
       <DependentUpon>frmGestionEmploye.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInformationsDepenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInformationsDepenses.Designer.cs">
+      <DependentUpon>frmInformationsDepenses.cs</DependentUpon>
     </Compile>
     <Compile Include="frmInscriptionDepense.cs">
       <SubType>Form</SubType>
@@ -148,12 +146,16 @@
     <Compile Include="frmVisualisationStatistiques.Designer.cs">
       <DependentUpon>frmVisualisationStatistiques.cs</DependentUpon>
     </Compile>
+    <Compile Include="InformationDepenses.cs" />
     <Compile Include="nomCompletAbonne.cs" />
+    <Compile Include="PartieJoueesAnnee.cs" />
     <Compile Include="PartiesJoueesStats.cs" />
     <Compile Include="nomCompletIDAbonne.cs" />
     <Compile Include="ModPrixDepense.cs" />
+    <Compile Include="PartiesJoueesTerrain.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RapportDepensesEmploye.cs" />
     <EmbeddedResource Include="ajoutEmploye.resx">
       <DependentUpon>ajoutEmploye.cs</DependentUpon>
     </EmbeddedResource>
@@ -165,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionEmploye.resx">
       <DependentUpon>frmGestionEmploye.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInformationsDepenses.resx">
+      <DependentUpon>frmInformationsDepenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInscriptionDepense.resx">
       <DependentUpon>frmInscriptionDepense.cs</DependentUpon>
@@ -199,6 +204,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Rapport de dépenses par employé.rdlc" />
+    <EmbeddedResource Include="Rapport des dépenses par abonnement.rdlc" />
+    <EmbeddedResource Include="Rapport des dépenses par année.rdlc" />
+    <EmbeddedResource Include="Rapport des parties jouées par abonnement.rdlc" />
+    <EmbeddedResource Include="Rapport des parties jouées par année.rdlc" />
+    <EmbeddedResource Include="Rapport des parties jouées par terrain.rdlc" />
     <EmbeddedResource Include="StatsAbonneAnneeType.rdlc" />
     <EmbeddedResource Include="StatsAbonneMoisType.rdlc" />
     <EmbeddedResource Include="StatsDepensesAnneeAbonnement.rdlc" />
@@ -220,14 +231,20 @@
     <None Include="Properties\DataSources\DataClasses1DataContext.datasource" />
     <None Include="Properties\DataSources\Dependant.datasource" />
     <None Include="Properties\DataSources\Depense.datasource" />
+    <None Include="Properties\DataSources\DepensesParAnnee.datasource" />
     <None Include="Properties\DataSources\DepenseStats.datasource" />
     <None Include="Properties\DataSources\Employe.datasource" />
+    <None Include="Properties\DataSources\InformationDepenses.datasource" />
     <None Include="Properties\DataSources\nomCompletAbonne.datasource" />
+    <None Include="Properties\DataSources\nomCompletIDAbonne1.datasource" />
+    <None Include="Properties\DataSources\PartieJoueesAnnee.datasource" />
     <None Include="Properties\DataSources\PartiesJouee.datasource" />
     <None Include="Properties\DataSources\PartiesJoueesStats.datasource" />
+    <None Include="Properties\DataSources\PartiesJoueesTerrain.datasource" />
     <None Include="Properties\DataSources\PrixDepensesAbonnement.datasource" />
     <None Include="Properties\DataSources\Program.datasource" />
     <None Include="Properties\DataSources\Province.datasource" />
+    <None Include="Properties\DataSources\RapportDepensesEmploye.datasource" />
     <None Include="Properties\DataSources\Reabonnement.datasource" />
     <None Include="Properties\DataSources\Service.datasource" />
     <None Include="Properties\DataSources\Sexe.datasource" />
