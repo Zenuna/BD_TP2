@@ -134,6 +134,7 @@
             this.montantTextBox.Size = new System.Drawing.Size(200, 27);
             this.montantTextBox.TabIndex = 4;
             this.montantTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.montantTextBox.TextChanged += new System.EventHandler(this.montantTextBox_TextChanged);
             // 
             // montantEffectuerTextBox
             // 

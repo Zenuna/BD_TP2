@@ -43,7 +43,7 @@
             this.cmbTypeService = new System.Windows.Forms.ComboBox();
             this.serviceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblService = new System.Windows.Forms.Label();
-            this.montantNumberPick = new NumericUpDownEx();
+            this.montantNumberPick = new TP2.NumericUpDownEx();
             dateDepenseLabel = new System.Windows.Forms.Label();
             montantLabel = new System.Windows.Forms.Label();
             remarqueLabel = new System.Windows.Forms.Label();
@@ -181,6 +181,7 @@
             // 
             this.montantNumberPick.DecimalPlaces = 2;
             this.montantNumberPick.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.montantNumberPick.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.montantNumberPick.Increment = new decimal(new int[] {
             1,
             0,
@@ -196,6 +197,7 @@
             this.montantNumberPick.Size = new System.Drawing.Size(200, 27);
             this.montantNumberPick.TabIndex = 20;
             this.montantNumberPick.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.montantNumberPick.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // frmInscriptionDepense
             // 
@@ -241,7 +243,7 @@
         private System.Windows.Forms.Button btnAjoutDepense;
         private System.Windows.Forms.ComboBox cmbTypeService;
         private System.Windows.Forms.BindingSource serviceBindingSource;
-        private System.Windows.Forms.NumericUpDown montantNumberPick;
         private System.Windows.Forms.Label lblService;
+        private NumericUpDownEx montantNumberPick;
     }
 }

@@ -11,13 +11,29 @@ namespace TP2
     {
         public NumericUpDownEx()
         {
+            Controls[0].Visible = false;
         }
 
         protected override void UpdateEditText()
         {
-            this.Text = this.Value.ToString() + " $";
-            //base.UpdateEditText ();
+            if (string.IsNullOrWhiteSpace("$"))
+            {
+                base.UpdateEditText();
+            }
+            else
+            {
+                try
+                {
+                    Value = decimal.Parse(Text.Replace("$", "").Trim());
+                }
+                catch
+                {
+                    base.UpdateEditText();
+                }
+                this.Text = this.Value + "$";
+            }
         }
+ 
     }
 }
 
