@@ -22,8 +22,8 @@ namespace TP2
         private void frmModifPrixDepAbonnement_Load(object sender, EventArgs e)
         {                      
             modPrixDepenseBindingSource2.DataSource = infoDepensesPrix(valideChangement());
-            dgModPrixDep.Columns["prix"].DefaultCellStyle.Format = "N4";
-            dgModPrixDep.Columns["depensesObligatoires"].DefaultCellStyle.Format = "N4";
+            dgModPrixDep.Columns["prix"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dgModPrixDep.Columns["depensesObligatoires"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             if (valideChangement() >= DateTime.Now.Year)
             {
                 dgModPrixDep.ReadOnly = true;
@@ -103,16 +103,19 @@ namespace TP2
         private void dgModPrixDep_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
             DataGridViewRow dgRow = dgModPrixDep.Rows[e.RowIndex];
+            string strPrix = dgRow.Cells["prix"].EditedFormattedValue.ToString().Replace("$","");
+            string strDepense = dgRow.Cells["depensesObligatoires"].EditedFormattedValue.ToString().Replace("$", "");
+
             decimal decNumber;           
             if (e.FormattedValue.ToString().Trim().Equals(""))
             {
                 dgRow.ErrorText = "Cette case ne peut pas être laisée vide";
                 e.Cancel = true;
-            }else if (!Decimal.TryParse(dgRow.Cells["prix"].EditedFormattedValue.ToString(), out decNumber))
+            }else if (!Decimal.TryParse(strPrix, out decNumber))
             {
                 dgRow.ErrorText = "Cette case peut uniquement contenir des chiffres (999.9999)";
                 e.Cancel = true;
-            }else if (!Decimal.TryParse(dgRow.Cells["depensesObligatoires"].EditedFormattedValue.ToString(), out decNumber))
+            }else if (!Decimal.TryParse(strDepense, out decNumber))
             {
                 dgRow.ErrorText = "Cette case peut uniquement contenir des chiffres (999.9999)";
                 e.Cancel = true;

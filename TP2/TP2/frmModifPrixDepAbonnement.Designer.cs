@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnEnregistrer = new System.Windows.Forms.Button();
             this.dgModPrixDep = new System.Windows.Forms.DataGridView();
             this.lblModificationBlock = new System.Windows.Forms.Label();
@@ -96,6 +98,9 @@
             // prix
             // 
             this.prix.DataPropertyName = "prix";
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = "0";
+            this.prix.DefaultCellStyle = dataGridViewCellStyle1;
             this.prix.HeaderText = "Prix";
             this.prix.MaxInputLength = 12;
             this.prix.Name = "prix";
@@ -104,6 +109,9 @@
             // depensesObligatoires
             // 
             this.depensesObligatoires.DataPropertyName = "depensesObligatoires";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = "0";
+            this.depensesObligatoires.DefaultCellStyle = dataGridViewCellStyle2;
             this.depensesObligatoires.HeaderText = "Dépenses obligatoires";
             this.depensesObligatoires.MaxInputLength = 12;
             this.depensesObligatoires.Name = "depensesObligatoires";
@@ -144,10 +152,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.BindingSource modPrixDepenseBindingSource2;
         private System.Windows.Forms.DataGridView dgModPrixDep;
+        private System.Windows.Forms.Label lblModificationBlock;
         private System.Windows.Forms.DataGridViewTextBoxColumn no;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn prix;
         private System.Windows.Forms.DataGridViewTextBoxColumn depensesObligatoires;
-        private System.Windows.Forms.Label lblModificationBlock;
     }
 }

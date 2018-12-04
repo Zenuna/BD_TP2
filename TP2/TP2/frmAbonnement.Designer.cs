@@ -515,7 +515,7 @@
             // 
             this.btnConjoint.Location = new System.Drawing.Point(9, 27);
             this.btnConjoint.Name = "btnConjoint";
-            this.btnConjoint.Size = new System.Drawing.Size(139, 23);
+            this.btnConjoint.Size = new System.Drawing.Size(176, 23);
             this.btnConjoint.TabIndex = 21;
             this.btnConjoint.Text = "Ajouter un conjoint";
             this.btnConjoint.UseVisualStyleBackColor = true;
@@ -525,7 +525,7 @@
             // 
             this.btnEnfant.Location = new System.Drawing.Point(9, 83);
             this.btnEnfant.Name = "btnEnfant";
-            this.btnEnfant.Size = new System.Drawing.Size(139, 23);
+            this.btnEnfant.Size = new System.Drawing.Size(176, 23);
             this.btnEnfant.TabIndex = 22;
             this.btnEnfant.Text = "Ajouter un enfant";
             this.btnEnfant.UseVisualStyleBackColor = true;
