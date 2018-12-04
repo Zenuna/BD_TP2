@@ -418,6 +418,7 @@
             // 
             this.cmbTypeAbonnement.DataSource = this.typesAbonnementBindingSource;
             this.cmbTypeAbonnement.DisplayMember = "Description";
+            this.cmbTypeAbonnement.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTypeAbonnement.FormattingEnabled = true;
             this.cmbTypeAbonnement.Location = new System.Drawing.Point(122, 198);
             this.cmbTypeAbonnement.Margin = new System.Windows.Forms.Padding(1);
@@ -439,6 +440,7 @@
             // 
             this.cmbProvince.DataSource = this.provinceBindingSource;
             this.cmbProvince.DisplayMember = "Nom";
+            this.cmbProvince.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProvince.FormattingEnabled = true;
             this.cmbProvince.Location = new System.Drawing.Point(409, 117);
             this.cmbProvince.Name = "cmbProvince";
@@ -454,6 +456,7 @@
             // 
             this.cmbSexe.DataSource = this.sexeBindingSource;
             this.cmbSexe.DisplayMember = "Description";
+            this.cmbSexe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSexe.FormattingEnabled = true;
             this.cmbSexe.Location = new System.Drawing.Point(122, 66);
             this.cmbSexe.Name = "cmbSexe";

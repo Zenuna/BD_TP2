@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Transactions;
+using System.Data.Linq;
 
 namespace TP2
 {
@@ -117,7 +118,7 @@ namespace TP2
             }          
         }
        
-        private void creationAbonnement(int idAjout)
+        private void creationAbonnement(int idAjout, object sender, EventArgs e)
         {
             
 
@@ -164,7 +165,7 @@ namespace TP2
 
                     try
                     {
-                        dataClasses1DataContext.SubmitChanges();
+                        dataClasses1DataContext.SubmitChanges(ConflictMode.ContinueOnConflict);
                         MessageBox.Show($"L'abonnennement {strIdAbonnement} a été ajouté", "Enregistrement de l'abonné principal", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         foreach (Control ctrl in panelAbonnePrincipal.Controls)
                         {
@@ -191,8 +192,17 @@ namespace TP2
                             ctrl.Enabled = true;
                         }
                         cmbTypeAbonnement_SelectedIndexChanged(this, new EventArgs());
+                        if (Convert.ToInt32(cmbTypeAbonnement.SelectedValue) == 1 || Convert.ToInt32(cmbTypeAbonnement.SelectedValue) == 2)
+                        {
+                            resetForm(sender, e);
+                            btnEnregistrerAbonnement.Enabled = false;
+                        }
                     }
-                    catch(Exception ex)
+                    catch (ChangeConflictException)
+                    {
+                        dataClasses1DataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepCurrentValues);
+                    }
+                    catch (Exception ex)
                     {
                         MessageBox.Show("L'abonnennement a échoué "+ex, "Enregistrement de l'abonné principal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
@@ -226,10 +236,19 @@ namespace TP2
 
                         try
                         {
-                            dataClasses1DataContext.SubmitChanges();
+                            dataClasses1DataContext.SubmitChanges(ConflictMode.ContinueOnConflict);
                             MessageBox.Show($"Le dépendant (Conjoint) {strIDConjoint} a été ajouté", "Enregistrement du conjoint", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             btnConjoint.Enabled = false;
                             booConjointAjoute = true;
+                            if(Convert.ToInt32(cmbTypeAbonnement.SelectedValue) == 3)
+                            {
+                                resetForm(sender, e);
+                                btnEnregistrerAbonnement.Enabled = false;
+                            }
+                        }
+                        catch (ChangeConflictException)
+                        {
+                            dataClasses1DataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepCurrentValues);
                         }
                         catch (Exception ex)
                         {
@@ -388,7 +407,7 @@ namespace TP2
                 errMessage.SetError(rueTextBox, "Le nom de la rue ne peut pas être vide");
                 e.Cancel = true;
             }
-            else if (!Regex.IsMatch(rueTextBox.Text, "^[a-zA-Z]+$") || rueTextBox.Text.Length > 30)
+            else if (!Regex.IsMatch(rueTextBox.Text, "^[a-zA-Z0-9]+$") || rueTextBox.Text.Length > 30)
             {
                 errMessage.SetError(rueTextBox, "Le nom de la rue doit contenir seulement des lettres et une longueur maximale de 30 caractères");
                 e.Cancel = true;
@@ -408,7 +427,7 @@ namespace TP2
 
         private void courrielTextBox_Validating(object sender, CancelEventArgs e)
         {
-            Regex regex = new Regex(@"^(([A-Za-zÀ-ÿ])+[\w\.\-]?)+@([\w\-]+)((\.([A-Za-zÀ-ÿ]){2,3})+)$");
+            Regex regex = new Regex(@"^(([A-Za-zÀ-ÿ0-9])+[\w\.\-]?)+@([\w\-]+)((\.([A-Za-zÀ-ÿ]){2,3})+)$");
            
             if (!regex.IsMatch(courrielTextBox.Text))
             {
@@ -420,17 +439,17 @@ namespace TP2
 
         private void btnConfirmerPrincipal_Click(object sender, EventArgs e)
         {
-            creationAbonnement(1);
+            creationAbonnement(1,sender,e);
         }
 
         private void btnConjoint_Click(object sender, EventArgs e)
         {
-            creationAbonnement(2);
+            creationAbonnement(2, sender, e);
         }
 
         private void btnEnfant_Click(object sender, EventArgs e)
         {
-            creationAbonnement(3);
+            creationAbonnement(3, sender, e);
         }
 
         private void nomTextBox1_Validating(object sender, CancelEventArgs e)
@@ -482,11 +501,15 @@ namespace TP2
                     try
                     {
                         lstDependants.ForEach(c => dataClasses1DataContext.Dependants.InsertOnSubmit(c));
-                        dataClasses1DataContext.SubmitChanges();
+                        dataClasses1DataContext.SubmitChanges(ConflictMode.ContinueOnConflict);
                         MessageBox.Show($"Le(s) dépendant(s) (enfant) a/ont été(s) ajouté(s)", "Enregistrement de dépendants", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         porteeTransaction.Complete();
                         resetForm(sender,e);
                         btnEnregistrerAbonnement.Enabled = false;
+                    }
+                    catch (ChangeConflictException)
+                    {
+                        dataClasses1DataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepCurrentValues);
                     }
                     catch (Exception ex)
                     {
@@ -531,6 +554,7 @@ namespace TP2
                 }
             }
             cmbSexeDependant.Enabled = false;
+            dateNaissanceDateTimePicker.Enabled = true;
             dateNaissanceDateTimePicker1.Enabled = false;
             btnConfirmerPrincipal.Enabled = true;
             lblEnfantsEnreg.Text = "";

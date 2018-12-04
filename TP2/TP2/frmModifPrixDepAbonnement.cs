@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Transactions;
+using System.Data.Linq;
+
 namespace TP2
 {
     public partial class frmModifPrixDepAbonnement : Form
@@ -73,24 +75,19 @@ namespace TP2
                                 DepensesObligatoires = Convert.ToDecimal(dr.Cells["depensesObligatoires"].Value),
                                 Remarque = ""                                                              
                              };
-                            dataContext.PrixDepensesAbonnements.InsertOnSubmit(nouveauPrixDepenseAbon);
-                            
-                            /*foreach (PrixDepensesAbonnement prixDepAbonn in lst)
-                            {
-                                prixDepAbonn.DepensesObligatoires = Convert.ToDecimal(dr.Cells["depensesObligatoires"].Value);
-                                prixDepAbonn.Prix = Convert.ToDecimal(dr.Cells["prix"].Value);
-                                prixDepAbonn.Annee = Convert.ToInt32(DateTime.Now.Year.ToString());
-                                //dataContext.PrixDepensesAbonnements.InsertOnSubmit()
-                            }*/
-                        }
-                                       
+                            dataContext.PrixDepensesAbonnements.InsertOnSubmit(nouveauPrixDepenseAbon);                        
+                        }                                      
                        
-                        dataContext.SubmitChanges();
+                        dataContext.SubmitChanges(ConflictMode.ContinueOnConflict);
                        MessageBox.Show("Les prix et les dépenses ont étés modifiés pour l'année " + DateTime.Now.Year +
                            "\n\nLes prochaines modifications pourront être effectué en 2019 ", "Enregistrement des prix et des dépenses");
                         porteeTransaction.Complete();
                         dgModPrixDep.ReadOnly = true;
                         btnEnregistrer.Enabled = false;
+                    }
+                    catch (ChangeConflictException)
+                    {
+                        dataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepCurrentValues);
                     }
                     catch (Exception ex)
                     {
