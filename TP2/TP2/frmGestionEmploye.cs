@@ -216,6 +216,7 @@ namespace TP2
                 try
                 {
                     dataClasses1DataContext.SubmitChanges(ConflictMode.ContinueOnConflict);
+                    MessageBox.Show(this, "Informations modifiées", "Enregistrement");
                 }
                 catch (ChangeConflictException)
                 {
