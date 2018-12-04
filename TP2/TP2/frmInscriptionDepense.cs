@@ -167,5 +167,10 @@ namespace TP2
 
             }
         }
+
+        private void maskedMontant_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
+        {
+
+        }
     }
 }

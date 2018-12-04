@@ -30,28 +30,32 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource5 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource6 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource3 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            this.RapportDepensesEmployeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.PartiesJoueesTerrainBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.PartieJoueesAnneeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DepensesParAnneeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.rappDepEmploy = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.rappDepAbonn = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.rapDepAnnee = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.rappPartieJoueeTerrain = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.rapportPartiesJoueesAnnee = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.rappDepAbonn = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.rapDepAnnee = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.RapportDepensesEmployeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.PartiesJoueesTerrainBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.PartieJoueesAnneeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DepensesParAnneeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.RapportDepensesEmployeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PartiesJoueesTerrainBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PartieJoueesAnneeBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DepensesParAnneeBindingSource)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -59,11 +63,23 @@
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.RapportDepensesEmployeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PartiesJoueesTerrainBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PartieJoueesAnneeBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DepensesParAnneeBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // RapportDepensesEmployeBindingSource
+            // 
+            this.RapportDepensesEmployeBindingSource.DataSource = typeof(TP2.RapportDepensesEmploye);
+            // 
+            // PartiesJoueesTerrainBindingSource
+            // 
+            this.PartiesJoueesTerrainBindingSource.DataSource = typeof(TP2.PartiesJoueesTerrain);
+            // 
+            // PartieJoueesAnneeBindingSource
+            // 
+            this.PartieJoueesAnneeBindingSource.DataSource = typeof(TP2.PartieJoueesAnnee);
+            // 
+            // DepensesParAnneeBindingSource
+            // 
+            this.DepensesParAnneeBindingSource.DataSource = typeof(TP2.DepensesParAnnee);
             // 
             // tabControl1
             // 
@@ -114,6 +130,19 @@
             this.tabPage2.Text = "Rapport depense par abonnement";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // rappDepAbonn
+            // 
+            reportDataSource2.Name = "DataSet1";
+            reportDataSource2.Value = this.RapportDepensesEmployeBindingSource;
+            this.rappDepAbonn.LocalReport.DataSources.Add(reportDataSource2);
+            this.rappDepAbonn.LocalReport.ReportEmbeddedResource = "TP2.Rapport des dépenses par abonnement.rdlc";
+            this.rappDepAbonn.Location = new System.Drawing.Point(6, 6);
+            this.rappDepAbonn.Name = "rappDepAbonn";
+            this.rappDepAbonn.ServerReport.BearerToken = null;
+            this.rappDepAbonn.Size = new System.Drawing.Size(766, 388);
+            this.rappDepAbonn.TabIndex = 0;
+            this.rappDepAbonn.Load += new System.EventHandler(this.rappDepAbonn_Load);
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.rapDepAnnee);
@@ -124,6 +153,19 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Rapport dépenses par année";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // rapDepAnnee
+            // 
+            reportDataSource3.Name = "DataSet1";
+            reportDataSource3.Value = this.DepensesParAnneeBindingSource;
+            this.rapDepAnnee.LocalReport.DataSources.Add(reportDataSource3);
+            this.rapDepAnnee.LocalReport.ReportEmbeddedResource = "TP2.Rapport des dépenses par année.rdlc";
+            this.rapDepAnnee.Location = new System.Drawing.Point(6, 6);
+            this.rapDepAnnee.Name = "rapDepAnnee";
+            this.rapDepAnnee.ServerReport.BearerToken = null;
+            this.rapDepAnnee.Size = new System.Drawing.Size(768, 388);
+            this.rapDepAnnee.TabIndex = 0;
+            this.rapDepAnnee.Load += new System.EventHandler(this.rapDepAnnee_Load);
             // 
             // tabPage4
             // 
@@ -197,48 +239,6 @@
             this.rapportPartiesJoueesAnnee.TabIndex = 0;
             this.rapportPartiesJoueesAnnee.Load += new System.EventHandler(this.rapportPartiesJoueesAnnee_Load);
             // 
-            // rappDepAbonn
-            // 
-            reportDataSource2.Name = "DataSet1";
-            reportDataSource2.Value = this.RapportDepensesEmployeBindingSource;
-            this.rappDepAbonn.LocalReport.DataSources.Add(reportDataSource2);
-            this.rappDepAbonn.LocalReport.ReportEmbeddedResource = "TP2.Rapport des dépenses par abonnement.rdlc";
-            this.rappDepAbonn.Location = new System.Drawing.Point(6, 6);
-            this.rappDepAbonn.Name = "rappDepAbonn";
-            this.rappDepAbonn.ServerReport.BearerToken = null;
-            this.rappDepAbonn.Size = new System.Drawing.Size(766, 388);
-            this.rappDepAbonn.TabIndex = 0;
-            this.rappDepAbonn.Load += new System.EventHandler(this.rappDepAbonn_Load);
-            // 
-            // rapDepAnnee
-            // 
-            reportDataSource3.Name = "DataSet1";
-            reportDataSource3.Value = this.DepensesParAnneeBindingSource;
-            this.rapDepAnnee.LocalReport.DataSources.Add(reportDataSource3);
-            this.rapDepAnnee.LocalReport.ReportEmbeddedResource = "TP2.Rapport des dépenses par année.rdlc";
-            this.rapDepAnnee.Location = new System.Drawing.Point(6, 6);
-            this.rapDepAnnee.Name = "rapDepAnnee";
-            this.rapDepAnnee.ServerReport.BearerToken = null;
-            this.rapDepAnnee.Size = new System.Drawing.Size(768, 388);
-            this.rapDepAnnee.TabIndex = 0;
-            this.rapDepAnnee.Load += new System.EventHandler(this.rapDepAnnee_Load);
-            // 
-            // RapportDepensesEmployeBindingSource
-            // 
-            this.RapportDepensesEmployeBindingSource.DataSource = typeof(TP2.RapportDepensesEmploye);
-            // 
-            // PartiesJoueesTerrainBindingSource
-            // 
-            this.PartiesJoueesTerrainBindingSource.DataSource = typeof(TP2.PartiesJoueesTerrain);
-            // 
-            // PartieJoueesAnneeBindingSource
-            // 
-            this.PartieJoueesAnneeBindingSource.DataSource = typeof(TP2.PartieJoueesAnnee);
-            // 
-            // DepensesParAnneeBindingSource
-            // 
-            this.DepensesParAnneeBindingSource.DataSource = typeof(TP2.DepensesParAnnee);
-            // 
             // frmVisualisationRapport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -246,10 +246,16 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmVisualisationRapport";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Visualisation des rapports";
             this.Load += new System.EventHandler(this.frmVisualisationRapport_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.RapportDepensesEmployeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PartiesJoueesTerrainBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PartieJoueesAnneeBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DepensesParAnneeBindingSource)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
@@ -257,10 +263,6 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.RapportDepensesEmployeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PartiesJoueesTerrainBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PartieJoueesAnneeBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DepensesParAnneeBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -139,12 +139,13 @@
             // 
             this.maskedMontant.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.maskedMontant.Location = new System.Drawing.Point(218, 71);
-            this.maskedMontant.Mask = "0000.00$";
+            this.maskedMontant.Mask = "9999.99$";
             this.maskedMontant.Name = "maskedMontant";
             this.maskedMontant.Size = new System.Drawing.Size(200, 27);
             this.maskedMontant.TabIndex = 16;
             this.maskedMontant.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.maskedMontant.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
+            this.maskedMontant.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedMontant_MaskInputRejected);
             this.maskedMontant.Validating += new System.ComponentModel.CancelEventHandler(this.maskedMontant_Validating);
             // 
             // errMessage
