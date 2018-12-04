@@ -54,22 +54,6 @@ namespace TP2
             return lstNomIDValides;
         }
 
-        private void maskedMontant_Validating(object sender, CancelEventArgs e)
-        {
-            MessageBox.Show(montantNumberPick.Text);
-            /*if (!montantNumberPick.MaskCompleted || !montantNumberPick.MaskFull)
-            {
-                errMessage.SetError(montantNumberPick, "Le montant ne peut pas être vide et doit respecter le format (9999.99$)");
-                e.Cancel = true;
-            }else if (Convert.ToDecimal(montantNumberPick.Text.Replace("$","")) > 1000)
-            {
-                MessageBox.Show(Convert.ToDecimal(montantNumberPick.Text.Replace("$", "").Replace(",", ".")) + "");
-                errMessage.SetError(montantNumberPick, "Le montant ne doit pas dépasser 1000.00$");
-                e.Cancel = true;
-            }*/
-            //else errMessage.SetError(montantNumberPick, "");
-        }
-
         private Service ajouteService(string strTypeService)
         {
             int intNoService = dataContext.Services.Count() + 1;
@@ -169,9 +153,5 @@ namespace TP2
             }
         }
 
-        private void maskedMontant_MaskInputRejected(object sender, MaskInputRejectedEventArgs e)
-        {
-
-        }
     }
 }

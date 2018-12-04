@@ -54,5 +54,9 @@ namespace TP2
             return unInfoDepenses;
         }
 
+        private void montantTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -9,15 +9,18 @@ namespace TP2
 {
     class NumericUpDownEx:NumericUpDown
     {
+        bool vide = false;
         public NumericUpDownEx()
         {
         }
 
         protected override void UpdateEditText()
         {
-            this.Text = this.Value.ToString() + " $";
+            this.Text = this.Value.ToString().Replace(" $","") + " $";
             //base.UpdateEditText ();
         }
+        
+
     }
 }
 

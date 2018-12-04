@@ -20,16 +20,53 @@ namespace TP2
 
         private void frmVisualisationRapport_Load(object sender, EventArgs e)
         {
+            tabPage1_Enter(sender, e);
+        }
 
+        private void tabPage1_Enter(object sender, EventArgs e)
+        {
+            RapportDepensesEmployeBindingSource.DataSource = from lesDepenses in dataContext.Depenses
+                                                             select new
+                                                             {
+                                                                 nomCompletEmploye = lesDepenses.Service.Employe.Nom + ", " + lesDepenses.Service.Employe.Prenom,
+                                                                 typeService = lesDepenses.Service.TypeService,
+                                                                 montant = Convert.ToDecimal(lesDepenses.Montant),
+                                                                 dateDepense = lesDepenses.DateDepense,
+                                                                 nomCompletAbPrincipal = lesDepenses.Abonnement.Nom + ", " + lesDepenses.Abonnement.Prenom,
+                                                             };
             this.rappDepEmploy.RefreshReport();
-            this.rappPartieJoueeTerrain.RefreshReport();
-            this.reportViewer1.RefreshReport();
-            this.rapportPartiesJoueesAnnee.RefreshReport();
+        }
+
+        private void tabPage2_Enter(object sender, EventArgs e)
+        {
+            RapportDepensesEmployeBindingSource.DataSource = from lesDepenses in dataContext.Depenses
+                                                             select new
+                                                             {
+                                                                 nomCompletEmploye = lesDepenses.Service.Employe.Nom + ", " + lesDepenses.Service.Employe.Prenom,
+                                                                 typeService = lesDepenses.Service.TypeService,
+                                                                 montant = Convert.ToDecimal(lesDepenses.Montant),
+                                                                 dateDepense = lesDepenses.DateDepense,
+                                                                 nomCompletAbPrincipal = lesDepenses.Abonnement.Nom + ", " + lesDepenses.Abonnement.Prenom,
+                                                             };
             this.rappDepAbonn.RefreshReport();
+        }
+
+        private void tabPage3_Enter(object sender, EventArgs e)
+        {
+            DepensesParAnneeBindingSource.DataSource = from lesDepenses in dataContext.Depenses
+                                                       select new
+                                                       {
+                                                           annee = lesDepenses.DateDepense.Year,
+                                                           nomCompletEmploye = lesDepenses.Service.Employe.Nom + ", " + lesDepenses.Service.Employe.Prenom,
+                                                           typeService = lesDepenses.Service.TypeService,
+                                                           montant = Convert.ToDecimal(lesDepenses.Montant),
+                                                           dateDepense = lesDepenses.DateDepense,
+                                                           nomCompletAbPrincipal = lesDepenses.Abonnement.Nom + ", " + lesDepenses.Abonnement.Prenom,
+                                                       };
             this.rapDepAnnee.RefreshReport();
         }
 
-        private void rappPartieJoueeTerrain_Load(object sender, EventArgs e)
+        private void tabPage4_Enter(object sender, EventArgs e)
         {
             PartiesJoueesTerrainBindingSource.DataSource = from lesParties in dataContext.PartiesJouees
                                                            join lesTerrains in dataContext.Terrains
@@ -39,7 +76,7 @@ namespace TP2
                                                            select new
                                                            {
                                                                nomTerrain = lesTerrains.Nom,
-                                                               nomAbonnePrincipal = lesAbonnes.Nom+ ", "+lesAbonnes.Prenom,
+                                                               nomAbonnePrincipal = lesAbonnes.Nom + ", " + lesAbonnes.Prenom,
                                                                datePartie = lesParties.DatePartie,
                                                                pointage = lesParties.Pointage
 
@@ -47,7 +84,7 @@ namespace TP2
             this.rappPartieJoueeTerrain.RefreshReport();
         }
 
-        private void reportViewer1_Load(object sender, EventArgs e)
+        private void tabPage5_Enter(object sender, EventArgs e)
         {
             PartiesJoueesTerrainBindingSource.DataSource = from lesParties in dataContext.PartiesJouees
                                                            join lesTerrains in dataContext.Terrains
@@ -65,63 +102,18 @@ namespace TP2
             this.reportViewer1.RefreshReport();
         }
 
-        private void rapportPartiesJoueesAnnee_Load(object sender, EventArgs e)
+        private void tabPage6_Enter(object sender, EventArgs e)
         {
-
             PartieJoueesAnneeBindingSource.DataSource = from PartiesJouees in dataContext.PartiesJouees
-                                                           select new
-                                                           {
-                                                               Annee = Convert.ToInt32(PartiesJouees.DatePartie.Year),
-                                                               datePartie = PartiesJouees.DatePartie,
-                                                               nomTerrain = PartiesJouees.Terrain.Nom,
-                                                               nomAbonnePrincipal = (PartiesJouees.Abonnement.Nom + ", " + PartiesJouees.Abonnement.Prenom),
-                                                               pointage = PartiesJouees.Pointage
-                                                           };
-            this.rapportPartiesJoueesAnnee.RefreshReport();
-        }
-
-        private void rappDepEmploy_Load(object sender, EventArgs e)
-          
-        {
-            RapportDepensesEmployeBindingSource.DataSource = from lesDepenses in dataContext.Depenses
                                                         select new
                                                         {
-                                                            nomCompletEmploye = lesDepenses.Service.Employe.Nom+", "+ lesDepenses.Service.Employe.Prenom,
-                                                            typeService = lesDepenses.Service.TypeService,
-                                                            montant = Convert.ToDecimal(lesDepenses.Montant),
-                                                            dateDepense = lesDepenses.DateDepense ,
-                                                            nomCompletAbPrincipal = lesDepenses.Abonnement.Nom+", "+ lesDepenses.Abonnement.Prenom,
+                                                            Annee = Convert.ToInt32(PartiesJouees.DatePartie.Year),
+                                                            datePartie = PartiesJouees.DatePartie,
+                                                            nomTerrain = PartiesJouees.Terrain.Nom,
+                                                            nomAbonnePrincipal = (PartiesJouees.Abonnement.Nom + ", " + PartiesJouees.Abonnement.Prenom),
+                                                            pointage = PartiesJouees.Pointage
                                                         };
-            this.rappDepEmploy.RefreshReport();
-        }
-
-        private void rappDepAbonn_Load(object sender, EventArgs e)
-        {
-            RapportDepensesEmployeBindingSource.DataSource = from lesDepenses in dataContext.Depenses
-                                                             select new
-                                                             {
-                                                                 nomCompletEmploye = lesDepenses.Service.Employe.Nom + ", " + lesDepenses.Service.Employe.Prenom,
-                                                                 typeService = lesDepenses.Service.TypeService,
-                                                                 montant = Convert.ToDecimal(lesDepenses.Montant),
-                                                                 dateDepense = lesDepenses.DateDepense,
-                                                                 nomCompletAbPrincipal = lesDepenses.Abonnement.Nom + ", " + lesDepenses.Abonnement.Prenom,
-                                                             };
-            this.rappDepAbonn.RefreshReport();
-        }
-
-        private void rapDepAnnee_Load(object sender, EventArgs e)
-        {
-            DepensesParAnneeBindingSource.DataSource = from lesDepenses in dataContext.Depenses
-                                                             select new
-                                                             {
-                                                                 annee = lesDepenses.DateDepense.Year,
-                                                                 nomCompletEmploye = lesDepenses.Service.Employe.Nom + ", " + lesDepenses.Service.Employe.Prenom,
-                                                                 typeService = lesDepenses.Service.TypeService,
-                                                                 montant = Convert.ToDecimal(lesDepenses.Montant),
-                                                                 dateDepense = lesDepenses.DateDepense,
-                                                                 nomCompletAbPrincipal = lesDepenses.Abonnement.Nom + ", " + lesDepenses.Abonnement.Prenom,
-                                                             };
-            this.rapDepAnnee.RefreshReport();
+            this.rapportPartiesJoueesAnnee.RefreshReport();
         }
     }
 }

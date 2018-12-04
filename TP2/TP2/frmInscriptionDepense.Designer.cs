@@ -43,7 +43,7 @@
             this.cmbTypeService = new System.Windows.Forms.ComboBox();
             this.serviceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblService = new System.Windows.Forms.Label();
-            this.montantNumberPick = new NumericUpDownEx();
+            this.montantNumberPick = new TP2.NumericUpDownEx();
             dateDepenseLabel = new System.Windows.Forms.Label();
             montantLabel = new System.Windows.Forms.Label();
             remarqueLabel = new System.Windows.Forms.Label();
@@ -241,7 +241,7 @@
         private System.Windows.Forms.Button btnAjoutDepense;
         private System.Windows.Forms.ComboBox cmbTypeService;
         private System.Windows.Forms.BindingSource serviceBindingSource;
-        private System.Windows.Forms.NumericUpDown montantNumberPick;
         private System.Windows.Forms.Label lblService;
+        private NumericUpDownEx montantNumberPick;
     }
 }
