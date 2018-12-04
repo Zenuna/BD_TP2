@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Linq;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -37,11 +38,22 @@ namespace TP2
                          Abonnements.DateAbonnement > DateTime.Now.Date.AddYears(-1) ||
                         Reabonnements.DateRenouvellement > DateTime.Now.Date.AddYears(-1)
                        select Abonnements;
-            
-            List <nomCompletIDAbonne> lstNomIDValides = new List<nomCompletIDAbonne>();
+            int terrain = 1;
+            if(cmbTerrain.SelectedValue != null)
+            {
+                terrain = int.Parse(cmbTerrain.SelectedValue.ToString());
+            }
+
+            List < nomCompletIDAbonne > lstNomIDValides = new List<nomCompletIDAbonne>();
             foreach (var prixDepenses in test)
-            {                
-                lstNomIDValides.Add(new nomCompletIDAbonne(prixDepenses.Id,prixDepenses.Id.PadRight(8, ' ') + " => "+prixDepenses.Prenom +" "+ prixDepenses.Nom));
+            {
+                var verif = from unePartie in dataContext.PartiesJouees
+                            where
+                            unePartie.DatePartie == dateTime &&
+                            unePartie.IdAbonnement == prixDepenses.Id &&
+                            unePartie.NoTerrain == terrain
+                            select unePartie;
+                if(verif.Count()==0) lstNomIDValides.Add(new nomCompletIDAbonne(prixDepenses.Id,prixDepenses.Id.PadRight(8, ' ') + " => "+prixDepenses.Prenom +" "+ prixDepenses.Nom));
             }
 
             return lstNomIDValides;
@@ -58,16 +70,37 @@ namespace TP2
                 Remarque = remarqueTextBox.Text
             };
 
-            dataContext.PartiesJouees.InsertOnSubmit(nouvelPartie);
+
             try
             {
-                dataContext.SubmitChanges();
+                dataContext.PartiesJouees.InsertOnSubmit(nouvelPartie);
+                dataContext.SubmitChanges(ConflictMode.ContinueOnConflict);
                 MessageBox.Show($"La partie jouée le {lblDatePartie.Text} par {cmbAbonne.SelectedValue.ToString()} a été enregistrée", "Enregistrement d'une partie jouée", MessageBoxButtons.OK, MessageBoxIcon.Information);              
+            }
+            catch (ChangeConflictException)
+            {
+                dataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepCurrentValues);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("L'enregistrement de la partie a échouée" + ex, "Enregistrement de l'abonné principal", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            nomCompletIDAbonneBindingSource.DataSource = infoIDetNom();
+        }
+
+        private void cmbTerrain_SelectedValueChanged(object sender, EventArgs e)
+        {
+            nomCompletIDAbonneBindingSource.DataSource = infoIDetNom();
+        }
+
+        private void noTerrainLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void idEtNomCompletLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
