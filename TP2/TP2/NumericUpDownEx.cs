@@ -9,9 +9,9 @@ namespace TP2
 {
     class NumericUpDownEx:NumericUpDown
     {
-        bool vide = false;
         public NumericUpDownEx()
         {
+            Controls[0].Visible = false;
         }
 
         protected override void UpdateEditText()
@@ -33,8 +33,7 @@ namespace TP2
                 this.Text = this.Value + "$";
             }
         }
-        
-
+ 
     }
 }
 

@@ -181,6 +181,7 @@
             // 
             this.montantNumberPick.DecimalPlaces = 2;
             this.montantNumberPick.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.montantNumberPick.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.montantNumberPick.Increment = new decimal(new int[] {
             1,
             0,
@@ -196,6 +197,7 @@
             this.montantNumberPick.Size = new System.Drawing.Size(200, 27);
             this.montantNumberPick.TabIndex = 20;
             this.montantNumberPick.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.montantNumberPick.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             // 
             // frmInscriptionDepense
             // 

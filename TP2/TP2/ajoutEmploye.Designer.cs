@@ -67,7 +67,7 @@
             this.btnAjouter = new System.Windows.Forms.Button();
             this.errMessage = new System.Windows.Forms.ErrorProvider(this.components);
             this.noTypeEmployeComboBox = new System.Windows.Forms.ComboBox();
-            this.salaireHoraireNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.salaireHoraireNumericUpDown = new TP2.NumericUpDownEx();
             this.telephoneMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.courrielTextBox = new System.Windows.Forms.TextBox();
             ageLabel = new System.Windows.Forms.Label();
@@ -516,6 +516,7 @@
             this.salaireHoraireNumericUpDown.Size = new System.Drawing.Size(257, 21);
             this.salaireHoraireNumericUpDown.TabIndex = 40;
             this.salaireHoraireNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.salaireHoraireNumericUpDown.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
             this.salaireHoraireNumericUpDown.Value = new decimal(new int[] {
             10,
             0,
@@ -627,9 +628,9 @@
         private System.Windows.Forms.Button btnRetour;
         private System.Windows.Forms.Button btnAjouter;
         private System.Windows.Forms.ErrorProvider errMessage;
-        private System.Windows.Forms.NumericUpDown salaireHoraireNumericUpDown;
         private System.Windows.Forms.ComboBox noTypeEmployeComboBox;
         private System.Windows.Forms.MaskedTextBox telephoneMaskedTextBox;
         private System.Windows.Forms.TextBox courrielTextBox;
+        private NumericUpDownEx salaireHoraireNumericUpDown;
     }
 }
