@@ -57,36 +57,40 @@
             // dateDepenseLabel
             // 
             dateDepenseLabel.AutoSize = true;
-            dateDepenseLabel.Location = new System.Drawing.Point(72, 47);
+            dateDepenseLabel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dateDepenseLabel.Location = new System.Drawing.Point(76, 9);
             dateDepenseLabel.Name = "dateDepenseLabel";
-            dateDepenseLabel.Size = new System.Drawing.Size(79, 13);
+            dateDepenseLabel.Size = new System.Drawing.Size(132, 19);
             dateDepenseLabel.TabIndex = 1;
-            dateDepenseLabel.Text = "Date Depense:";
+            dateDepenseLabel.Text = "Date de dépense:";
             // 
             // montantLabel
             // 
             montantLabel.AutoSize = true;
-            montantLabel.Location = new System.Drawing.Point(72, 98);
+            montantLabel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            montantLabel.Location = new System.Drawing.Point(136, 75);
             montantLabel.Name = "montantLabel";
-            montantLabel.Size = new System.Drawing.Size(49, 13);
+            montantLabel.Size = new System.Drawing.Size(72, 19);
             montantLabel.TabIndex = 5;
             montantLabel.Text = "Montant:";
             // 
             // remarqueLabel
             // 
             remarqueLabel.AutoSize = true;
-            remarqueLabel.Location = new System.Drawing.Point(72, 124);
+            remarqueLabel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            remarqueLabel.Location = new System.Drawing.Point(121, 110);
             remarqueLabel.Name = "remarqueLabel";
-            remarqueLabel.Size = new System.Drawing.Size(59, 13);
+            remarqueLabel.Size = new System.Drawing.Size(87, 19);
             remarqueLabel.TabIndex = 11;
             remarqueLabel.Text = "Remarque:";
             // 
             // nomCompletLabel
             // 
             nomCompletLabel.AutoSize = true;
-            nomCompletLabel.Location = new System.Drawing.Point(72, 69);
+            nomCompletLabel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nomCompletLabel.Location = new System.Drawing.Point(12, 40);
             nomCompletLabel.Name = "nomCompletLabel";
-            nomCompletLabel.Size = new System.Drawing.Size(130, 13);
+            nomCompletLabel.Size = new System.Drawing.Size(196, 19);
             nomCompletLabel.TabIndex = 12;
             nomCompletLabel.Text = "Nom complet de l\'abonné:";
             // 
@@ -97,21 +101,24 @@
             // remarqueTextBox
             // 
             this.remarqueTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.depenseBindingSource, "Remarque", true));
-            this.remarqueTextBox.Location = new System.Drawing.Point(219, 124);
+            this.remarqueTextBox.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.remarqueTextBox.Location = new System.Drawing.Point(218, 106);
             this.remarqueTextBox.MaxLength = 50;
             this.remarqueTextBox.Name = "remarqueTextBox";
-            this.remarqueTextBox.Size = new System.Drawing.Size(200, 20);
+            this.remarqueTextBox.Size = new System.Drawing.Size(200, 27);
             this.remarqueTextBox.TabIndex = 12;
+            this.remarqueTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // cmbAbonnePrincipal
             // 
             this.cmbAbonnePrincipal.DataSource = this.nomCompletIDAbonneBindingSource;
             this.cmbAbonnePrincipal.DisplayMember = "idEtNomComplet";
             this.cmbAbonnePrincipal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAbonnePrincipal.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbAbonnePrincipal.FormattingEnabled = true;
-            this.cmbAbonnePrincipal.Location = new System.Drawing.Point(219, 66);
+            this.cmbAbonnePrincipal.Location = new System.Drawing.Point(218, 36);
             this.cmbAbonnePrincipal.Name = "cmbAbonnePrincipal";
-            this.cmbAbonnePrincipal.Size = new System.Drawing.Size(200, 21);
+            this.cmbAbonnePrincipal.Size = new System.Drawing.Size(200, 27);
             this.cmbAbonnePrincipal.TabIndex = 14;
             this.cmbAbonnePrincipal.ValueMember = "idAbonnement";
             // 
@@ -122,18 +129,21 @@
             // lblDateDepense
             // 
             this.lblDateDepense.AutoSize = true;
-            this.lblDateDepense.Location = new System.Drawing.Point(225, 47);
+            this.lblDateDepense.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateDepense.Location = new System.Drawing.Point(218, 9);
             this.lblDateDepense.Name = "lblDateDepense";
-            this.lblDateDepense.Size = new System.Drawing.Size(0, 13);
+            this.lblDateDepense.Size = new System.Drawing.Size(0, 19);
             this.lblDateDepense.TabIndex = 15;
             // 
             // maskedMontant
             // 
-            this.maskedMontant.Location = new System.Drawing.Point(219, 93);
+            this.maskedMontant.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedMontant.Location = new System.Drawing.Point(218, 71);
             this.maskedMontant.Mask = "0000.00$";
             this.maskedMontant.Name = "maskedMontant";
-            this.maskedMontant.Size = new System.Drawing.Size(57, 20);
+            this.maskedMontant.Size = new System.Drawing.Size(200, 27);
             this.maskedMontant.TabIndex = 16;
+            this.maskedMontant.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.maskedMontant.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.maskedMontant.Validating += new System.ComponentModel.CancelEventHandler(this.maskedMontant_Validating);
             // 
@@ -143,9 +153,10 @@
             // 
             // btnAjoutDepense
             // 
-            this.btnAjoutDepense.Location = new System.Drawing.Point(219, 177);
+            this.btnAjoutDepense.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAjoutDepense.Location = new System.Drawing.Point(218, 176);
             this.btnAjoutDepense.Name = "btnAjoutDepense";
-            this.btnAjoutDepense.Size = new System.Drawing.Size(157, 23);
+            this.btnAjoutDepense.Size = new System.Drawing.Size(200, 27);
             this.btnAjoutDepense.TabIndex = 17;
             this.btnAjoutDepense.Text = "Ajouter une dépense";
             this.btnAjoutDepense.UseVisualStyleBackColor = true;
@@ -154,10 +165,11 @@
             // cmbTypeService
             // 
             this.cmbTypeService.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTypeService.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTypeService.FormattingEnabled = true;
-            this.cmbTypeService.Location = new System.Drawing.Point(219, 150);
+            this.cmbTypeService.Location = new System.Drawing.Point(218, 141);
             this.cmbTypeService.Name = "cmbTypeService";
-            this.cmbTypeService.Size = new System.Drawing.Size(121, 21);
+            this.cmbTypeService.Size = new System.Drawing.Size(200, 27);
             this.cmbTypeService.TabIndex = 18;
             this.cmbTypeService.Visible = false;
             // 
@@ -168,9 +180,10 @@
             // lblService
             // 
             this.lblService.AutoSize = true;
-            this.lblService.Location = new System.Drawing.Point(75, 157);
+            this.lblService.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblService.Location = new System.Drawing.Point(98, 145);
             this.lblService.Name = "lblService";
-            this.lblService.Size = new System.Drawing.Size(76, 13);
+            this.lblService.Size = new System.Drawing.Size(110, 19);
             this.lblService.TabIndex = 19;
             this.lblService.Text = "Type Service :";
             this.lblService.Visible = false;
@@ -179,7 +192,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 216);
+            this.ClientSize = new System.Drawing.Size(449, 216);
             this.Controls.Add(this.lblService);
             this.Controls.Add(this.cmbTypeService);
             this.Controls.Add(this.btnAjoutDepense);

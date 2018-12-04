@@ -48,28 +48,28 @@
             this.btnAjouter = new System.Windows.Forms.Button();
             this.btnSupprEmp = new System.Windows.Forms.Button();
             this.dgEmploye = new System.Windows.Forms.DataGridView();
-            this.sexeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.provinceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.employeBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.btnEnregistrer = new System.Windows.Forms.Button();
-            this.btnMenu = new System.Windows.Forms.Button();
             this.dgNoEmploye = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgMdeP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgNom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgPrenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgSexe = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.sexeBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgAge = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgNoCivique = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgRue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgVille = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgCodePostal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgProvince = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.provinceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dgTelephone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgCellulaire = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgCourriel = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgSalaireHoraire = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgTypeEmploye = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dgRemarque = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.employeBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.btnEnregistrer = new System.Windows.Forms.Button();
+            this.btnMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.typesEmployeBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.msgErreur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgEmploye)).BeginInit();
@@ -208,40 +208,6 @@
             this.dgEmploye.TabIndex = 0;
             this.dgEmploye.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.dgEmploye_CellValidating);
             // 
-            // sexeBindingSource
-            // 
-            this.sexeBindingSource.DataSource = typeof(TP2.Sexe);
-            // 
-            // provinceBindingSource
-            // 
-            this.provinceBindingSource.DataSource = typeof(TP2.Province);
-            // 
-            // employeBindingSource
-            // 
-            this.employeBindingSource.DataSource = typeof(TP2.Employe);
-            // 
-            // btnEnregistrer
-            // 
-            this.btnEnregistrer.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnregistrer.Location = new System.Drawing.Point(249, 324);
-            this.btnEnregistrer.Name = "btnEnregistrer";
-            this.btnEnregistrer.Size = new System.Drawing.Size(231, 41);
-            this.btnEnregistrer.TabIndex = 2;
-            this.btnEnregistrer.Text = "Enregistrer les modifications";
-            this.btnEnregistrer.UseVisualStyleBackColor = true;
-            this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click);
-            // 
-            // btnMenu
-            // 
-            this.btnMenu.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenu.Location = new System.Drawing.Point(772, 324);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(267, 41);
-            this.btnMenu.TabIndex = 4;
-            this.btnMenu.Text = "Retour au menu";
-            this.btnMenu.UseVisualStyleBackColor = true;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
             // dgNoEmploye
             // 
             this.dgNoEmploye.DataPropertyName = "No";
@@ -288,6 +254,10 @@
             this.dgSexe.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgSexe.ValueMember = "idSexe";
             this.dgSexe.Width = 125;
+            // 
+            // sexeBindingSource
+            // 
+            this.sexeBindingSource.DataSource = typeof(TP2.Sexe);
             // 
             // dgAge
             // 
@@ -342,6 +312,10 @@
             this.dgProvince.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgProvince.ValueMember = "Id";
             this.dgProvince.Width = 175;
+            // 
+            // provinceBindingSource
+            // 
+            this.provinceBindingSource.DataSource = typeof(TP2.Province);
             // 
             // dgTelephone
             // 
@@ -400,6 +374,32 @@
             this.dgRemarque.Name = "dgRemarque";
             this.dgRemarque.Width = 200;
             // 
+            // employeBindingSource
+            // 
+            this.employeBindingSource.DataSource = typeof(TP2.Employe);
+            // 
+            // btnEnregistrer
+            // 
+            this.btnEnregistrer.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnregistrer.Location = new System.Drawing.Point(249, 324);
+            this.btnEnregistrer.Name = "btnEnregistrer";
+            this.btnEnregistrer.Size = new System.Drawing.Size(231, 41);
+            this.btnEnregistrer.TabIndex = 2;
+            this.btnEnregistrer.Text = "Enregistrer les modifications";
+            this.btnEnregistrer.UseVisualStyleBackColor = true;
+            this.btnEnregistrer.Click += new System.EventHandler(this.btnEnregistrer_Click);
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenu.Location = new System.Drawing.Point(772, 324);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(267, 41);
+            this.btnMenu.TabIndex = 4;
+            this.btnMenu.Text = "Retour au menu";
+            this.btnMenu.UseVisualStyleBackColor = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
+            // 
             // frmGestionEmploye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -412,6 +412,8 @@
             this.Controls.Add(this.btnAjouter);
             this.Controls.Add(this.dgEmploye);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmGestionEmploye";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -43,10 +43,10 @@
             // 
             // btnEnregistrer
             // 
-            this.btnEnregistrer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEnregistrer.Location = new System.Drawing.Point(115, 304);
+            this.btnEnregistrer.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEnregistrer.Location = new System.Drawing.Point(12, 238);
             this.btnEnregistrer.Name = "btnEnregistrer";
-            this.btnEnregistrer.Size = new System.Drawing.Size(198, 23);
+            this.btnEnregistrer.Size = new System.Drawing.Size(347, 30);
             this.btnEnregistrer.TabIndex = 1;
             this.btnEnregistrer.Text = "Enregistrer les modifications";
             this.btnEnregistrer.UseVisualStyleBackColor = true;
@@ -63,7 +63,7 @@
             this.prix,
             this.depensesObligatoires});
             this.dgModPrixDep.DataSource = this.modPrixDepenseBindingSource2;
-            this.dgModPrixDep.Location = new System.Drawing.Point(41, 59);
+            this.dgModPrixDep.Location = new System.Drawing.Point(12, 12);
             this.dgModPrixDep.Name = "dgModPrixDep";
             this.dgModPrixDep.Size = new System.Drawing.Size(347, 220);
             this.dgModPrixDep.TabIndex = 1;
@@ -117,11 +117,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(429, 339);
+            this.ClientSize = new System.Drawing.Size(375, 285);
             this.Controls.Add(this.lblModificationBlock);
             this.Controls.Add(this.dgModPrixDep);
             this.Controls.Add(this.btnEnregistrer);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmModifPrixDepAbonnement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modification des prix et des dépenses d\'abonnement";

@@ -37,13 +37,13 @@
             System.Windows.Forms.Label nomCompletEmployeLabel;
             System.Windows.Forms.Label typeServiceLabel;
             this.montantTextBox = new System.Windows.Forms.TextBox();
+            this.informationDepensesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.montantEffectuerTextBox = new System.Windows.Forms.TextBox();
             this.montantExigerTextBox = new System.Windows.Forms.TextBox();
             this.nomCompletAbPrincipalTextBox = new System.Windows.Forms.TextBox();
             this.nomCompletEmployeTextBox = new System.Windows.Forms.TextBox();
             this.typeServiceTextBox = new System.Windows.Forms.TextBox();
             this.lblDateDepense = new System.Windows.Forms.Label();
-            this.informationDepensesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             dateDepenseLabel = new System.Windows.Forms.Label();
             montantLabel = new System.Windows.Forms.Label();
             montantEffectuerLabel = new System.Windows.Forms.Label();
@@ -57,137 +57,151 @@
             // dateDepenseLabel
             // 
             dateDepenseLabel.AutoSize = true;
-            dateDepenseLabel.Location = new System.Drawing.Point(39, 45);
+            dateDepenseLabel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dateDepenseLabel.Location = new System.Drawing.Point(124, 9);
             dateDepenseLabel.Name = "dateDepenseLabel";
-            dateDepenseLabel.Size = new System.Drawing.Size(103, 13);
+            dateDepenseLabel.Size = new System.Drawing.Size(149, 19);
             dateDepenseLabel.TabIndex = 1;
             dateDepenseLabel.Text = "Date de la dépense:";
             // 
             // montantLabel
             // 
             montantLabel.AutoSize = true;
-            montantLabel.Location = new System.Drawing.Point(39, 70);
+            montantLabel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            montantLabel.Location = new System.Drawing.Point(201, 37);
             montantLabel.Name = "montantLabel";
-            montantLabel.Size = new System.Drawing.Size(49, 13);
+            montantLabel.Size = new System.Drawing.Size(72, 19);
             montantLabel.TabIndex = 3;
             montantLabel.Text = "Montant:";
-            // 
-            // montantTextBox
-            // 
-            this.montantTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.informationDepensesBindingSource, "montant", true));
-            this.montantTextBox.Location = new System.Drawing.Point(217, 67);
-            this.montantTextBox.Name = "montantTextBox";
-            this.montantTextBox.ReadOnly = true;
-            this.montantTextBox.Size = new System.Drawing.Size(200, 20);
-            this.montantTextBox.TabIndex = 4;
             // 
             // montantEffectuerLabel
             // 
             montantEffectuerLabel.AutoSize = true;
-            montantEffectuerLabel.Location = new System.Drawing.Point(39, 96);
+            montantEffectuerLabel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            montantEffectuerLabel.Location = new System.Drawing.Point(140, 70);
             montantEffectuerLabel.Name = "montantEffectuerLabel";
-            montantEffectuerLabel.Size = new System.Drawing.Size(92, 13);
+            montantEffectuerLabel.Size = new System.Drawing.Size(132, 19);
             montantEffectuerLabel.TabIndex = 5;
-            montantEffectuerLabel.Text = "Montant Effectué:";
-            // 
-            // montantEffectuerTextBox
-            // 
-            this.montantEffectuerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.informationDepensesBindingSource, "montantEffectuer", true));
-            this.montantEffectuerTextBox.Location = new System.Drawing.Point(217, 93);
-            this.montantEffectuerTextBox.Name = "montantEffectuerTextBox";
-            this.montantEffectuerTextBox.ReadOnly = true;
-            this.montantEffectuerTextBox.Size = new System.Drawing.Size(200, 20);
-            this.montantEffectuerTextBox.TabIndex = 6;
+            montantEffectuerLabel.Text = "Montant effectué:";
             // 
             // montantExigerLabel
             // 
             montantExigerLabel.AutoSize = true;
-            montantExigerLabel.Location = new System.Drawing.Point(39, 122);
+            montantExigerLabel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            montantExigerLabel.Location = new System.Drawing.Point(158, 103);
             montantExigerLabel.Name = "montantExigerLabel";
-            montantExigerLabel.Size = new System.Drawing.Size(78, 13);
+            montantExigerLabel.Size = new System.Drawing.Size(114, 19);
             montantExigerLabel.TabIndex = 7;
-            montantExigerLabel.Text = "Montant Exigé:";
-            // 
-            // montantExigerTextBox
-            // 
-            this.montantExigerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.informationDepensesBindingSource, "montantExiger", true));
-            this.montantExigerTextBox.Location = new System.Drawing.Point(217, 119);
-            this.montantExigerTextBox.Name = "montantExigerTextBox";
-            this.montantExigerTextBox.ReadOnly = true;
-            this.montantExigerTextBox.Size = new System.Drawing.Size(200, 20);
-            this.montantExigerTextBox.TabIndex = 8;
+            montantExigerLabel.Text = "Montant exigé:";
             // 
             // nomCompletAbPrincipalLabel
             // 
             nomCompletAbPrincipalLabel.AutoSize = true;
-            nomCompletAbPrincipalLabel.Location = new System.Drawing.Point(39, 148);
+            nomCompletAbPrincipalLabel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nomCompletAbPrincipalLabel.Location = new System.Drawing.Point(12, 136);
             nomCompletAbPrincipalLabel.Name = "nomCompletAbPrincipalLabel";
-            nomCompletAbPrincipalLabel.Size = new System.Drawing.Size(172, 13);
+            nomCompletAbPrincipalLabel.Size = new System.Drawing.Size(261, 19);
             nomCompletAbPrincipalLabel.TabIndex = 9;
             nomCompletAbPrincipalLabel.Text = "Nom complet de l\'abonné principal:";
-            // 
-            // nomCompletAbPrincipalTextBox
-            // 
-            this.nomCompletAbPrincipalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.informationDepensesBindingSource, "nomCompletAbPrincipal", true));
-            this.nomCompletAbPrincipalTextBox.Location = new System.Drawing.Point(217, 145);
-            this.nomCompletAbPrincipalTextBox.Name = "nomCompletAbPrincipalTextBox";
-            this.nomCompletAbPrincipalTextBox.ReadOnly = true;
-            this.nomCompletAbPrincipalTextBox.Size = new System.Drawing.Size(200, 20);
-            this.nomCompletAbPrincipalTextBox.TabIndex = 10;
             // 
             // nomCompletEmployeLabel
             // 
             nomCompletEmployeLabel.AutoSize = true;
-            nomCompletEmployeLabel.Location = new System.Drawing.Point(39, 174);
+            nomCompletEmployeLabel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nomCompletEmployeLabel.Location = new System.Drawing.Point(69, 169);
             nomCompletEmployeLabel.Name = "nomCompletEmployeLabel";
-            nomCompletEmployeLabel.Size = new System.Drawing.Size(133, 13);
+            nomCompletEmployeLabel.Size = new System.Drawing.Size(204, 19);
             nomCompletEmployeLabel.TabIndex = 11;
             nomCompletEmployeLabel.Text = "Nom complet de l\'employé:";
-            // 
-            // nomCompletEmployeTextBox
-            // 
-            this.nomCompletEmployeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.informationDepensesBindingSource, "nomCompletEmploye", true));
-            this.nomCompletEmployeTextBox.Location = new System.Drawing.Point(217, 171);
-            this.nomCompletEmployeTextBox.Name = "nomCompletEmployeTextBox";
-            this.nomCompletEmployeTextBox.ReadOnly = true;
-            this.nomCompletEmployeTextBox.Size = new System.Drawing.Size(200, 20);
-            this.nomCompletEmployeTextBox.TabIndex = 12;
             // 
             // typeServiceLabel
             // 
             typeServiceLabel.AutoSize = true;
-            typeServiceLabel.Location = new System.Drawing.Point(39, 200);
+            typeServiceLabel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            typeServiceLabel.Location = new System.Drawing.Point(132, 202);
             typeServiceLabel.Name = "typeServiceLabel";
-            typeServiceLabel.Size = new System.Drawing.Size(97, 13);
+            typeServiceLabel.Size = new System.Drawing.Size(125, 19);
             typeServiceLabel.TabIndex = 13;
-            typeServiceLabel.Text = "Le type de service:";
+            typeServiceLabel.Text = "Type de service:";
             // 
-            // typeServiceTextBox
+            // montantTextBox
             // 
-            this.typeServiceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.informationDepensesBindingSource, "typeService", true));
-            this.typeServiceTextBox.Location = new System.Drawing.Point(217, 197);
-            this.typeServiceTextBox.Name = "typeServiceTextBox";
-            this.typeServiceTextBox.ReadOnly = true;
-            this.typeServiceTextBox.Size = new System.Drawing.Size(200, 20);
-            this.typeServiceTextBox.TabIndex = 14;
-            // 
-            // lblDateDepense
-            // 
-            this.lblDateDepense.AutoSize = true;
-            this.lblDateDepense.Location = new System.Drawing.Point(217, 45);
-            this.lblDateDepense.Name = "lblDateDepense";
-            this.lblDateDepense.Size = new System.Drawing.Size(0, 13);
-            this.lblDateDepense.TabIndex = 15;
+            this.montantTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.informationDepensesBindingSource, "montant", true));
+            this.montantTextBox.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.montantTextBox.Location = new System.Drawing.Point(279, 33);
+            this.montantTextBox.Name = "montantTextBox";
+            this.montantTextBox.ReadOnly = true;
+            this.montantTextBox.Size = new System.Drawing.Size(200, 27);
+            this.montantTextBox.TabIndex = 4;
             // 
             // informationDepensesBindingSource
             // 
             this.informationDepensesBindingSource.DataSource = typeof(TP2.InformationDepenses);
             // 
+            // montantEffectuerTextBox
+            // 
+            this.montantEffectuerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.informationDepensesBindingSource, "montantEffectuer", true));
+            this.montantEffectuerTextBox.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.montantEffectuerTextBox.Location = new System.Drawing.Point(279, 66);
+            this.montantEffectuerTextBox.Name = "montantEffectuerTextBox";
+            this.montantEffectuerTextBox.ReadOnly = true;
+            this.montantEffectuerTextBox.Size = new System.Drawing.Size(200, 27);
+            this.montantEffectuerTextBox.TabIndex = 6;
+            // 
+            // montantExigerTextBox
+            // 
+            this.montantExigerTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.informationDepensesBindingSource, "montantExiger", true));
+            this.montantExigerTextBox.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.montantExigerTextBox.Location = new System.Drawing.Point(278, 99);
+            this.montantExigerTextBox.Name = "montantExigerTextBox";
+            this.montantExigerTextBox.ReadOnly = true;
+            this.montantExigerTextBox.Size = new System.Drawing.Size(200, 27);
+            this.montantExigerTextBox.TabIndex = 8;
+            // 
+            // nomCompletAbPrincipalTextBox
+            // 
+            this.nomCompletAbPrincipalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.informationDepensesBindingSource, "nomCompletAbPrincipal", true));
+            this.nomCompletAbPrincipalTextBox.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nomCompletAbPrincipalTextBox.Location = new System.Drawing.Point(279, 132);
+            this.nomCompletAbPrincipalTextBox.Name = "nomCompletAbPrincipalTextBox";
+            this.nomCompletAbPrincipalTextBox.ReadOnly = true;
+            this.nomCompletAbPrincipalTextBox.Size = new System.Drawing.Size(200, 27);
+            this.nomCompletAbPrincipalTextBox.TabIndex = 10;
+            // 
+            // nomCompletEmployeTextBox
+            // 
+            this.nomCompletEmployeTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.informationDepensesBindingSource, "nomCompletEmploye", true));
+            this.nomCompletEmployeTextBox.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nomCompletEmployeTextBox.Location = new System.Drawing.Point(278, 165);
+            this.nomCompletEmployeTextBox.Name = "nomCompletEmployeTextBox";
+            this.nomCompletEmployeTextBox.ReadOnly = true;
+            this.nomCompletEmployeTextBox.Size = new System.Drawing.Size(200, 27);
+            this.nomCompletEmployeTextBox.TabIndex = 12;
+            // 
+            // typeServiceTextBox
+            // 
+            this.typeServiceTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.informationDepensesBindingSource, "typeService", true));
+            this.typeServiceTextBox.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.typeServiceTextBox.Location = new System.Drawing.Point(278, 198);
+            this.typeServiceTextBox.Name = "typeServiceTextBox";
+            this.typeServiceTextBox.ReadOnly = true;
+            this.typeServiceTextBox.Size = new System.Drawing.Size(200, 27);
+            this.typeServiceTextBox.TabIndex = 14;
+            // 
+            // lblDateDepense
+            // 
+            this.lblDateDepense.AutoSize = true;
+            this.lblDateDepense.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDateDepense.Location = new System.Drawing.Point(279, 9);
+            this.lblDateDepense.Name = "lblDateDepense";
+            this.lblDateDepense.Size = new System.Drawing.Size(0, 19);
+            this.lblDateDepense.TabIndex = 15;
+            // 
             // frmInformationsDepenses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(460, 264);
+            this.ClientSize = new System.Drawing.Size(510, 248);
             this.Controls.Add(this.lblDateDepense);
             this.Controls.Add(dateDepenseLabel);
             this.Controls.Add(montantLabel);
@@ -203,6 +217,8 @@
             this.Controls.Add(typeServiceLabel);
             this.Controls.Add(this.typeServiceTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmInformationsDepenses";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Informations sur les dépenses";
