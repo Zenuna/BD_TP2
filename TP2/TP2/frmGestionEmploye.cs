@@ -56,10 +56,18 @@ namespace TP2
                         dgRow.ErrorText = "";
                     }
                 }
-                else if (e.ColumnIndex == dgAge.Index && !int.TryParse(e.FormattedValue.ToString(), out Age))
+                else if (e.ColumnIndex == dgAge.Index)
                 {
-                    dgRow.ErrorText = "L'âge doit être un entier positif";
-                    e.Cancel = true;
+                    if (!int.TryParse(e.FormattedValue.ToString(), out Age))
+                    {
+
+                        dgRow.ErrorText = "L'âge doit être un entier positif";
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        dgRow.ErrorText = "";
+                    }
                 }
                 else if (e.ColumnIndex == dgAge.Index)
                 {
