@@ -187,9 +187,9 @@ namespace TP2
         private void codePostalMaskedTextBox_Validating(object sender, CancelEventArgs e)
         {
             string strCodePostal = codePostalMaskedTextBox.Text;
-            if (strCodePostal.Trim().Length == 0)
+            if (strCodePostal.Trim().Length == 0 || !codePostalMaskedTextBox.MaskCompleted || !codePostalMaskedTextBox.MaskFull)
             {
-                errMessage.SetError(codePostalMaskedTextBox, "Le code postal ne peut pas être vide");
+                errMessage.SetError(codePostalMaskedTextBox, "Le code postal ne peut pas être vide ou manquer des charactères");
                 e.Cancel = true;
             }
             else
