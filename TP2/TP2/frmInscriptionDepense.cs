@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Linq;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -136,9 +137,13 @@ namespace TP2
                         if (depenseAjoute != null)                              
                             dataContext.Depenses.InsertOnSubmit(depenseAjoute);                                             
                                                 
-                        dataContext.SubmitChanges();
+                        dataContext.SubmitChanges(ConflictMode.ContinueOnConflict);
                         porteeTransaction.Complete();
                         MessageBox.Show(strMessage, "Enregistrement d'une dépense", MessageBoxButtons.OK, MessageBoxIcon.Information);                      
+                    }
+                    catch (ChangeConflictException)
+                    {
+                        dataContext.ChangeConflicts.ResolveAll(RefreshMode.KeepCurrentValues);
                     }
                     catch (Exception ex)
                     {
