@@ -16,8 +16,22 @@ namespace TP2
 
         protected override void UpdateEditText()
         {
-            this.Text = this.Value.ToString().Replace(" $","") + " $";
-            //base.UpdateEditText ();
+            if (string.IsNullOrWhiteSpace("$"))
+            {
+                base.UpdateEditText();
+            }
+            else
+            {
+                try
+                {
+                    Value = decimal.Parse(Text.Replace("$", "").Trim());
+                }
+                catch
+                {
+                    base.UpdateEditText();
+                }
+                this.Text = this.Value + "$";
+            }
         }
         
 
