@@ -92,6 +92,12 @@
     <Compile Include="frmGestionEmploye.Designer.cs">
       <DependentUpon>frmGestionEmploye.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInformationsDepenses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInformationsDepenses.Designer.cs">
+      <DependentUpon>frmInformationsDepenses.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmInscriptionDepense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,7 @@
     <Compile Include="frmVisualisationStatistiques.Designer.cs">
       <DependentUpon>frmVisualisationStatistiques.cs</DependentUpon>
     </Compile>
+    <Compile Include="InformationDepenses.cs" />
     <Compile Include="nomCompletAbonne.cs" />
     <Compile Include="PartieJoueesAnnee.cs" />
     <Compile Include="PartiesJoueesStats.cs" />
@@ -160,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionEmploye.resx">
       <DependentUpon>frmGestionEmploye.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInformationsDepenses.resx">
+      <DependentUpon>frmInformationsDepenses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInscriptionDepense.resx">
       <DependentUpon>frmInscriptionDepense.cs</DependentUpon>
@@ -224,7 +234,9 @@
     <None Include="Properties\DataSources\DepensesParAnnee.datasource" />
     <None Include="Properties\DataSources\DepenseStats.datasource" />
     <None Include="Properties\DataSources\Employe.datasource" />
+    <None Include="Properties\DataSources\InformationDepenses.datasource" />
     <None Include="Properties\DataSources\nomCompletAbonne.datasource" />
+    <None Include="Properties\DataSources\nomCompletIDAbonne1.datasource" />
     <None Include="Properties\DataSources\PartieJoueesAnnee.datasource" />
     <None Include="Properties\DataSources\PartiesJouee.datasource" />
     <None Include="Properties\DataSources\PartiesJoueesStats.datasource" />
