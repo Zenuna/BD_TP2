@@ -61,8 +61,9 @@ namespace TP2
             {
                 errMessage.SetError(maskedMontant, "Le montant ne peut pas être vide et doit respecter le format (9999.99$)");
                 e.Cancel = true;
-            }else if (Convert.ToDecimal(maskedMontant.Text.Insert(4,".")) > 1000)
+            }else if (Convert.ToDecimal(maskedMontant.Text.Replace("$","").Replace(",",".")) > 1000)
             {
+                MessageBox.Show(Convert.ToDecimal(maskedMontant.Text.Replace("$", "").Replace(",", ".")) + "");
                 errMessage.SetError(maskedMontant, "Le montant ne doit pas dépasser 1000.00$");
                 e.Cancel = true;
             }

@@ -68,11 +68,12 @@
             // 
             noTerrainLabel.AutoSize = true;
             noTerrainLabel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            noTerrainLabel.Location = new System.Drawing.Point(37, 71);
+            noTerrainLabel.Location = new System.Drawing.Point(37, 38);
             noTerrainLabel.Name = "noTerrainLabel";
             noTerrainLabel.Size = new System.Drawing.Size(123, 19);
             noTerrainLabel.TabIndex = 5;
             noTerrainLabel.Text = "Nom du terrain:";
+            noTerrainLabel.Click += new System.EventHandler(this.noTerrainLabel_Click);
             // 
             // pointageLabel
             // 
@@ -98,11 +99,12 @@
             // 
             idEtNomCompletLabel.AutoSize = true;
             idEtNomCompletLabel.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            idEtNomCompletLabel.Location = new System.Drawing.Point(12, 38);
+            idEtNomCompletLabel.Location = new System.Drawing.Point(12, 70);
             idEtNomCompletLabel.Name = "idEtNomCompletLabel";
             idEtNomCompletLabel.Size = new System.Drawing.Size(148, 19);
             idEtNomCompletLabel.TabIndex = 12;
             idEtNomCompletLabel.Text = "L\'abonné principal :";
+            idEtNomCompletLabel.Click += new System.EventHandler(this.idEtNomCompletLabel_Click);
             // 
             // partiesJoueeBindingSource
             // 
@@ -121,12 +123,13 @@
             // 
             // cmbAbonne
             // 
+            this.cmbAbonne.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.partiesJoueeBindingSource, "IdAbonnement", true));
             this.cmbAbonne.DataSource = this.nomCompletIDAbonneBindingSource;
             this.cmbAbonne.DisplayMember = "idEtNomComplet";
             this.cmbAbonne.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAbonne.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbAbonne.FormattingEnabled = true;
-            this.cmbAbonne.Location = new System.Drawing.Point(166, 34);
+            this.cmbAbonne.Location = new System.Drawing.Point(166, 67);
             this.cmbAbonne.Name = "cmbAbonne";
             this.cmbAbonne.Size = new System.Drawing.Size(200, 27);
             this.cmbAbonne.TabIndex = 11;
@@ -143,11 +146,12 @@
             this.cmbTerrain.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTerrain.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbTerrain.FormattingEnabled = true;
-            this.cmbTerrain.Location = new System.Drawing.Point(166, 67);
+            this.cmbTerrain.Location = new System.Drawing.Point(166, 34);
             this.cmbTerrain.Name = "cmbTerrain";
             this.cmbTerrain.Size = new System.Drawing.Size(200, 27);
             this.cmbTerrain.TabIndex = 12;
             this.cmbTerrain.ValueMember = "No";
+            this.cmbTerrain.SelectedValueChanged += new System.EventHandler(this.cmbTerrain_SelectedValueChanged);
             // 
             // terrainBindingSource
             // 
