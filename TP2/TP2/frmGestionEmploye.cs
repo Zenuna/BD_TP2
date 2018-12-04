@@ -37,7 +37,7 @@ namespace TP2
             Regex regexCodePostal = new Regex(@"^([A-Z][0-9]){3}$");
             DataGridViewRow dgRow = dgEmploye.Rows[e.RowIndex];
             int Age = 0;
-            if(e.FormattedValue.ToString().Trim().Equals("") && e.ColumnIndex != dgCellulaire.Index && e.ColumnIndex != dgCellulaire.Index)
+            if(e.FormattedValue.ToString().Trim().Equals("") && e.ColumnIndex != dgCellulaire.Index && e.ColumnIndex != dgRemarque.Index)
             {
                 dgRow.ErrorText = "Cette case ne peut pas être laissée vide";
                 e.Cancel = true;
