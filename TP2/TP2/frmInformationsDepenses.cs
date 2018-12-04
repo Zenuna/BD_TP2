@@ -53,5 +53,6 @@ namespace TP2
 
             return unInfoDepenses;
         }
+
     }
 }

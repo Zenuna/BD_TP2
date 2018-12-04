@@ -38,12 +38,12 @@
             this.cmbAbonnePrincipal = new System.Windows.Forms.ComboBox();
             this.nomCompletIDAbonneBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblDateDepense = new System.Windows.Forms.Label();
-            this.maskedMontant = new System.Windows.Forms.MaskedTextBox();
             this.errMessage = new System.Windows.Forms.ErrorProvider(this.components);
             this.btnAjoutDepense = new System.Windows.Forms.Button();
             this.cmbTypeService = new System.Windows.Forms.ComboBox();
             this.serviceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lblService = new System.Windows.Forms.Label();
+            this.montantNumberPick = new NumericUpDownEx();
             dateDepenseLabel = new System.Windows.Forms.Label();
             montantLabel = new System.Windows.Forms.Label();
             remarqueLabel = new System.Windows.Forms.Label();
@@ -52,6 +52,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nomCompletIDAbonneBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMessage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.montantNumberPick)).BeginInit();
             this.SuspendLayout();
             // 
             // dateDepenseLabel
@@ -135,19 +136,6 @@
             this.lblDateDepense.Size = new System.Drawing.Size(0, 19);
             this.lblDateDepense.TabIndex = 15;
             // 
-            // maskedMontant
-            // 
-            this.maskedMontant.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.maskedMontant.Location = new System.Drawing.Point(218, 71);
-            this.maskedMontant.Mask = "9999.99$";
-            this.maskedMontant.Name = "maskedMontant";
-            this.maskedMontant.Size = new System.Drawing.Size(200, 27);
-            this.maskedMontant.TabIndex = 16;
-            this.maskedMontant.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.maskedMontant.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
-            this.maskedMontant.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedMontant_MaskInputRejected);
-            this.maskedMontant.Validating += new System.ComponentModel.CancelEventHandler(this.maskedMontant_Validating);
-            // 
             // errMessage
             // 
             this.errMessage.ContainerControl = this;
@@ -189,15 +177,35 @@
             this.lblService.Text = "Type Service :";
             this.lblService.Visible = false;
             // 
+            // montantNumberPick
+            // 
+            this.montantNumberPick.DecimalPlaces = 2;
+            this.montantNumberPick.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.montantNumberPick.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.montantNumberPick.Location = new System.Drawing.Point(217, 71);
+            this.montantNumberPick.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            this.montantNumberPick.Name = "montantNumberPick";
+            this.montantNumberPick.Size = new System.Drawing.Size(200, 27);
+            this.montantNumberPick.TabIndex = 20;
+            this.montantNumberPick.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // frmInscriptionDepense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 216);
+            this.Controls.Add(this.montantNumberPick);
             this.Controls.Add(this.lblService);
             this.Controls.Add(this.cmbTypeService);
             this.Controls.Add(this.btnAjoutDepense);
-            this.Controls.Add(this.maskedMontant);
             this.Controls.Add(this.lblDateDepense);
             this.Controls.Add(this.cmbAbonnePrincipal);
             this.Controls.Add(nomCompletLabel);
@@ -206,6 +214,8 @@
             this.Controls.Add(remarqueLabel);
             this.Controls.Add(this.remarqueTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmInscriptionDepense";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Inscription d\'une dépense";
@@ -214,6 +224,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.nomCompletIDAbonneBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errMessage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.montantNumberPick)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,11 +237,11 @@
         private System.Windows.Forms.ComboBox cmbAbonnePrincipal;
         private System.Windows.Forms.BindingSource nomCompletIDAbonneBindingSource;
         private System.Windows.Forms.Label lblDateDepense;
-        private System.Windows.Forms.MaskedTextBox maskedMontant;
         private System.Windows.Forms.ErrorProvider errMessage;
         private System.Windows.Forms.Button btnAjoutDepense;
         private System.Windows.Forms.ComboBox cmbTypeService;
         private System.Windows.Forms.BindingSource serviceBindingSource;
+        private System.Windows.Forms.NumericUpDown montantNumberPick;
         private System.Windows.Forms.Label lblService;
     }
 }

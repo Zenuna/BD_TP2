@@ -37,13 +37,13 @@
             System.Windows.Forms.Label nomCompletEmployeLabel;
             System.Windows.Forms.Label typeServiceLabel;
             this.montantTextBox = new System.Windows.Forms.TextBox();
-            this.informationDepensesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.montantEffectuerTextBox = new System.Windows.Forms.TextBox();
             this.montantExigerTextBox = new System.Windows.Forms.TextBox();
             this.nomCompletAbPrincipalTextBox = new System.Windows.Forms.TextBox();
             this.nomCompletEmployeTextBox = new System.Windows.Forms.TextBox();
             this.typeServiceTextBox = new System.Windows.Forms.TextBox();
             this.lblDateDepense = new System.Windows.Forms.Label();
+            this.informationDepensesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             dateDepenseLabel = new System.Windows.Forms.Label();
             montantLabel = new System.Windows.Forms.Label();
             montantEffectuerLabel = new System.Windows.Forms.Label();
@@ -133,10 +133,7 @@
             this.montantTextBox.ReadOnly = true;
             this.montantTextBox.Size = new System.Drawing.Size(200, 27);
             this.montantTextBox.TabIndex = 4;
-            // 
-            // informationDepensesBindingSource
-            // 
-            this.informationDepensesBindingSource.DataSource = typeof(TP2.InformationDepenses);
+            this.montantTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // montantEffectuerTextBox
             // 
@@ -147,6 +144,7 @@
             this.montantEffectuerTextBox.ReadOnly = true;
             this.montantEffectuerTextBox.Size = new System.Drawing.Size(200, 27);
             this.montantEffectuerTextBox.TabIndex = 6;
+            this.montantEffectuerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // montantExigerTextBox
             // 
@@ -157,6 +155,7 @@
             this.montantExigerTextBox.ReadOnly = true;
             this.montantExigerTextBox.Size = new System.Drawing.Size(200, 27);
             this.montantExigerTextBox.TabIndex = 8;
+            this.montantExigerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // nomCompletAbPrincipalTextBox
             // 
@@ -167,6 +166,7 @@
             this.nomCompletAbPrincipalTextBox.ReadOnly = true;
             this.nomCompletAbPrincipalTextBox.Size = new System.Drawing.Size(200, 27);
             this.nomCompletAbPrincipalTextBox.TabIndex = 10;
+            this.nomCompletAbPrincipalTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // nomCompletEmployeTextBox
             // 
@@ -177,6 +177,7 @@
             this.nomCompletEmployeTextBox.ReadOnly = true;
             this.nomCompletEmployeTextBox.Size = new System.Drawing.Size(200, 27);
             this.nomCompletEmployeTextBox.TabIndex = 12;
+            this.nomCompletEmployeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // typeServiceTextBox
             // 
@@ -187,6 +188,7 @@
             this.typeServiceTextBox.ReadOnly = true;
             this.typeServiceTextBox.Size = new System.Drawing.Size(200, 27);
             this.typeServiceTextBox.TabIndex = 14;
+            this.typeServiceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblDateDepense
             // 
@@ -196,6 +198,10 @@
             this.lblDateDepense.Name = "lblDateDepense";
             this.lblDateDepense.Size = new System.Drawing.Size(0, 19);
             this.lblDateDepense.TabIndex = 15;
+            // 
+            // informationDepensesBindingSource
+            // 
+            this.informationDepensesBindingSource.DataSource = typeof(TP2.InformationDepenses);
             // 
             // frmInformationsDepenses
             // 

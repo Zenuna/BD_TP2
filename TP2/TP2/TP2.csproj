@@ -148,6 +148,9 @@
     </Compile>
     <Compile Include="InformationDepenses.cs" />
     <Compile Include="nomCompletAbonne.cs" />
+    <Compile Include="NumericUpDownEx.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PartieJoueesAnnee.cs" />
     <Compile Include="PartiesJoueesStats.cs" />
     <Compile Include="nomCompletIDAbonne.cs" />
