@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dgAbonnement = new System.Windows.Forms.DataGridView();
+            this.dgID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgNomComplet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nomCompletAbonneBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tbRemarque = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRenouveler = new System.Windows.Forms.Button();
             this.btbRetour = new System.Windows.Forms.Button();
-            this.dgID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgNomComplet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomCompletAbonneBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgAbonnement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nomCompletAbonneBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -59,10 +59,29 @@
             this.dgAbonnement.Size = new System.Drawing.Size(346, 220);
             this.dgAbonnement.TabIndex = 1;
             // 
+            // dgID
+            // 
+            this.dgID.DataPropertyName = "idAbonne";
+            this.dgID.HeaderText = "ID";
+            this.dgID.Name = "dgID";
+            this.dgID.ReadOnly = true;
+            // 
+            // dgNomComplet
+            // 
+            this.dgNomComplet.DataPropertyName = "nomComplet";
+            this.dgNomComplet.HeaderText = "Nom complet";
+            this.dgNomComplet.Name = "dgNomComplet";
+            this.dgNomComplet.ReadOnly = true;
+            // 
+            // nomCompletAbonneBindingSource
+            // 
+            this.nomCompletAbonneBindingSource.DataSource = typeof(TP2.nomCompletAbonne);
+            // 
             // tbRemarque
             // 
             this.tbRemarque.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbRemarque.Location = new System.Drawing.Point(105, 238);
+            this.tbRemarque.MaxLength = 50;
             this.tbRemarque.Name = "tbRemarque";
             this.tbRemarque.Size = new System.Drawing.Size(253, 27);
             this.tbRemarque.TabIndex = 2;
@@ -98,24 +117,6 @@
             this.btbRetour.Text = "Retourner au menu";
             this.btbRetour.UseVisualStyleBackColor = true;
             this.btbRetour.Click += new System.EventHandler(this.btbRetour_Click);
-            // 
-            // dgID
-            // 
-            this.dgID.DataPropertyName = "idAbonne";
-            this.dgID.HeaderText = "ID";
-            this.dgID.Name = "dgID";
-            this.dgID.ReadOnly = true;
-            // 
-            // dgNomComplet
-            // 
-            this.dgNomComplet.DataPropertyName = "nomComplet";
-            this.dgNomComplet.HeaderText = "Nom complet";
-            this.dgNomComplet.Name = "dgNomComplet";
-            this.dgNomComplet.ReadOnly = true;
-            // 
-            // nomCompletAbonneBindingSource
-            // 
-            this.nomCompletAbonneBindingSource.DataSource = typeof(TP2.nomCompletAbonne);
             // 
             // frmReAbonnement
             // 
