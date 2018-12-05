@@ -49,7 +49,7 @@ namespace TP2
         private List<nomCompletAbonne> loadDG()
         {
             DateTime dateTime = DateTime.Now;
-            List<Abonnement> lstAbonn = dataContext.Abonnements.Where(v => v.DateAbonnement.AddYears(1) <= dateTime && v.Id.Substring(v.Id.Length - 1, 1) == "P").ToList();
+            List<Abonnement> lstAbonn = dataContext.Abonnements.Where(v => v.DateAbonnement.AddYears(1) <= dateTime).ToList();
             List<nomCompletAbonne> lstAbonnVerif = new List<nomCompletAbonne>();
             foreach (Abonnement abb in lstAbonn)
             {
