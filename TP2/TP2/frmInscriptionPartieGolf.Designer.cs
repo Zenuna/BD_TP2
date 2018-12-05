@@ -117,7 +117,7 @@
             this.remarqueTextBox.Location = new System.Drawing.Point(166, 133);
             this.remarqueTextBox.MaxLength = 50;
             this.remarqueTextBox.Name = "remarqueTextBox";
-            this.remarqueTextBox.Size = new System.Drawing.Size(200, 27);
+            this.remarqueTextBox.Size = new System.Drawing.Size(239, 27);
             this.remarqueTextBox.TabIndex = 10;
             this.remarqueTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -131,7 +131,7 @@
             this.cmbAbonne.FormattingEnabled = true;
             this.cmbAbonne.Location = new System.Drawing.Point(166, 67);
             this.cmbAbonne.Name = "cmbAbonne";
-            this.cmbAbonne.Size = new System.Drawing.Size(200, 27);
+            this.cmbAbonne.Size = new System.Drawing.Size(239, 27);
             this.cmbAbonne.TabIndex = 11;
             this.cmbAbonne.ValueMember = "idAbonnement";
             // 
@@ -148,7 +148,7 @@
             this.cmbTerrain.FormattingEnabled = true;
             this.cmbTerrain.Location = new System.Drawing.Point(166, 34);
             this.cmbTerrain.Name = "cmbTerrain";
-            this.cmbTerrain.Size = new System.Drawing.Size(200, 27);
+            this.cmbTerrain.Size = new System.Drawing.Size(239, 27);
             this.cmbTerrain.TabIndex = 12;
             this.cmbTerrain.ValueMember = "No";
             this.cmbTerrain.SelectedValueChanged += new System.EventHandler(this.cmbTerrain_SelectedValueChanged);
@@ -176,7 +176,7 @@
             0,
             0});
             this.nUDPointage.Name = "nUDPointage";
-            this.nUDPointage.Size = new System.Drawing.Size(200, 27);
+            this.nUDPointage.Size = new System.Drawing.Size(239, 27);
             this.nUDPointage.TabIndex = 14;
             this.nUDPointage.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -196,7 +196,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(408, 210);
+            this.ClientSize = new System.Drawing.Size(446, 210);
             this.Controls.Add(this.btnEnregistrement);
             this.Controls.Add(this.nUDPointage);
             this.Controls.Add(this.lblDatePartie);

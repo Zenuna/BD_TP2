@@ -158,5 +158,14 @@ namespace TP2
             }
         }
 
+        private void montantNumberPick_Validating(object sender, CancelEventArgs e)
+        {            
+            if (montantNumberPick.Value > 1000 || montantNumberPick.Value <= 0)
+            {
+                errMessage.SetError(montantNumberPick, "Le montant doit être plus petit que 1000$ et plus grand que 0$");
+                e.Cancel = true;
+            }            
+            else errMessage.SetError(montantNumberPick, "");
+        }
     }
 }

@@ -344,12 +344,14 @@
             // 
             this.dgNomDep.DataPropertyName = "Nom";
             this.dgNomDep.HeaderText = "Nom";
+            this.dgNomDep.MaxInputLength = 30;
             this.dgNomDep.Name = "dgNomDep";
             // 
             // dgPrenomDep
             // 
             this.dgPrenomDep.DataPropertyName = "Prenom";
             this.dgPrenomDep.HeaderText = "Prénom";
+            this.dgPrenomDep.MaxInputLength = 30;
             this.dgPrenomDep.Name = "dgPrenomDep";
             // 
             // dgSexeDep
@@ -376,6 +378,7 @@
             // 
             this.dgRemarqueDep.DataPropertyName = "Remarque";
             this.dgRemarqueDep.HeaderText = "Remarque";
+            this.dgRemarqueDep.MaxInputLength = 50;
             this.dgRemarqueDep.Name = "dgRemarqueDep";
             // 
             // frmMAJAbonne
@@ -421,13 +424,6 @@
         private System.Windows.Forms.Button btnRetour;
         private System.Windows.Forms.BindingSource dependantBindingSource;
         private System.Windows.Forms.DataGridView dependantDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgIdDep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgIdAbonnementDep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgNomDep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgPrenomDep;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dgSexeDep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgDateNaissanceDep;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgRemarqueDep;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgID;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgDateAbonnement;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgPrenom;
@@ -444,5 +440,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgCourriel;
         private System.Windows.Forms.DataGridViewComboBoxColumn dgTypeAbonnement;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgRemarque;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgIdDep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgIdAbonnementDep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgNomDep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgPrenomDep;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dgSexeDep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgDateNaissanceDep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgRemarqueDep;
     }
 }
