@@ -187,9 +187,9 @@ namespace TP2
         private void codePostalMaskedTextBox_Validating(object sender, CancelEventArgs e)
         {
             string strCodePostal = codePostalMaskedTextBox.Text;
-            if (strCodePostal.Trim().Length == 0)
+            if (strCodePostal.Trim().Length == 0 || !codePostalMaskedTextBox.MaskCompleted || !codePostalMaskedTextBox.MaskFull)
             {
-                errMessage.SetError(codePostalMaskedTextBox, "Le code postal ne peut pas être vide");
+                errMessage.SetError(codePostalMaskedTextBox, "Le code postal ne peut pas être vide ou manquer des charactères");
                 e.Cancel = true;
             }
             else
@@ -215,7 +215,7 @@ namespace TP2
         private void telephoneMaskedTextBox_Validating(object sender, CancelEventArgs e)
         {
             string strTelephone = telephoneMaskedTextBox.Text;
-            if (strTelephone.Replace("(", "").Replace(")", "").Replace("-", "").Trim().Length < 10)
+            if (strTelephone.Replace("(", "").Replace(")", "").Replace("-", "").Trim().Length < 10 || !telephoneMaskedTextBox.MaskFull || !telephoneMaskedTextBox.MaskCompleted)
             {
                 errMessage.SetError(telephoneMaskedTextBox, "Le numéro de téléphone doit être composé de dix chiffres.");
                 e.Cancel = true;
@@ -289,8 +289,11 @@ namespace TP2
             String strCell = cellulaireMaskedTextBox.Text;
             if (strCell.Replace("(", "").Replace(")", "").Replace("-", "").Trim().Length <10 && strCell.Replace("(", "").Replace(")", "").Replace("-", "").Trim().Length != 0)
             {
-                errMessage.SetError(cellulaireMaskedTextBox, "Le numéro de cellulaire doit être composé de dix chiffres.");
-                e.Cancel = true;
+                if(!cellulaireMaskedTextBox.MaskCompleted && !cellulaireMaskedTextBox.MaskFull)
+                { 
+                    errMessage.SetError(cellulaireMaskedTextBox, "Le numéro de cellulaire doit être composé de dix chiffres.");
+                    e.Cancel = true;
+                }
             }
             else
             {
