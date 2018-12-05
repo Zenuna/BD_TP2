@@ -198,6 +198,7 @@
             this.montantNumberPick.TabIndex = 20;
             this.montantNumberPick.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.montantNumberPick.UpDownAlign = System.Windows.Forms.LeftRightAlignment.Left;
+            this.montantNumberPick.Validating += new System.ComponentModel.CancelEventHandler(this.montantNumberPick_Validating);
             // 
             // frmInscriptionDepense
             // 
