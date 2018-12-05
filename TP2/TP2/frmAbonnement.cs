@@ -317,6 +317,12 @@ namespace TP2
                                 };
                                 lstDependants.Add(nouveauDependant);                           
                                 lblEnfantsEnreg.Text = nbEnfantsAjoute + " enfant(s) ajouté(s)";
+                                foreach (Control ctrl in panelDependant.Controls)
+                                {
+                                    TextBox txtbox = ctrl as TextBox;
+                                    if (txtbox != null)                                    
+                                        txtbox.Text = "";                                   
+                                }
                             }
                         }                    
                     }
