@@ -39,7 +39,7 @@ namespace TP2
             }
             InformationDepenses unInfoDepenses = new InformationDepenses
             {
-                 montantEffectuer = (montantEff - depenseInfo.Montant),
+                 montantEffectuer = montantEff,
                 montantExiger = calculExiger,
                 nomCompletEmploye = depenseInfo.Service.Employe.Nom + ", "+depenseInfo.Service.Employe.Prenom,
                 typeService = depenseInfo.Service.TypeService,
